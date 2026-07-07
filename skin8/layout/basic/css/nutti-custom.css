@@ -254,9 +254,6 @@ body.nutti-login .titleArea,body.nutti-login .section.path,body.nutti-login #asi
   justify-content: center;
 }
 #top_nav_box .top_category { margin: 0 !important; }
-/* 마지막 li의 비대칭 padding(138px/40px) 제거 — 중앙 정렬 어긋남과 ul 밖 튀어나옴 원인 */
-#header:not(.fixed) #top_nav_box .top_category > ul > li:last-child { padding: 0 25px !important; }
-#header:not(.fixed) #top_nav_box .top_category > ul > li:last-child > a { padding-right: 0 !important; }
 
 /* ===== block #12 (layout.html에서 추출) ===== */
 .nr-carousel .nr-arrow.prev,

@@ -1,0 +1,107 @@
+<!-- ##module_info #Layout #header #header_search_A -->
+<header class="layout3 header_search_A" id="header">
+<div class="inner">
+<div class="top_nav_box" id="top_nav_box">
+<!-- 로고 -->
+<div class="top_logo" module="Layout_LogoTop"><a class="notranslate" href="/"><img alt="{$mall_name}" loading="lazy" src="{$logo}"/></a></div><!-- //top_logo -->
+<!-- 검색창 -->
+<div module="Layout_SearchHeader">
+<!--@css(/css/module/layout/searchHeader.css)-->
+<!--
+					$product_page=/product/detail.html
+					$category_page=/product/list.html
+				-->
+<fieldset>
+<legend>검색</legend>
+					{$form.keyword}
+					<button onclick="{$action_search_submit}" type="button"><!--@import(/svg/ico_search.html)--></button>
+<ul class="autoDrop" id="{$search_auto_id}"></ul></fieldset>
+</div>
+<!-- 멀티샵 -->
+<div class="multishop list" module="Layout_multishopList">
+<!--@css(/css/module/layout/multishopList.css)-->
+<button class="toggle" type="button"><span>한국어</span><i aria-hidden="true" class="icon"><!--@import(/svg/ico_arrow.html)--></i></button>
+<ul module="Layout_multishopListitem">
+<li class="{$selected_class}">
+<a href="//{$shop_domain}/">
+<span class="name">{$locale_language}</span>
+</a>
+</li>
+<li class="{$selected_class}">
+<a href="//{$shop_domain}/">
+<span class="name">{$locale_language}</span>
+</a>
+</li>
+</ul>
+</div>
+<!-- 모바일 햄버거바 -->
+<div class="top_nav">
+<a class="eNavFold" href="javascript:;" role="button"><!--@import(/svg/ico_category.html)-->카테고리</a>
+<a href="/myshop/index.html"><!--@import(/svg/ico_user.html)-->마이페이지</a>
+</div>
+<div class="top_mypage_mo">
+<a class="eSearch" href="javascript:;" role="button"><!--@import(/svg/ico_search.html)-->검색</a>
+<a class="pc" href="/myshop/index.html"><!--@import(/svg/ico_user.html)-->마이페이지</a>
+<a class="btn_cart" href="/order/basket.html" module="Layout_orderBasketcount"><!--@import(/svg/ico_cart.html)-->장바구니<span class="count {$basket_count_display|display} {$basket_count_display_class}"><span class="{$basket_count_class}">{$basket_count}</span></span></a>
+</div>
+<div class="nav_area">
+<!-- 메뉴 -->
+<div class="menu_box pc">
+<div class="top_category" module="Layout_category">
+<ul>
+<li><a href="{$link_product_list}">{$name}</a></li>
+<li><a href="{$link_product_list}">{$name}</a></li>
+<li><a href="#">고객센터</a></li>
+<!--  직접 등록 영역 시작 -->
+<!-- <li><a href="#">스토어</a></li> -->
+<!--  직접 등록 영역 끝 -->
+</ul>
+</div>
+</div><!-- //menu-main/1 -->
+<!-- 아이콘 영역 -->
+<div class="top_mypage">
+<a class="pc" href="/member/login.html" module="Layout_statelogoff">로그인</a>
+<a class="pc is_blocked" href="/member/agreement.html" module="Layout_statelogoff">회원가입</a>
+<a class="pc" href="{$action_logout}" module="Layout_stateLogon">로그아웃</a>
+<a class="pc" href="/myshop/index.html">마이페이지</a>
+<a class="btn_cart" href="/order/basket.html" module="Layout_orderBasketcount">장바구니<span class="count {$basket_count_display|display} {$basket_count_display_class}"><span class="{$basket_count_class}">{$basket_count}</span></span></a>
+</div><!-- //top_mypage -->
+</div>
+</div><!-- //top_nav_box -->
+</div><!-- //inner -->
+<!-- gnb 영역 -->
+<div class="gnb_wrap">
+<div class="inner">
+<ul class="depth01">
+<li>
+<a class="title" href="#">고객센터</a>
+<ul class="depth02" module="Layout_BoardInfo">
+<li><a href="{$link_board_list}">{$board_name}</a></li>
+<li><a href="{$link_board_list}">{$board_name}</a></li>
+</ul>
+</li>
+<!--  직접 등록 영역 시작 -->
+<!-- <li>
+					<a href="#" class="title">스토어</a>
+					<ul class="depth02">
+						<li><a href="#">스마트스토어</a></li>
+						<li><a href="#">유튜브쇼핑</a></li>
+					</ul>
+				</li> -->
+<!--  직접 등록 영역 끝 -->
+</ul>
+</div>
+</div>
+</header>
+<div class="mo_search">
+<div module="Layout_SearchHeader">
+<!--@css(/css/module/layout/searchHeader.css)-->
+<!--
+            $product_page=/product/detail.html
+            $category_page=/product/list.html
+        -->
+<fieldset>
+<legend>Search</legend>
+			{$form.keyword}<span alt="Search" onclick="{$action_search_submit}"><!--@import(/svg/ico_search.html)--></span><ul class="autoDrop" id="{$search_auto_id}"></ul></fieldset>
+</div>
+</div>

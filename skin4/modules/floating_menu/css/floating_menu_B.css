@@ -1,0 +1,53 @@
+.floatMenu_B { display: block; position:fixed; top:0; right:0; z-index: 1000; width: 180px; min-width: 180px; height: 100vh; background: #fff; transition: transform 0.3s ease; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); }
+.floatMenu_B.is-folded { transform: translateX(100%); transition: transform 0.3s ease; }
+.floatMenu_B.no-transition { transition: none !important; }
+.floatMenu_B.no-transition .fold_btn { transition: none !important; }
+.floatMenu_B > * { margin-bottom: 20px; }
+.floatMenu_B .fold_btn { position:absolute; top: 50%; right: 165px; z-index: 1000; display: flex; justify-content: center; align-items: center;  width: 30px; height: 50px; border-radius: 25px; background: #fff; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); cursor: pointer; }
+.floatMenu_B .fold_btn > div { transform: all 0.3s; }
+.floatMenu_B .fold_btn > div svg { height:20px; width:20px; }
+.floatMenu_B.is-folded .fold_btn { right: 185px; transition: right 0.3s ease; }
+.floatMenu_B.is-folded .fold_btn img { transform: rotate(0deg); }
+.floatMenu_B.is-folded .fold_btn .close_btn { display: none; }
+.floatMenu_B.is-folded .fold_btn .open_btn { display: block; transform: rotate(180deg); margin-left:-2px; }
+.floatMenu_B:not(.is-folded) .fold_btn .close_btn { display: block; }
+.floatMenu_B:not(.is-folded) .fold_btn .open_btn { display: none; }
+.top_area { display: flex; padding: 10px; justify-content: center; align-items: center; min-height: 7.5vh; background: #ECECEC; overflow: hidden; box-sizing: border-box; }
+.top_area .bnr_area { display: flex; width: 100%; align-items: center; justify-content: center; gap: 12px; }
+.top_area .bnr_area .img_box { width: 30px; height: 30px; flex-shrink: 0; }
+.top_area .bnr_area .img_box img { width: 100%; }
+.top_area .bnr_area .text_box { display: flex; flex-direction: column; justify-content: flex-start; }
+.top_area .bnr_area .text_box .main_title { font-size: 14px; font-weight: 600; }
+.top_area .bnr_area .text_box .sub_text { font-size: 11px; }
+.user_btn_area { display: flex; gap: 2px; padding: 0 5px; flex-wrap: wrap; justify-content: space-between; }
+.user_btn_area li { display:flex; width: 30%; justify-content: center; align-items:center; align-items: flex-start; aspect-ratio: 1;}
+.user_btn_area li a { text-align: center; }
+.user_btn_area li a svg { margin-bottom: 4px; }
+.user_btn_area li a .menu_title { font-size: 11px; }
+.img_btn_area { padding: 0 16px; }
+.img_btn_area li a { display:flex; align-items:center; justify-content:center; overflow:hidden; width:100%; height:80px; }
+.img_btn_area li a img { max-width:100%; object-fit:cover; }
+.text_btn_area li a { display: inline-block; width: 100%; padding: 10px 16px; font-size: 12px; }
+.recent_div { text-align: left !important; padding: 0 16px !important; border: none !important; }
+.recent_div .title_btn { display: flex; justify-content: space-between;}
+.recent_div .title_btn .player { width: max-content; }
+.recent_div .title_btn .player img { width:8px; }
+.recent_div .title_btn .player img:first-child {margin-right:12px;}
+.recent_div h2 a { display:inline-flex !important; align-items: center !important; gap:2px !important; font-size : 14px !important; font-weight: 500 !important; padding: 0 !important; margin-bottom: 12px !important; }
+.recent_div ul { overflow: hidden !important; width: 100% !important; height: 172px !important; }
+.recent_div ul li { overflow: hidden; height: 80px; margin-bottom: 12px; }
+.recent_div ul li a { display: block; height: 100%; }
+.recent_div ul li a img { width: 100%; max-width: 100% !important; height: 100%; object-fit: cover; }
+.cs_center_area { position: absolute; bottom: 0; left: 0; width: 100%; padding: 16px; margin-bottom: 0; background: #ECECEC; }
+.cs_center_area .cs_info .title { margin-bottom:10px; font-size: 14px; font-weight: 600; line-height: 24px;}
+.cs_center_area .cs_info .list div.phone { margin-bottom: 5px; }
+.cs_center_area .cs_info .list div.phone span { font-size: 16px; font-weight: 600; color: var(--text-gray); }
+.cs_center_area .cs_info .list div.runtime { padding-right: 30px;}
+.cs_center_area .cs_info .list div.runtime span { font-size: 12px; line-height:21px; color: var(--gray-color); }
+.floatMenu_B .sns_info { margin-top:10px; }
+.floatMenu_B .sns_info li { width: 18px; aspect-ratio: 1;}
+.floatMenu_B .sns_info li a { display:inline-block; width: 100%; }
+.floatMenu_B .sns_info li a img { width: 100%; }
+@media (max-width: 1024px) {
+.floatMenu_B { display: none !important; }
+	}

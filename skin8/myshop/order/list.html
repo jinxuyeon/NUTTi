@@ -1,0 +1,90 @@
+<!--@layout(/layout/basic/layout.html)-->
+<style>
+/* ===== 주문내역 박스 배경을 사이트 배경색(#f9f6f0)과 통일 (NUTTI) ===== */
+.xans-myshop-orderhistorylistitem .order__number{ background:#f9f6f0 !important; }
+.order .order__number{ background:#f9f6f0 !important; }
+
+/* ===== NUTTI 주문조회 리디자인 (버튼 간격/사이즈/브랜드 스타일) ===== */
+.myshopArea{--nt-brown:#8c6239;--nt-brown-d:#6f4b28;--nt-line:#e6ddce;--nt-ink:#3a2c1f;--nt-muted:#8a7a68;}
+.myshopArea .ec-base-tab.typeNav .menu li a{padding:16px 10px;font-size:15px;color:var(--nt-muted);}
+.myshopArea .ec-base-tab.typeNav .menu li.selected a{color:var(--nt-brown)!important;font-weight:700;}
+.myshopArea fieldset.form{box-sizing:border-box;background:#fff!important;border:1px solid var(--nt-line)!important;border-radius:16px!important;padding:20px!important;display:flex;flex-wrap:wrap;align-items:center;gap:12px 14px;box-shadow:0 4px 18px rgba(92,61,36,.05);}
+.myshopArea fieldset.form legend{position:absolute;overflow:hidden;clip:rect(0 0 0 0);width:1px;height:1px;}
+.myshopArea .stateSelect{margin:0;}
+.myshopArea .stateSelect select.fSelect{box-sizing:border-box;height:46px;min-width:200px;border:1px solid var(--nt-line)!important;border-radius:12px!important;padding:0 16px!important;color:var(--nt-ink);background-color:#fff!important;font-size:15px;}
+.myshopArea .period{display:flex;gap:8px;margin:0;box-sizing:border-box;}
+.myshopArea .period .btnNormal.sizeM{box-sizing:border-box;min-width:0;margin:0!important;height:46px;line-height:44px;padding:0 18px;border:1px solid var(--nt-line)!important;border-radius:12px!important;background:#fff!important;color:var(--nt-ink)!important;font-size:15px;font-weight:500;white-space:nowrap;transition:background .15s,color .15s,border-color .15s;}
+.myshopArea .period .btnNormal.sizeM:hover{border-color:var(--nt-brown)!important;color:var(--nt-brown)!important;}
+.myshopArea .period .btnNormal.sizeM.selected{background:var(--nt-brown)!important;border-color:var(--nt-brown)!important;color:#fff!important;font-weight:700;}
+.myshopArea .date{display:flex;align-items:center;gap:10px;margin:0;flex-wrap:wrap;}
+.myshopArea .date .datepicker{display:inline-flex;align-items:center;gap:8px;color:var(--nt-muted);}
+.myshopArea .date input.fText{box-sizing:border-box;height:46px;border:1px solid var(--nt-line)!important;border-radius:12px!important;padding:0 14px!important;font-size:15px;color:var(--nt-ink);background:#fff!important;}
+.myshopArea .date .datepicker img{vertical-align:middle;}
+.myshopArea .date .btnSubmit.sizeM{box-sizing:border-box;height:46px;line-height:46px;padding:0 28px!important;border-radius:12px!important;background:var(--nt-brown)!important;color:#fff!important;font-size:15px;font-weight:700;box-shadow:0 2px 8px rgba(140,98,57,.25);cursor:pointer;transition:background .15s;}
+.myshopArea .date .btnSubmit.sizeM:hover{background:var(--nt-brown-d)!important;}
+.myshopArea .txtList{margin-top:16px;line-height:1.75;color:var(--nt-muted);}
+@media (max-width:1024px){
+  .myshopArea fieldset.form{flex-direction:column;align-items:stretch;gap:14px;padding:18px!important;}
+  .myshopArea .stateSelect{width:100%;}
+  .myshopArea .stateSelect select.fSelect{width:100%;}
+  .myshopArea .period{width:100%;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;}
+  .myshopArea .period .btnNormal.sizeM{padding:0!important;text-align:center;width:100%;}
+  .myshopArea .date{width:100%;gap:12px;}
+  .myshopArea .date .datepicker{width:100%;gap:6px;}
+  .myshopArea .date input.fText{flex:1 1 auto;width:auto!important;min-width:106px;padding:0 6px!important;font-size:13px;text-align:center;letter-spacing:-.2px;}
+  .myshopArea .date .btnSubmit.sizeM{width:100%;margin-top:2px;}
+}
+</style>
+<div class="section path" data-ez="module-16ysszy-1" data-ez-module="user-defined/1" data-ez-name="USER DEFINED" data-ez-type="plain">
+    <span>현재 위치</span>
+    <ol>
+        <li><a href="/">홈</a></li>
+        <li><a href="/myshop/index.html">마이쇼핑</a></li>
+        <li title="현재 위치"><strong>주문조회</strong></li>
+    </ol>
+</div>
+<div class="myshopArea" data-ez="contents-0c6m5jc-1">
+    <div class="titleArea titleArea--myshop">
+        <h2>주문조회</h2>
+    </div>
+    <div module="Myshop_OrderHistoryTab" class="ec-base-tab typeNav">
+        <ul class="menu">
+            <li class="{$tab_class}"><a href="/myshop/order/list.html{$param}">주문내역조회 ({$total_orders})</a></li>
+            <li class="{$tab_class_cs}"><a href="/myshop/order/list.html{$param_cs}">취소/반품/교환 내역 ({$total_orders_cs})</a></li>
+            <li class="{$tab_class_old} {$old_list_display|display} RW"><a href="/myshop/order/list_old.html{$param_old}">이전 주문내역 ({$total_orders_old})</a></li>
+        </ul>
+    </div>
+
+    <div module="Myshop_OrderHistoryHead">
+        <!--@css(/css/module/myshop/orderHistoryHead.css)-->
+        <fieldset class="form">
+            <legend>검색기간설정</legend>
+            <div class="stateSelect {$status_bar_display|display}">
+                {$form.order_status}
+            </div>
+            <span class="period">
+                <a href="#none" class="btnNormal sizeM {$now_style}" days="00">오늘</a>
+                <a href="#none" class="btnNormal sizeM {$month_style}" days="30">1개월</a>
+                <a href="#none" class="btnNormal sizeM {$three_style}" days="90">3개월</a>
+                <a href="#none" class="btnNormal sizeM {$six_style}" days="180">6개월</a>
+            </span>
+            <div class="date">
+                <span class="datepicker">{$form.start_date} ~ {$form.end_date}</span>
+                <span class="btnSubmit sizeM">조회{$form.submit_date}</span>
+            </div>
+        </fieldset>
+        <ul class="txtList">
+            <li class="{$is_past_list_none_display|display}">- 기본적으로 최근 3개월간의 자료가 조회되며, 기간 검색시 지난 주문내역을 조회하실 수 있습니다.</li>
+            <li class="{$is_past_list_display|display}">- 기본적으로 최근 3개월간의 자료가 조회되며, 기간 검색시 주문처리완료 후 36개월 이내의 주문내역을 조회하실 수 있습니다.</li>
+            <li class="{$is_past_list_display|display}">- 완료 후 36개월 이상 경과한 주문은 <a href="javascript:OrderHistory.searchPast(false)">[과거주문내역]</a>에서 확인할 수 있습니다.</li>
+            <li>- 리뉴얼 전에 주문한 내역은 <a href="/myshop/order/list_old.html">[이전 주문내역]</a>에서 확인할 수 있습니다.</li>
+            <li class="{$cs_request_guide_display|display}">- 취소/교환/반품 신청은 {$cs_request_period_day_condition} {$cs_request_period_day}일까지 가능합니다.</li>
+        </ul>
+    </div>
+
+    <!--@import(/myshop/order/history_list_item.html)-->
+
+    <!--@import(/myshop/myshop_main.html)-->
+
+</div>
+<!--#ez="1/1"-->

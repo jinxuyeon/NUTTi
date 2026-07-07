@@ -1,0 +1,49 @@
+<!--@layout(/layout/basic/layout.html)--> 
+
+<style>
+        /* 메인에서만 모바일 헤더 최상단 투명 + 스크롤시 블러 */
+        @media (max-width:1024px){
+            #header{ position: absolute !important; top: 0; left: 0; background: none; width:100%; height:unset; box-shadow: none; }
+            #header.fixed { position: fixed !important; background: rgba(255, 255, 255, 0.3); backdrop-filter: blur(4px); border-bottom: none !important; box-shadow: 0px 2px 4px 0px var(--opacity-8); }
+            body.white_color .text_box p,
+            body.white_color .text_box span { color: var(--white-color); }
+            body.white_color .text_box .slide_btn { color: var(--white-color); border-color: var(--white-color); }
+            body.white_color .text_box .slide_btn:hover { color: var(--black-color); }
+            body.white_color .text_box .slide_btn::before { background: var(--white-color); }
+        }
+        </style>
+        
+<!--main_banner/slide_650px-->
+<!--@import(/modules/main_banner/html/slide_650px.html)-->
+<!--@css(/modules/main_banner/css/slide_650px.css)-->
+<!--@js(/modules/main_banner/js/slide_650px.js)-->
+
+
+<!--product_list/top_tab-->
+<!--@import(/modules/product_list/html/top_tab.html)-->
+<!--@css(/modules/product_list/css/top_tab.css)-->
+<!--@js(/modules/product_list/js/top_tab.js)-->
+
+
+<!--contents/card_image-->
+<!--@import(/modules/contents/html/card_image.html)-->
+<!--@css(/modules/contents/css/card_image.css)-->
+<!--@js(/modules/contents/js/card_image.js)-->
+
+
+<!--product_list/title_list_viewmore_4col-->
+<!--@import(/modules/product_list/html/title_list_viewmore_4col.html)-->
+<!--@css(/modules/product_list/css/title_list_viewmore_4col.css)-->
+
+
+<!--product_list/title_product_n_item-->
+<!--@import(/modules/product_list/html/title_product_n_item.html)-->
+<!--@css(/modules/product_list/css/title_product_n_item.css)-->
+<!--@js(/modules/product_list/js/title_product_n_item.js)-->
+
+
+<!--contents/horizontal_text-->
+<!--@import(/modules/contents/html/horizontal_text.html)-->
+<!--@css(/modules/contents/css/horizontal_text.css)-->
+<!--@js(/modules/contents/js/horizontal_text.js)-->
+

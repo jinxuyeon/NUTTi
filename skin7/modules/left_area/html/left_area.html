@@ -1,0 +1,33 @@
+<!-- ##module_info #Layout #left_area #left_area_A -->
+<div class="left_area left_area_A">
+<!-- 로고 -->
+<div class="left_logo" module="Layout_LogoTop">
+<!-- <a href="/"><img src="{$logo}" alt="{$mall_name}" loading="lazy" ez-prevent="img"></a> -->
+<a class="notranslate" href="/">{$mall_name}</a>
+<span>우리 아이를 위한 건강한 간식 루틴, 신선함이 남다른 프리미엄 누띠 수제 간식</span>
+</div>
+<!-- 검색창 -->
+<div module="Layout_SearchHeader">
+<!--@css(/css/module/layout/searchHeader.css)-->
+<!--
+            $product_page=/product/detail.html
+            $category_page=/product/list.html
+        -->
+<fieldset>
+<legend>검색</legend>
+            {$form.keyword}
+            <span class="btn_search"><!--@import(/svg/ico_search.html)--></span>
+<ul class="autoDrop" id="{$search_auto_id}"></ul>
+</fieldset>
+</div>
+<!-- 검색어 키워드 -->
+<ul class="search-keyword">
+<li><a href="/product/search.html?keyword=강아지 수제간식">강아지 수제간식</a></li><li><a href="/product/search.html?keyword=연어트릿">연어트릿</a></li><li><a href="/product/search.html?keyword=강아지 노즈워크">강아지 노즈워크</a></li><li><a href="/product/search.html?keyword=강아지 파우더">강아지 파우더</a></li><li><a href="/product/search.html?keyword=단호박칩">단호박칩</a></li><li><a href="/product/search.html?keyword=강아지 치석껌">강아지 치석껌</a></li><li><a href="/product/search.html?keyword=수제 육포">수제 육포</a></li><li><a href="/product/search.html?keyword=강아지 비건간식">강아지 비건간식</a></li></ul>
+<!-- 어드민 설정값으로 자동 노출 -->
+<!-- <div module="search_hotkeyword">
+        <ul class="search-keyword">
+            <li><a href="{$hot_keyword_url}">{$hot_keyword_name}</a></li>
+            <li><a href="{$hot_keyword_url}">{$hot_keyword_name}</a></li>
+        </ul>
+    </div> -->
+</div>

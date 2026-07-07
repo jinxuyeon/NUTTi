@@ -1,0 +1,35 @@
+#header { position: relative; width: 100%; max-width: var(--max-width); z-index: 999; border-bottom: 1px solid var(--black-color-20); background: var(--white-color);}
+#header:before { display: none; }
+#header:after { display: none; }
+#header.fixed { position: fixed; top: 0; left: unset; right: unset; transform: translateY(0); box-shadow: rgba(0, 0, 0, 0.12) 0px 3px 7px 1px; }
+#header.hidden {  opacity: 0; pointer-events: none; }
+#header.layout3 .inner { width: auto; box-sizing: border-box; }
+#header.layout3 .inner .top_nav_box { padding: 15px 20px; flex-wrap: wrap; align-items: center !important; justify-content: space-between; box-sizing: border-box; }
+#header.layout3 .inner .top_nav_box .menu_box { width: 100%; order: unset; }
+#header.layout3 .inner .top_nav_box .top_logo { width: auto; max-width: calc(100% - 100px); height: auto; margin: 0 !important; order: unset; text-align: center; }
+#header.layout3 .inner .top_nav_box .top_logo a { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; word-break: break-all; font-size: var(--font-size-xl); font-weight:var(--font-weight-bold); overflow:hidden; text-align: center; white-space:initial; }
+#header.layout3 .inner .top_nav_box .top_logo img { max-height:40px; max-width:220px; width:100%; }
+#header.layout3 .inner .top_nav_box .multishop { display: flex !important; position: relative; width: 100%; height: 50px; margin-right: 25px; gap: 15px; justify-content: flex-end; }
+#header.layout3 .inner .top_nav_box .multishop ul { position: absolute; top: 0; }
+#header.layout3 .inner .top_nav_box .multishop button { display: flex; background: none; align-items: center; white-space: nowrap; }
+#header.layout3 .inner .top_nav_box .multishop button i { position: unset; width: 6px; height: 6px; border-color: var(--text-gray); transform: rotate(-135deg); }
+#header.layout3 .inner .top_nav_box .multishop button span { margin-right: 4px; font-size: var(--font-size-xs); font-weight: var(--font-weight-regular); line-height:var(--line-height-sm); color: var(--text-gray); }
+#header .inner .top_category { width: 100%; margin: 0 !important; padding: 13px 0; overflow-x: auto; white-space: nowrap; cursor: grab; cursor: -webkit-grab; -ms-overflow-style: none; scrollbar-width: none; }
+#header .inner .top_category.dragging { cursor: grabbing; cursor: -webkit-grabbing;}
+#header .inner .top_category ul { display: inline-flex; min-width: max-content; padding: 0; margin: 0; list-style: none; }
+#header .inner .top_category li a { display: inline-block; padding: 0 15px;  font-size: var(--font-size-base); font-weight: var(--font-weight-regular); line-height: var(--line-height-lg); color: var(--text-black); text-transform: uppercase; white-space: nowrap; text-decoration: none; color: inherit;}
+#header .inner .top_category li:first-child a { padding-left: 20px; }
+#header .inner .top_category li:last-child a { padding-right: 20px; }
+#header .inner .top_category::-webkit-scrollbar { display: none; }
+#header .inner .top_category .sub_cate01 { display: none; }
+#header .inner .top_nav_box .top_mypage { position: unset; width: auto; height: 30px !important; gap: 18px; align-items: center; justify-content: flex-end; order: unset !important; }
+#header .inner .top_nav_box .top_mypage a { position: relative; overflow: unset; margin: 0; font-size: 15px; font-weight: 400; color: var(--text-black); background: none; }
+#header .inner .top_nav_box .top_mypage a:has(svg) { font-size:0; }
+#header .inner .top_nav_box .top_mypage a.xans-layout-orderbasketcount .count { top: 12px; }
+#header .inner .top_nav_box .top_mypage .bar { width: 1px; height: 13px; background: var(--black-color-60); }
+#header .inner .top_nav_box .top_nav { display: block; position: unset; width: auto; order: unset !important; font-size:0; }
+.main_top_banner { padding: 10px 0; background: var(--black-color); }
+.main_top_banner .top_banner_box_inner { position: relative; }
+.main_top_banner .top_banner_box_inner .top_banner_text { text-align: center; }
+.main_top_banner .top_banner_box_inner .top_banner_close { position: absolute; top: 50%; right: 0; transform: translateY(-50%); color: var(--white-color); }
+.main_top_banner .top_banner_box_inner .top_banner_text a { font-size: var(--font-size-xs); font-weight: var(--font-weight-regular) !important; color: var(--text-white) !important; }

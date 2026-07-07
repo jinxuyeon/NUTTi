@@ -1,0 +1,180 @@
+<!--@layout(/layout/basic/main.html)-->
+<style>
+    #contents { margin-top: 0 !important; }
+    #header {position: absolute; background: none;}
+    #header.header_bg { background-color:rgba(255,255,255,0.8); transition: background-color 0.3s ease; }
+    #header.header_bg * { color:var(--text-black) !important; }   
+    #header.header_bg .inner .top_nav_box .top_nav a svg,
+    #header.header_bg .inner .top_nav_box .top_mypage a svg { fill:var(--text-black) !important; }  
+    #header.header_bg .inner .top_nav_box .top_mypage a.xans-layout-orderbasketcount .count { background-color:var(--black-color) !important; }
+    #header.header_bg .inner .top_nav_box .top_mypage a.xans-layout-orderbasketcount .count span { color:var(--white-color) !important; }
+    .fixed_header { position: fixed; top: 0; left: 0; right: 0; z-index: 999;}
+    .main_section { height: 100dvh; overflow: hidden; }
+    .main_section .swiper-wrapper { height: auto; }
+    .main_section .swiper-slide { height: auto; }
+    .main_section .swiper-slide.image-slide > img { width: 100%; height: 100vh; object-fit: cover; display: block; }
+    .main_indicator { position: fixed; top: 50%; right: 30px; transform: translateY(-50%); z-index: 1000; display: flex; flex-direction: column; gap: 8px; }
+    .main_indicator li { width: 8px; height: 8px; border: 1px solid var(--black-color); cursor: pointer; transition: background 0.3s; }
+    .main_indicator li.active { background: var(--black-color); }
+    .main_indicator li:hover { background: var(--black-color); }
+    .main_indicator li:last-child { display: none; }
+    body.white_color .text_box p,
+    body.white_color .text_box span { color: var(--white-color); }
+    body.white_color .text_box .btnView { color: var(--white-color); border-color: var(--white-color); }
+    body.white_color .text_box .btnView:hover { color: var(--black-color); }
+    body.white_color .text_box .btnView::before { background: var(--white-color); }
+    body.white_color .main_indicator li { border-color: var(--white-color); }
+    body.white_color .main_indicator li.active { background-color: var(--white-color); }
+    @media (max-width:1024px){
+        #header.header_bg { background-color:rgba(255,255,255,1); }
+        #footer { padding-top:80px; }
+        #footer .inner { padding-top:0 !important; }
+        
+    	.main_indicator { right:10px; }
+        .main_section:has(.main_indicator) .main_visual .text_box { width: calc(100% - 80px); }
+    }
+</style>
+
+<div class="main_section swiper full_width">
+    <ul class="swiper-wrapper">
+        <!--main_banner/full_content_banner-->
+<!--@import(/modules/main_banner/html/full_content_banner.html)-->
+<!--@css(/modules/main_banner/css/full_content_banner.css)-->
+<!--@js(/modules/main_banner/js/full_content_banner.js)-->
+
+
+        
+        <li class="swiper-slide">
+            <!--@css(/css/module/layout/logobottom.css)-->
+            <!--@css(/css/module/layout/footer.css)-->
+            <!--@css(/modules/footer/css/footer.css)-->
+            <!--@import(/modules/footer/html/footer.html)-->
+        </li>
+    </ul>
+    <div class="main_indicator"></div>
+</div>
+
+<script>
+    const indicatorContainer = document.querySelector('.main_indicator');
+
+    // 메인 비주얼 슬라이드
+    const main_section = new Swiper('.main_section', {
+        direction: 'vertical',
+        mousewheel: {
+            enabled: true,
+            releaseOnEdges: true,
+            thresholdDelta: 10,
+        },
+        slidesPerView: 'auto',
+        speed: 700,
+        loop: false,
+        simulateTouch: false,
+        watchSlidesProgress: true,
+        on: {
+            slideChange: function () {
+                const active = this.activeIndex;
+                const indicators = document.querySelectorAll('.main_indicator li');
+
+                document.querySelectorAll('.main_indicator li').forEach((el, index) => {
+                    if (index === indicators.length - 1 && active === index) {
+                        el.classList.remove('active');
+                        indicators[index - 1]?.classList.add('active');
+                    } else {
+                        el.classList.toggle('active', index === active);
+                    }
+                });
+            },
+            setTranslate: function () {
+                // 마지막 슬라이드가 뷰포트에 보이면 header_bg 클래스 토글
+                const header = document.querySelector('#header');
+                if (!header) return;
+
+                const lastSlide = this.slides[this.slides.length - 1];
+                const swiperHeight = this.height;
+                const currentTranslate = Math.abs(this.translate);
+                const lastSlideTop = lastSlide.offsetTop;
+                const isLastSlideVisible = currentTranslate + swiperHeight > lastSlideTop;
+
+                header.classList.toggle('header_bg', isLastSlideVisible);
+            }
+        }
+    });
+
+    // 인디케이터 생성: 실제 슬라이드 수만큼만
+    for (let i = 0; i < main_section.slides.length; i++) {
+        const li = document.createElement('li');
+        li.setAttribute('data-slide', i);
+        if (i === 0) li.classList.add('active');
+        indicatorContainer.appendChild(li);
+    }
+
+    // 인디케이터 클릭 시 해당 슬라이드로 이동
+    document.querySelectorAll('.main_indicator li').forEach((el) => {
+        el.addEventListener('click', function () {
+            const slideIndex = parseInt(this.getAttribute('data-slide'), 10);
+            main_section.slideTo(slideIndex, 700);
+        });
+    });
+</script>
+<script>
+    //풀컨텐츠 header_A 전용 스크립트
+    document.addEventListener('DOMContentLoaded', function () {
+        const header = document.querySelector('header');
+        const isMain = document.querySelector('.main_visual');
+
+        const topBanners = document.querySelectorAll('.top_banner');
+        const logoColor = document.querySelector('#header.layout3 .inner .top_nav_box .top_logo a');
+
+        let totalBannerHeight = 0;
+
+        function updateBannerHeight() {
+            totalBannerHeight = 0;
+            topBanners.forEach(banner => {
+                totalBannerHeight += banner.offsetHeight;
+            });
+        }
+
+        function handleScroll() {
+            if (window.scrollY > totalBannerHeight) {
+                header.classList.add('fixed');
+            } else {
+                header.classList.remove('fixed');
+            }
+
+            if (window.scrollY > totalBannerHeight + header.offsetHeight) {
+                header.classList.add('white_bg');
+                if (logoColor) logoColor.style.color = '#000';
+                header.style.background = '#fff';
+                header.style.borderBottom = '1px solid #e8e8e8';
+            }/*  else {
+                header.classList.remove('white_bg');
+                if (logoColor) logoColor.style.color = '#fff';
+                header.style.background = 'linear-gradient(to bottom, rgba(0,0,0,0.4), transparent)';
+                header.style.borderBottom = 'none';
+            } */
+        }
+
+        updateBannerHeight();
+        handleScroll();
+
+        window.addEventListener('resize', () => {
+            updateBannerHeight();
+            handleScroll();
+        });
+        window.addEventListener('scroll', handleScroll);
+
+        // 모바일에서 footer padding-top 설정 (#header 높이만큼)
+        function setFooterPadding() {
+            if (window.innerWidth <= 1024) {
+                const footer = document.querySelector('#footer');
+                if (header && footer) {
+                    footer.style.paddingTop = header.offsetHeight + 'px';
+                }
+            }
+        }
+        setFooterPadding();
+        window.addEventListener('resize', setFooterPadding);
+    });
+</script>
+
+<!--@define(cmc_log)-->

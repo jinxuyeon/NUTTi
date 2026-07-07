@@ -1,0 +1,14 @@
+.left_area { position: fixed; top: 50%; right: calc(50% + 75px); display: flex; width: 450px; flex-direction: column; align-items: center; transform: translateY(-50%); }
+.left_area .left_logo { display: flex; margin-bottom: 50px; flex-direction: column; align-items: center; }
+.left_area .left_logo a { max-width: 450px; margin-bottom: 20px; color: var(--text-black); font-size: 2.7vw; font-weight: var(--font-weight-bold); text-align: center; }
+.left_area .left_logo img { max-width: 220px; }
+.left_area .left_logo span { font-size: var(--font-size-base); line-height: var(--line-height-lg); color: var(--gray-color); text-align: center; }
+.left_area .search-keyword { display: flex; width: 100%; margin-top: 34px; gap: 18px 10px; flex-wrap: wrap; justify-content: center; }
+.left_area .search-keyword li a { display: block; height: 38px; padding: 0 16px; font-size: var(--font-size-base); font-weight: var(--font-weight-regular); line-height: 38px; color: var(--text-black); border-radius: 21px; background: var(--black-color-25); text-align: center; transition: all 0.2s;}
+.left_area .search-keyword li a:hover { background: var(--primary-color); color: var(--primary-on-text-color); }
+.xans-layout-searchheader { float: unset !important; margin: 0 !important; }
+.xans-layout-searchheader fieldset { position: relative !important; border: none !important; }
+.xans-layout-searchheader fieldset .btn_search { position: absolute !important; top:0 !important; bottom:0 !important; right: 24px !important; box-sizing: border-box !important; height: 24px !important; margin: auto 0 !important; padding: 2px !important; cursor: pointer !important; }
+.xans-layout-searchheader fieldset .btn_search svg { display: block; margin: auto; fill: var(--black-color);}
+.xans-layout-searchheader #keyword { width: 450px !important; height: 60px !important; padding: 0 60px 0 30px !important; border-radius: 33px !important; box-shadow: 0 0 10px #dfdfdf !important; font-size: var(--font-size-base) !important; line-height: var(--line-height-lg) !important; font-weight: var(--font-weight-regular) !important; color: var(--black-color) !important; background: var(--white-color) !important; box-sizing: border-box !important; }
+.xans-layout-searchheader #keyword::placeholder { color: var(--gray-color); font-size: var(--font-size-base); line-height: var(--line-height-lg); }

@@ -1,0 +1,25 @@
+<!--@layout(/layout/basic/layout.html)-->
+<style>
+/* ===== 이용약관 본문 박스 배경을 사이트 배경색(#f9f6f0)과 통일 (NUTTI) ===== */
+.ec-base-box.typeThin > .agree{ background:#f9f6f0 !important; }
+.ec-base-box.typeThin > .agree .fr-view{ background:transparent !important; }
+</style>
+<div class="section path">
+    <span>현재 위치</span>
+    <ol>
+        <li><a href="/">홈</a></li>
+        <li title="현재 위치"><strong>이용약관</strong></li>
+    </ol>
+</div>
+
+<div class="section titleArea">
+    <h2>이용약관</h2>
+</div>
+
+<div module="mall_term" class="section gInnerMargin">
+    <div class="ec-base-box typeThin">
+        <div class="agree">
+            {$mall_agreement}
+        </div>
+    </div>
+</div>

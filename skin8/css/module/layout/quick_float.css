@@ -1,0 +1,51 @@
+#quick_float {
+  position: fixed;
+  right: 20px;
+  bottom: 80px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+#quick_float .qbtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  background: #fff;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+#quick_float .qbtn span {
+  display: none;
+}
+#quick_float .qbtn.kakao {
+  background: #FEE500;
+  border-color: #FEE500;
+}
+#quick_float .qbtn.kakao svg circle,
+#quick_float .qbtn.kakao svg path {
+  fill: #3C1E1E;
+}
+#quick_float .qbtn img {
+  width: 24px;
+  height: 24px;
+}
+#quick_float .qbtn svg {
+  width: 24px;
+  height: 24px;
+}
+@media (max-width: 767px) {
+  #quick_float {
+    right: 12px;
+    bottom: 70px;
+  }
+  #quick_float .qbtn {
+    width: 44px;
+    height: 44px;
+  }
+}

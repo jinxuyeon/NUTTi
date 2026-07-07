@@ -1,0 +1,75 @@
+<!-- ##module_info #Layout #aside #aside_C -->
+<aside class="aside_C" id="aside" module="layout_slidePackage">
+<!--@css(/layout/basic/css/slideMenu.css)-->
+<!--@js(/layout/basic/js/slide_menu.js)-->
+<div class="logo_box">
+<div class="sidebar_logo" module="Layout_LogoTop"><a href="/"><img alt="{$mall_name}" src="{$logo}"/></a></div>
+<button class="btnClose" type="button"><!--@import(/svg/ico_x.html)-->닫기</button>
+</div>
+<div class="navigation_member">
+<div class="navigation_state">
+<a class="btnEm" href="/member/agreement.html" module="Layout_statelogoff">회원가입</a>
+<a class="btnSubmit" href="/member/login.html" module="Layout_statelogoff">로그인</a>
+<ul>
+<li>
+<a href="/myshop/index.html"><span class="ico_bg"><!--@import(/svg/ico_user.html)--></span>마이페이지</a>
+</li>
+<li>
+<a href="/order/basket.html"><span class="ico_bg"><!--@import(/svg/ico_cart.html)--></span>장바구니</a>
+</li>
+<li>
+<a href="/myshop/order/list.html"><span class="ico_bg"><!--@import(/svg/ico_list.html)--></span>주문조회</a>
+</li>
+<li>
+<a href="/product/recent_view_product.html"><span class="ico_bg"><!--@import(/svg/ico_clock.html)--></span>최근상품</a>
+</li>
+</ul>
+</div><!-- //navigation_state -->
+</div><!-- //navigation_member -->
+<nav class="navigation-menu" role="navigation">
+<div class="menu_box">
+<div class="navigation-menu__category" id="slideCateList" module="Layout_category">
+<ul id="slide_add_category">
+<li><span class="view"><a href="{$link_product_list}">{$name}</a><span class="more"></span></span></li>
+<li><span class="view"><a href="{$link_product_list}">{$name}</a><span class="more"></span></span></li>
+<!--  직접 등록 영역 시작 -->
+<!-- <li>
+                        <span class="view">
+                            <a href="#">스토어</a><span class="more"></span>
+                            <ul class="sub_cate01">
+                                <li><a href="#" class="view">스마트스토어</a></li>
+                                <li><a href="#" class="view">유튜브쇼핑</a></li>
+                            </ul>
+                        </span>
+                    </li> -->
+<!--  직접 등록 영역 끝 -->
+</ul>
+<div class="community_box">
+<ul class="sub_cate01" module="Layout_BoardInfo">
+<li><a class="view" href="{$link_board_list}">{$board_name}</a></li>
+<li><a class="view" href="{$link_board_list}">{$board_name}</a></li>
+</ul>
+</div>
+<div class="multishop list" module="Layout_multishopList">
+<!--@css(/css/module/layout/multishopList.css)-->
+<button class="change_language toggle" type="button"><span>한국어</span><i aria-hidden="true" class="icon"><!--@import(/svg/ico_arrow.html)--></i></button>
+<ul module="Layout_multishopListitem">
+<li class="{$selected_class}">
+<a href="//{$shop_domain}/">
+<span class="name">{$locale_language}</span>
+</a>
+</li>
+<li class="{$selected_class}">
+<a href="//{$shop_domain}/">
+<span class="name">{$locale_language}</span>
+</a>
+</li>
+</ul>
+</div>
+<div class="logout_box" module="Layout_stateLogon">
+<a href="{$action_logout}" module="Layout_stateLogon">로그아웃</a>
+</div>
+</div>
+</div><!-- //menu-side/1 -->
+</nav>
+</aside>

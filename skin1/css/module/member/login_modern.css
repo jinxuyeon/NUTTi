@@ -1,0 +1,557 @@
+/* =============================================
+   login_modern.css
+   NUTT 브라운 테마 / 미니멀 로그인폼
+   ============================================= */
+
+:root {
+  --nutti-brown: #8c6239;
+  --nutti-brown-dark: #6f4b2b;
+  --nutti-brown-soft: #f7f1eb;
+  --nutti-brown-line: #e5d8ca;
+  --nutti-text: #1f1a16;
+  --nutti-sub: #77706a;
+}
+
+/* 브레드크럼 / 기본 타이틀 숨김 */
+.section.path,
+.section.titleArea {
+  display: none !important;
+}
+
+/* =============================================
+   로그인 전체 영역
+   ============================================= */
+
+fieldset.form {
+  border: none;
+  width: 100%;
+  max-width: 360px;
+  min-width: 0;
+  margin: 56px auto;
+  padding: 0 0 44px;
+  background: #fff;
+  border-radius: 0;
+  box-shadow: none;
+  box-sizing: border-box;
+  display: block;
+}
+
+/* 로그인 타이틀 */
+fieldset.form legend {
+  display: block !important;
+  width: 100%;
+  margin: 0 0 30px;
+  padding: 0;
+  font-size: 0;
+  text-align: center;
+  color: var(--nutti-text);
+}
+
+fieldset.form legend::before {
+  content: '로그인';
+  display: block;
+  margin-bottom: 12px;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.4px;
+  color: var(--nutti-text);
+}
+
+fieldset.form legend::after {
+  content: '아이디와 비밀번호를 입력해 주세요';
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--nutti-sub);
+  line-height: 1.5;
+  letter-spacing: -0.2px;
+}
+
+/* 내부 기준 폭 통일 */
+fieldset.form .login,
+fieldset.form .wrap_security,
+fieldset.form .login__button,
+fieldset.form .login__sns,
+fieldset.form .wrap_find {
+  width: 100%;
+  max-width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+
+/* =============================================
+   아이디 / 비밀번호 입력
+   ============================================= */
+
+.login label.id,
+.login label.password {
+  display: block;
+  width: 100%;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.login label.id {
+  margin-bottom: 16px;
+}
+
+.login label.password {
+  margin-bottom: 0;
+}
+
+/* 입력폼: 밑줄형 */
+.login label input {
+  width: 100% !important;
+  height: 44px !important;
+  padding: 0 !important;
+  border: none !important;
+  border-bottom: 1px solid #ddd7d1 !important;
+  border-radius: 0 !important;
+  background: #fff !important;
+  color: var(--nutti-text) !important;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  font-family: inherit !important;
+  line-height: 44px !important;
+  box-sizing: border-box !important;
+  transition: border-color 0.18s ease, color 0.18s ease !important;
+}
+
+.login label input::placeholder {
+  color: #9f9892 !important;
+}
+
+.login label input:focus {
+  outline: none !important;
+  border-bottom-color: var(--nutti-brown) !important;
+  background: #fff !important;
+  box-shadow: none !important;
+}
+
+/* =============================================
+   보안접속
+   ============================================= */
+
+.wrap_security {
+  display: block !important;
+  margin-top: 13px !important;
+  margin-bottom: 22px !important;
+}
+
+.login__security {
+  display: flex !important;
+  align-items: center;
+  gap: 6px;
+  margin: 0 !important;
+  padding: 0 !important;
+  font-size: 12px;
+  color: var(--nutti-sub);
+  line-height: 1;
+}
+
+/* 카페24 기본 체크박스/아이디저장 영역 정리 */
+.login__security input[type="checkbox"] {
+  width: 13px !important;
+  height: 13px !important;
+  margin: 0 3px 0 0 !important;
+  vertical-align: middle;
+  accent-color: var(--nutti-brown);
+}
+
+.login__security .secret {
+  display: inline-flex !important;
+  align-items: center;
+}
+
+.login__security label {
+  font-size: 12px !important;
+  color: var(--nutti-sub) !important;
+  line-height: 1 !important;
+}
+
+/* =============================================
+   로그인 버튼
+   ============================================= */
+
+.login__button {
+  display: block;
+  margin-top: 0;
+  padding: 0;
+}
+
+.login__button .btnSubmit.gFull.sizeL,
+.login__button button.btnSubmit.gFull.sizeL {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 100% !important;
+  height: 52px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  background: var(--nutti-brown) !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 4px !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+  box-sizing: border-box !important;
+  transition: background 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease !important;
+}
+
+.login__button .btnSubmit.gFull.sizeL:hover,
+.login__button button.btnSubmit.gFull.sizeL:hover {
+  background: var(--nutti-brown-dark) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 8px 18px rgba(140, 98, 57, 0.22) !important;
+}
+
+/* 로그인 영역 안의 비회원 구매 버튼 숨김 */
+fieldset.form .login__button .btnNormal.gFull.sizeL {
+  display: none !important;
+}
+
+fieldset.form .login__button > div {
+  display: none !important;
+}
+
+/* =============================================
+   아이디 찾기 / 비밀번호 찾기 / 회원가입
+   ============================================= */
+
+.wrap_find {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  margin-top: 22px;
+  padding: 0;
+}
+
+.wrap_find div {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.wrap_find div + div::before {
+  content: '|';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ddd5cd;
+  font-size: 11px;
+  line-height: 1;
+}
+
+.wrap_find a {
+  display: inline-block;
+  padding: 0 11px;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--nutti-sub);
+  text-decoration: none;
+  line-height: 1;
+  letter-spacing: -0.2px;
+  transition: color 0.18s ease;
+}
+
+.wrap_find a:hover {
+  color: var(--nutti-brown);
+}
+
+.wrap_find div:last-child a {
+  color: var(--nutti-brown);
+  font-weight: 700;
+}
+
+/* =============================================
+   간편 로그인
+   ============================================= */
+
+.login__sns {
+  margin-top: 28px;
+  padding: 0;
+  border: none;
+}
+
+/* 간편 로그인 타이틀 */
+.sns_h {
+  position: relative;
+  margin: 0 0 16px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 400;
+  color: #9f9892;
+  line-height: 1;
+  letter-spacing: -0.2px;
+}
+
+.sns_h::before,
+.sns_h::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: calc(50% - 32px);
+  height: 1px;
+  background: var(--nutti-brown-line);
+}
+
+.sns_h::before {
+  left: 0;
+}
+
+.sns_h::after {
+  right: 0;
+}
+
+/* SNS 버튼 영역: 카카오 / 네이버 좌우 2분할 */
+.wrap_sns_log {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 8px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 카카오 / 네이버 외 SNS 버튼 숨김 */
+.wrap_sns_log a:not(.btnKakao):not(.btnNaver) {
+  display: none !important;
+}
+
+/* 카페24 미사용 처리 유지 */
+.wrap_sns_log a.displaynone {
+  display: none !important;
+}
+
+/* SNS 버튼 공통 */
+.wrap_sns_log a {
+  position: relative;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 100% !important;
+  min-width: 0;
+  height: 42px;
+  padding: 0 8px !important;
+  margin: 0 !important;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1 !important;
+  text-align: center;
+  text-decoration: none !important;
+  text-indent: 0 !important;
+  white-space: nowrap;
+  overflow: hidden;
+  background-image: none !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease;
+}
+
+/* 기본 스킨에서 붙는 중복 아이콘 / 이미지 제거 */
+.wrap_sns_log a::before,
+.wrap_sns_log a::after,
+.wrap_sns_log a span::before,
+.wrap_sns_log a span::after {
+  display: none !important;
+  content: none !important;
+}
+
+.wrap_sns_log a img {
+  display: none !important;
+}
+
+/* SNS hover */
+.wrap_sns_log a:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(140, 98, 57, 0.16);
+}
+
+/* 카카오 로그인 */
+.wrap_sns_log .btnKakao {
+  background: #FEE500 !important;
+  color: #111 !important;
+  border: 1px solid #FEE500 !important;
+}
+
+/* 네이버 로그인 */
+.wrap_sns_log .btnNaver {
+  background: #03C75A !important;
+  color: #fff !important;
+  border: 1px solid #03C75A !important;
+}
+
+/* 카카오나 네이버 중 하나만 활성화됐을 때 전체 폭 사용 */
+.wrap_sns_log a.btnKakao:not(.displaynone):only-child,
+.wrap_sns_log a.btnNaver:not(.displaynone):only-child {
+  grid-column: 1 / -1;
+}
+
+/* =============================================
+   회원가입 유도 영역이 별도로 있는 스킨일 경우 유지
+   ============================================= */
+
+.login__util {
+  display: block;
+}
+
+.login__util a {
+  color: var(--nutti-sub);
+  text-decoration: none;
+}
+
+/* =============================================
+   비회원 주문조회
+   ============================================= */
+
+#order_history_nologin_id {
+  display: flex;
+  justify-content: center;
+  padding: 0 20px 80px;
+  box-sizing: border-box;
+}
+
+#order_history_nologin_id > .login {
+  width: 100%;
+  max-width: 360px;
+  background: #fff;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 40px 0;
+  box-sizing: border-box;
+}
+
+.txt_nonmem_check {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--nutti-text);
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.txtInfo.typeDot {
+  font-size: 12px;
+  color: var(--nutti-sub);
+  text-align: center;
+  margin-bottom: 26px;
+}
+
+#order_history_nologin_id .form input {
+  width: 100% !important;
+  height: 44px !important;
+  padding: 0 !important;
+  border: none !important;
+  border-bottom: 1px solid #ddd7d1 !important;
+  border-radius: 0 !important;
+  font-size: 13px !important;
+  background: #fff !important;
+  margin-bottom: 16px !important;
+  box-sizing: border-box !important;
+  font-family: inherit !important;
+}
+
+#order_history_nologin_id .form input:focus {
+  outline: none !important;
+  border-bottom-color: var(--nutti-brown) !important;
+  background: #fff !important;
+  box-shadow: none !important;
+}
+
+#order_history_nologin_id .login__button {
+  max-width: 100%;
+  margin-top: 22px;
+}
+
+/* =============================================
+   반응형
+   ============================================= */
+
+@media (max-width: 767px) {
+  fieldset.form {
+    max-width: calc(100% - 40px);
+    margin: 42px auto;
+    padding-bottom: 40px;
+  }
+
+  fieldset.form .login,
+  fieldset.form .wrap_security,
+  fieldset.form .login__button,
+  fieldset.form .login__sns,
+  fieldset.form .wrap_find {
+    max-width: 100%;
+  }
+
+  fieldset.form legend {
+    margin-bottom: 28px;
+  }
+
+  fieldset.form legend::before {
+    font-size: 20px;
+  }
+
+  fieldset.form legend::after {
+    font-size: 12px;
+  }
+
+  .login label.id {
+    margin-bottom: 16px;
+  }
+
+  .login label input {
+    height: 44px !important;
+    font-size: 13px !important;
+  }
+
+  .wrap_security {
+    margin-top: 12px !important;
+    margin-bottom: 20px !important;
+  }
+
+  .login__button .btnSubmit.gFull.sizeL,
+  .login__button button.btnSubmit.gFull.sizeL {
+    height: 50px !important;
+    font-size: 13px !important;
+  }
+
+  .wrap_find {
+    margin-top: 22px;
+  }
+
+  .wrap_find a {
+    padding: 0 9px;
+    font-size: 12px;
+  }
+
+  .login__sns {
+    margin-top: 26px;
+  }
+
+  .wrap_sns_log {
+    gap: 8px;
+  }
+
+  .wrap_sns_log a {
+    height: 42px;
+    padding: 0 6px !important;
+    font-size: 12px;
+  }
+
+  #order_history_nologin_id {
+    padding: 0 20px 60px;
+  }
+
+  #order_history_nologin_id > .login {
+    max-width: 100%;
+    padding: 34px 0;
+  }
+}

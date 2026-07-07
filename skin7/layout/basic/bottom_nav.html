@@ -1,0 +1,65 @@
+<style>
+    .bottom_nav { position: fixed; bottom: 0; z-index: 1000; width: 100%; max-width: var(--max-width); padding: 17px 0 18px; border-top: 1px solid var(--black-color-20); background: var(--white-color); box-sizing: border-box; }
+    .bottom_nav ul { display: flex; }
+    .bottom_nav ul li { flex: 1; }
+    .bottom_nav ul li a { display: flex; flex-direction:column; gap:5px; padding: 0 8px; font-size: var(--font-size-2xs); font-weight: var(--font-weight-regular); color: var(--text-black); line-height: var(--line-height-lg); flex-direction: column; align-items: center; text-align: center; }
+    .bottom_nav ul li svg { width: 24px; height: 24px; }
+    @media (max-width:1024px) {
+        .bottom_nav { padding: 11px 0 12px; }
+        .bottom_nav ul li a { font-size: 12px; font-weight: 500; line-height: var(--line-height-xl); gap: 6px; }
+    }
+</style>
+
+<!-- ##module_info #Layout #bottom_nav -->
+<div class="bottom_nav">
+    <ul>
+        <li>
+            <a href="javascript:;" role="button">
+                <!--@import(/svg/ico_category.html)-->
+                <span>카테고리</span>
+            </a>
+        </li>
+        <li>
+            <a href="/product/search.html" class="eSearch">
+                <!--@import(/svg/ico_search.html)-->
+                <span>검색하기</span>
+            </a>
+        </li>
+        <li>
+            <a href="/">
+                <!--@import(/svg/ico_home.html)-->
+                <span>홈</span>
+            </a>
+        </li>
+        <li>
+            <a href="/skin-skin21/product/recent_view_product.html">
+                <!--@import(/svg/ico_clock.html)-->
+                <span>최근본상품</span>
+            </a>
+        </li>
+        <li>
+            <a href="/skin-skin21/myshop/index.html">
+                <!--@import(/svg/ico_user.html)-->
+                <span>마이페이지</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const bottomNav = document.querySelector('.bottom_nav');
+    if (bottomNav) {
+        const height = bottomNav.offsetHeight;
+        document.body.style.paddingBottom = height + 'px';
+    }
+
+    const navCate = document.querySelector('.bottom_nav li:first-child a');
+    const headerFold = document.querySelector('#header .eNavFold');
+    if(navCate){
+        navCate.addEventListener('click',function(e){
+            e.preventDefault();
+            headerFold.click();
+        });
+    }
+});
+</script>

@@ -1,0 +1,24 @@
+.main_content.content_C_b .main_title { display: flex; margin-bottom: 50px; gap: 10px; flex-direction: column; text-align: center; }
+.main_content.content_C_b .main_title_txt01 { font-size: 36px; font-weight: 700; }
+.main_content.content_C_b .main_title_txt02 { font-size: 16px; color: var(--gray-color); }
+.main_content.content_C_b ul { display: grid; gap: 50px 20px; grid-template-columns: repeat(3, 1fr); }
+.main_content.content_C_b ul .content_box { width: 100%; }
+.main_content.content_C_b ul .content_box a { display: block; }
+.main_content.content_C_b ul .content_box a > img { width: 100%; margin-bottom: 20px; object-fit: cover; border-radius: 30px; aspect-ratio: 52 / 39; }
+.main_content.content_C_b ul .content_box .content_text { position: relative; padding: 0 24px 0 10px; }
+.main_content.content_C_b ul .content_box .content_text p { margin-bottom: 12px; font-size: var(--font-size-lg); font-weight: var(--font-weight-medium); line-height: 120%; letter-spacing: -0.02em; }
+.main_content.content_C_b ul .content_box .content_text span { font-size: 16px; line-height: 140%; color: var(--gray-color); }
+.main_content.content_C_b ul .content_box .content_text img { position: absolute; top: 50%; right: 10px; height: 11px; transform: translateY(-50%); }
+.main_content.content_C_b .more a { display: flex; margin-top: 40px; padding: 12px 0; font-size: 14px; line-height: 130%; border: 1px solid #c5c5c8; align-items: center; justify-content: center; }
+.main_content.content_C_b .more a .count { margin-left: 3px; }
+
+@media (max-width:1024px){
+    .main_content.content_C_b .main_title { margin-bottom: 20px; gap: 6px; align-items: flex-start; text-align: left; }
+    .main_content.content_C_b .main_title_txt01 { font-size: 32px; }
+    .main_content.content_C_b .main_title_txt02 { font-size: 14px; }
+    .main_content.content_C_b ul { gap: 30px; grid-template-columns: repeat(1, 1fr); }
+    .main_content.content_C_b ul .content_box a > img { max-height: 650px; margin-bottom: 16px; border-radius: 20px; aspect-ratio: 32 / 24; }
+    .main_content.content_C_b ul .content_box .content_text p { margin-bottom: 6px; font-size: 18px; }
+	.main_content.content_C_b ul .content_box .content_text span { font-size: 14px; line-height: 130%; }
+    .main_content.content_C_b .more a { margin-top: 20px; padding: 10px 0; font-size: 13px; }
+}

@@ -1,0 +1,59 @@
+<!-- ##module_info #Layout #aside #aside_pc_A -->
+<aside class="aside_pc_A" id="aside" module="layout_slidePackage">
+<!--@css(/layout/basic/css/slideMenu.css)-->
+<!--@js(/layout/basic/js/slide_menu.js)-->
+<button class="btnClose" type="button"><!--@import(/svg/ico_x.html)-->닫기</button>
+<nav class="navigation-menu" role="navigation">
+<div class="menu_box">
+<div class="top_category" id="slide_add_category" module="Layout_category">
+<ul>
+<li><a class="view" href="{$link_product_list}">{$name}</a><span class="more"></span></li>
+<li><a class="view" href="{$link_product_list}">{$name}</a><span class="more"></span></li>
+<li class="get_down_community">
+<em>고객센터</em><span class="more"></span>
+<ul class="sub_cate01" module="Layout_BoardInfo">
+<li><a class="view" href="{$link_board_list}">{$board_name}</a></li>
+<li><a class="view" href="{$link_board_list}">{$board_name}</a></li>
+</ul>
+</li>
+<!--  직접 등록 영역 시작 -->
+<!-- <li>
+                        <a href="#" class="view">스토어</a><span class="more"></span>
+                        <ul class="sub_cate01">
+                            <li><a href="#" class="view">스마트스토어</a></li>
+                            <li><a href="#" class="view">유튜브쇼핑</a></li>
+                        </ul>
+                    </li> -->
+<!--  직접 등록 영역 끝 -->
+</ul>
+<div class="navigation_member">
+<div class="navigation_state">
+<a href="{$action_logout}" module="Layout_stateLogon">로그아웃</a>
+<a href="/member/login.html" module="Layout_statelogoff">로그인</a>
+<a class="is_blocked" href="/member/join.html" module="Layout_statelogoff">회원가입</a>
+<a href="/myshop/index.html">마이페이지</a>
+<a href="/order/basket.html">장바구니</a>
+</div><!-- //navigation_state -->
+</div><!-- //navigation_member -->
+<div class="multishop list" module="Layout_multishopList">
+<!--@css(/css/module/layout/multishopList.css)-->
+<button class="toggle" type="button"><span>KR Store</span><i aria-hidden="true" class="icon icoArrowRight"></i></button>
+<ul module="Layout_multishopListitem">
+<li class="{$selected_class}">
+<a href="//{$shop_domain}/">
+<span class="name">{$locale_language}</span>
+</a>
+</li>
+<li class="{$selected_class}">
+<a href="//{$shop_domain}/">
+<span class="name">{$locale_language}</span>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</nav>
+<!-- <button type="button" class="btnClose">< !--@import(/svg/ico_x.html)-- >닫기</button> -->
+</aside>
+<div class="dimmed"></div>

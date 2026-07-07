@@ -1,0 +1,49 @@
+<!-- ##module_info #Layout #aside #aside_B -->
+<aside class="aside_B" id="aside" module="layout_slidePackage">
+<!--@css(/layout/basic/css/slideMenu.css)-->
+<!--@js(/layout/basic/js/slide_menu.js)-->
+<div class="sidebar_logo" module="Layout_LogoTop"><a class="notranslate" href="/"><img alt="{$mall_name}" loading="lazy" src="{$logo}"/></a></div>
+<div class="navigation_member">
+<div class="navigation_state">
+<a href="/member/login.html" module="Layout_statelogoff">LOGIN</a>
+<a href="/member/agreement.html" module="Layout_statelogoff">JOIN IN</a>
+<a href="/myshop/index.html" module="Layout_stateLogon">MY PAGE</a>
+<a class="btn_cart" href="/order/basket.html" module="Layout_orderBasketcount">CART(<span class="count {$basket_count_display_class}"><span class="{$basket_count_class}">{$basket_count}</span></span>)</a>
+<a class="logout_btn" href="{$action_logout}" module="Layout_stateLogon">LOGOUT</a>
+</div><!-- //navigation_state -->
+</div><!-- //navigation_member -->
+<nav class="navigation-menu" role="navigation">
+<div class="navigation-menu__category" id="slideCateList" module="Layout_category">
+<span>CATEGORY</span>
+<ul id="slide_add_category">
+<li><span class="view"><a href="{$link_product_list}">{$name}</a><span class="more"></span></span></li>
+<li><span class="view"><a href="{$link_product_list}">{$name}</a><span class="more"></span></span></li>
+</ul>
+<div class="community_box">
+<a href="#">COMMUNITY</a>
+<ul class="sub_cate01" module="Layout_BoardInfo">
+<li><a class="view" href="{$link_board_list}">{$board_name}</a></li>
+<li><a class="view" href="{$link_board_list}">{$board_name}</a></li>
+</ul>
+</div>
+<div class="multishop list" module="Layout_multishopList">
+<!--@css(/css/module/layout/multishopList.css)-->
+<button class="change_language toggle" type="button"><span>한국어</span><i aria-hidden="true" class="icon"><!--@import(/svg/ico_arrow.html)--></i></button>
+<ul module="Layout_multishopListitem">
+<li class="{$selected_class}">
+<a href="//{$shop_domain}/">
+<span class="name">{$locale_language}</span>
+</a>
+</li>
+<li class="{$selected_class}">
+<a href="//{$shop_domain}/">
+<span class="name">{$locale_language}</span>
+</a>
+</li>
+</ul>
+</div>
+</div><!-- //menu-side/1 -->
+</nav>
+</aside>
+<button class="btnClose" type="button"><!--@import(/svg/ico_x.html)-->닫기</button>
+<!--@js(/modules/aside/js/aside.js)-->

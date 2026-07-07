@@ -1,0 +1,28 @@
+<!-- ##module_info #Layout #Header_Mobile #Header_Mobile_A -->
+<header class="layout3 header_A" id="header">
+<div class="inner">
+<div class="top_nav_box" id="top_nav_box">
+<!-- 모바일 햄버거바 -->
+<div class="top_nav">
+<a class="eNavFold" href="javascript:;" role="button"><!--@import(/svg/ico_category.html)-->카테고리</a>
+</div>
+<!-- 로고 -->
+<div class="top_logo" module="Layout_LogoTop"><a class="notranslate" href="/"><img alt="{$mall_name}" loading="lazy" src="{$logo}"/></a></div>
+<!-- 아이콘 영역 -->
+<div class="top_mypage">
+<a class="btn_cart" href="/order/basket.html" module="Layout_orderBasketcount"><!--@import(/svg/ico_cart.html)-->장바구니<span class="count {$basket_count_display|display} {$basket_count_display_class}"><span class="{$basket_count_class}">{$basket_count}</span></span></a>
+</div><!-- //top_mypage -->
+</div><!-- //top_nav_box -->
+<!-- 카테고리 영역 -->
+<div class="top_category" module="Layout_category">
+<!--@js(/js/module/layout/category.js)-->
+<ul>
+<li><a href="{$link_product_list}">{$name}</a></li>
+<li><a href="{$link_product_list}">{$name}</a></li>
+<!--  직접 등록 영역 시작 -->
+<!-- <li><a href="#">스토어</a></li> -->
+<!--  직접 등록 영역 끝 -->
+</ul>
+</div>
+</div><!-- //inner -->
+</header>

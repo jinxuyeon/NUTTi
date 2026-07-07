@@ -1,0 +1,333 @@
+/* nutti-index.css — index.html 인라인 <style> 추출본 (원본 순서 유지) */
+
+/* ===== index block #1 ===== */
+.nutti-hero-video{width:100%;overflow:hidden;line-height:0;margin-bottom:80px;}
+.nutti-hero-video video{width:100%;height:auto;display:block;background:#f9f6f0;}
+.nutti-hero-video .nutti-hero-d{aspect-ratio:3440/1474;}
+.nutti-hero-video .nutti-hero-d,.nutti-hero-video .nutti-hero-m{display:none;}
+.nutti-hero-video.is-desktop .nutti-hero-d{display:block;}
+.nutti-hero-video.is-mobile .nutti-hero-m{display:block;}
+
+/* ===== index block #3 ===== */
+.swiper-prev-highlight_product,
+.swiper-next-highlight_product{
+  background-image:url("/skin-skin1/SkinImg/img/left.png") !important;
+  background-size:24px auto !important;
+  background-repeat:no-repeat !important;
+  background-position:center center !important;
+}
+.swiper-next-highlight_product{
+  background-image:url("/skin-skin1/SkinImg/img/right.png") !important;
+}
+.main_product_slide .swiper-prev-highlight_product,
+.main_product_slide .swiper-next-highlight_product{
+  top:44% !important;
+}
+.nr-carousel .nr-arrow.prev,
+.nr-carousel .nr-arrow.next,
+.nutti-review .nr-arrow.prev,
+.nutti-review .nr-arrow.next{
+  background-image:url("/skin-skin1/SkinImg/img/left.png") !important;
+  background-size:24px auto !important;
+  background-repeat:no-repeat !important;
+  background-position:center center !important;
+  font-size:0 !important;
+  color:transparent !important;
+}
+.nr-carousel .nr-arrow.next,
+.nutti-review .nr-arrow.next{
+  background-image:url("/skin-skin1/SkinImg/img/right.png") !important;
+}
+
+/* ===== 헤더 반응형 햄버거 메뉴 (NUTTI) : 좁은 화면(<=1440px)에서만 작동, 넓은 화면 원본 유지 ===== */
+#nuttiHamBtn{ display:none; position:relative; z-index:1002; width:34px; height:30px; background:none; border:0; padding:4px; cursor:pointer; margin-right:14px; }
+#nuttiHamBtn span{ display:block; width:24px; height:2px; background:#3a3a3a; margin:5px 0; transition:.3s; border-radius:2px; }
+#nuttiMenuOverlay{ display:none; position:fixed; inset:0; background:rgba(0,0,0,.4); z-index:1000; }
+@media (min-width:1025px) and (max-width:1440px){
+  #nuttiHamBtn{ display:block; }
+  #header .top_nav_box .top_category{
+    position:fixed !important; top:0 !important; right:0 !important;
+    width:280px !important; max-width:82vw !important; height:100vh !important; height:100dvh !important;
+    margin:0 !important; padding:70px 0 30px !important; background:#fff !important; z-index:1001 !important;
+    box-shadow:-4px 0 18px rgba(0,0,0,.15) !important; transform:translateX(100%); transition:transform .3s ease; overflow-y:auto !important;
+  }
+  #header .top_nav_box .top_category > ul{ flex-direction:column !important; align-items:stretch !important; justify-content:flex-start !important; width:100% !important; }
+  #header .top_nav_box .top_category > ul > li{ width:100% !important; padding:0 !important; border-bottom:1px solid #f0f0f0 !important; }
+  #header .top_nav_box .top_category > ul > li > a{ display:block !important; padding:16px 22px !important; font-size:15px !important; white-space:normal !important; }
+  body.nutti-menu-open #header .top_nav_box .top_category{ transform:translateX(0) !important; }
+  body.nutti-menu-open #nuttiMenuOverlay{ display:block; }
+  body.nutti-menu-open #nuttiHamBtn span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+  body.nutti-menu-open #nuttiHamBtn span:nth-child(2){ opacity:0; }
+  body.nutti-menu-open #nuttiHamBtn span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+}
+
+/* ===== 헤더 반응형 정렬 통일 (NUTTI) : 스크롤 전(일반)과 스크롤 후(fixed)를 동일하게, 로고/햄버거/아이콘 모두 헤더 세로 중앙 정렬 ===== */
+@media (max-width:1440px){
+  /* nav box: 스크롤 전/후 동일한 고정 높이의 정렬 기준 컨테이너 (ID 명시도로 테마 규칙 제압) */
+  body.theme04 #header #top_nav_box,
+  body.theme04 #header.fixed #top_nav_box{
+    position:relative !important; height:60px !important; min-height:60px !important;
+    display:flex !important; align-items:center !important;
+  }
+
+  /* 로고: 좌우/상하 정중앙. 테마의 height:74px·top 오프셋을 덮어 스크롤 전/후 동일 위치 */
+  body.theme04 #header #top_nav_box .top_logo,
+  body.theme04 #header.fixed #top_nav_box .top_logo,
+  body.theme04 #header #top_nav_box .xans-layout-logotop,
+  body.theme04 #header.fixed #top_nav_box .xans-layout-logotop{
+    position:absolute !important; left:50% !important; right:auto !important;
+    top:0 !important; bottom:0 !important; height:60px !important; max-height:60px !important;
+    width:auto !important; margin:0 !important;
+    display:flex !important; align-items:center !important; justify-content:center !important;
+    -webkit-transform:translateX(-50%) !important; transform:translateX(-50%) !important;
+    text-align:center !important; z-index:1005 !important;
+  }
+  /* 로고 크기 스크롤 전/후 동일 */
+  body.theme04 #header #top_nav_box .top_logo img,
+  body.theme04 #header.fixed #top_nav_box .top_logo img{
+    max-height:30px !important; height:auto !important; width:auto !important; max-width:200px !important;
+  }
+  body.theme04 #header #top_nav_box .top_logo a,
+  body.theme04 #header.fixed #top_nav_box .top_logo a{ display:inline-block !important; }
+
+  /* 우측 픽토그램(마이/장바구니/검색): 테마의 top:auto/-20px 등을 덮고 헤더 세로 중앙 정렬 (스크롤 전/후 동일) */
+  body.theme04 #header #top_nav_box .top_mypage,
+  body.theme04 #header.fixed #top_nav_box .top_mypage{
+    position:absolute !important; left:0 !important; right:0 !important;
+    top:0 !important; bottom:0 !important; height:60px !important; margin:0 !important;
+    display:flex !important; align-items:center !important; justify-content:flex-end !important; gap:0 !important;
+  }
+  /* 삼선(모바일 햄버거) 좌측 이동 + 돋보기와 상하 평행 정렬 (NUTTI) : 다른 요소 영향 없이 mo_nav만 헤더 좌측 끝으로 */
+  body.theme04 #header #top_nav_box .top_mypage .mo_nav,
+  body.theme04 #header.fixed #top_nav_box .top_mypage .mo_nav{
+    position:static !important; order:-1 !important; margin:0 auto 0 0 !important;
+    display:flex !important; align-items:center !important;
+  }
+  body.theme04 #header #top_nav_box .top_mypage .mo_nav a.eNavFold,
+  body.theme04 #header.fixed #top_nav_box .top_mypage .mo_nav a.eNavFold{
+    display:flex !important; align-items:center !important;
+  }
+  body.theme04 #header #top_nav_box .top_mypage a.eNavFold,
+  body.theme04 #header.fixed #top_nav_box .top_mypage a.eNavFold,
+  body.theme04 #header #top_nav_box .top_mypage .top_search > a,
+  body.theme04 #header.fixed #top_nav_box .top_mypage .top_search > a{
+    display:flex !important; align-items:center !important; justify-content:center !important;
+    height:100% !important; padding:0 16px !important; box-sizing:border-box !important;
+  }
+  body.theme04 #header #top_nav_box .top_mypage .top_search,
+  body.theme04 #header.fixed #top_nav_box .top_mypage .top_search{ right:0 !important; }
+
+  /* 좌측 햄버거(삼선): 헤더 세로 중앙에 고정 (스크롤 전/후 동일) */
+  body.theme04 #header #top_nav_box #nuttiHamBtn,
+  body.theme04 #header.fixed #top_nav_box #nuttiHamBtn{
+    position:absolute !important; left:6px !important; right:auto !important;
+    top:50% !important; bottom:auto !important;
+    -webkit-transform:translateY(-50%) !important; transform:translateY(-50%) !important;
+    margin:0 !important; height:30px !important;
+    display:flex !important; flex-direction:column !important; justify-content:center !important;
+    z-index:1003 !important;
+  }
+  body.theme04 #header #top_nav_box #nuttiHamBtn span{ margin:4px 0 !important; }
+
+  /* ===== 모바일 햄버거(삼선) 3줄 복구 + 로고 기준 상하 중앙 정렬 (NUTTI) =====
+     eNavFold의 flex로 인해 가운데 줄(.icoNav)이 수축되어 2줄로 보이던 문제 수정.
+     .icoNav 본체=가운데 줄, ::before=위, ::after=아래 로 3줄을 24px 폭으로 고정하고
+     eNavFold(24px) 기준 절대 중앙(top:50%)에 배치하여 로고/돋보기와 상하선을 맞춤 */
+  body.theme04 #header #top_nav_box .top_mypage .mo_nav a.eNavFold,
+  body.theme04 #header.fixed #top_nav_box .top_mypage .mo_nav a.eNavFold{
+    display:block !important; position:relative !important;
+    width:24px !important; height:24px !important; padding:0 !important; margin:0 !important;
+  }
+  body.theme04 #header #top_nav_box .top_mypage .mo_nav a.eNavFold .icon.icoNav,
+  body.theme04 #header.fixed #top_nav_box .top_mypage .mo_nav a.eNavFold .icon.icoNav{
+    display:block !important; position:absolute !important;
+    top:50% !important; left:0 !important; margin:-1px 0 0 0 !important;
+    -webkit-transform:none !important; transform:none !important;
+    width:24px !important; height:2px !important;
+    background:#3a3a3a !important; border-radius:2px !important;
+    box-shadow:none !important; font-size:0 !important; flex:none !important;
+  }
+  body.theme04 #header #top_nav_box .top_mypage .mo_nav a.eNavFold .icon.icoNav::before,
+  body.theme04 #header.fixed #top_nav_box .top_mypage .mo_nav a.eNavFold .icon.icoNav::before{
+    content:"" !important; position:absolute !important; top:-8px !important; left:0 !important;
+    width:24px !important; height:2px !important; background:#3a3a3a !important;
+    border-radius:2px !important; box-shadow:none !important; transform:none !important;
+  }
+  body.theme04 #header #top_nav_box .top_mypage .mo_nav a.eNavFold .icon.icoNav::after,
+  body.theme04 #header.fixed #top_nav_box .top_mypage .mo_nav a.eNavFold .icon.icoNav::after{
+    content:"" !important; position:absolute !important; top:8px !important; left:0 !important;
+    width:24px !important; height:2px !important; background:#3a3a3a !important;
+    border-radius:2px !important; box-shadow:none !important; transform:none !important;
+  }
+
+  /* ===== 스크롤 전(#header:not(.fixed)) 상태에서 아이콘 바가 헤더 위로 밀리는 문제 수정 (NUTTI)
+     원본 테마가 top_mypage에 transform:translateY(-12px)를 걸어 햄버거/돋보기를 헤더 위로
+     올려버리므로, id 이중명시로 특이도를 높여 transform을 제거하고 헤더(로고와 동일한 세로중앙)에
+     고정. 스크롤 후(fixed) 상태·다른 요소는 손대지 않음 ===== */
+  body.theme04 #header#header:not(.fixed) #top_nav_box .top_mypage{
+    top:0 !important; bottom:0 !important; height:60px !important; margin:0 !important;
+    -webkit-transform:none !important; transform:none !important;
+    display:flex !important; align-items:center !important;
+  }
+  /* 위 top_mypage 정렬 후, 햄버거 가운데 줄(icoNav)이 eNavFold 내부에서 top:12px로 처지는 것을
+     eNavFold(24px) 정중앙에 배치하여 로고 상하선과 정확히 맞춤 (스크롤 전 상태 한정) */
+  body.theme04 #header#header:not(.fixed) #top_nav_box .top_mypage li.mo_nav a.eNavFold .icon.icoNav{
+    position:absolute !important; top:50% !important; bottom:auto !important; left:0 !important;
+    margin:0 !important;
+    -webkit-transform:translateY(-50%) !important; transform:translateY(-50%) !important;
+
+/* NUTTI fixed-state hamburger fix - apply in BOTH states */
+body.theme04 #header#header #top_nav_box .top_mypage{
+  top:0!important; bottom:0!important; height:60px!important;
+  margin:0!important; transform:none!important;
+  display:flex!important; align-items:center!important;
+}
+body.theme04 #header#header #top_nav_box .top_mypage li.mo_nav{
+  display:flex!important; align-items:center!important;
+}
+body.theme04 #header#header #top_nav_box .top_mypage li.mo_nav a.eNavFold{
+  display:block!important; position:relative!important;
+  width:24px!important; height:24px!important; margin:0!important;
+}
+body.theme04 #header#header #top_nav_box .top_mypage li.mo_nav a.eNavFold .icon.icoNav{
+  display:block!important; position:absolute!important;
+  top:50%!important; bottom:auto!important; left:0!important;
+  width:24px!important; height:2px!important; margin:0!important;
+  background:#3a3a3a!important; transform:translateY(-50%)!important;
+}
+body.theme04 #header#header #top_nav_box .top_mypage li.mo_nav a.eNavFold .icon.icoNav::before,
+body.theme04 #header#header #top_nav_box .top_mypage li.mo_nav a.eNavFold .icon.icoNav::after{
+  content:''!important; display:block!important; position:absolute!important;
+  left:0!important; width:24px!important; height:2px!important; background:#3a3a3a!important;
+}
+body.theme04 #header#header #top_nav_box .top_mypage li.mo_nav a.eNavFold .icon.icoNav::before{ top:-8px!important; }
+body.theme04 #header#header #top_nav_box .top_mypage li.mo_nav a.eNavFold .icon.icoNav::after{ top:8px!important; }
+
+  }
+}
+
+  /* ===== 메인 비주얼(히어로) 슬라이드 페이지네이션 버튼 라운딩 + 비활성 보더(#8c6239) (NUTTI) : 데스크톱·반응형 공통 ===== */
+  body.theme04 #contents .smart-banner-bx-wrapper .bx-pager .bx-pager-link{
+    border-radius:9999px !important;
+    background:transparent !important;
+    background-color:transparent !important;
+    border:1px solid #8c6239 !important;
+    border-color:#8c6239 !important;
+    box-sizing:border-box !important;
+  }
+  body.theme04 #contents .smart-banner-bx-wrapper .bx-pager .bx-pager-link.active{
+    background:#f9f6f1 !important;
+    background-color:#f9f6f1 !important;
+    border:0 none !important;
+    border-color:transparent !important;
+  }
+
+  /* ===== 캐러셀 페이지네이션 버튼 라운딩 + 비활성 보더(#8b6339) (NUTTI) : 데스크톱·반응형 공통 ===== */
+  body.theme04 #contents .swiper-pagination-highlight_product .swiper-pagination-bullet{
+    border-radius:9999px !important;
+    background:transparent !important;
+    background-color:transparent !important;
+    border:1px solid #8b6339 !important;
+    border-color:#8b6339 !important;
+    opacity:1 !important;
+  }
+  body.theme04 #contents .swiper-pagination-highlight_product .swiper-pagination-bullet-active{
+    background:#8c6239 !important;
+    background-color:#8c6239 !important;
+    border:1px solid #8b6339 !important;
+    border-color:#8b6339 !important;
+    opacity:1 !important;
+  }
+
+  /* ===== 반응형 캐러셀 페이지네이션 분수형 (NUTTI) : "가장 사랑받은 상품" 점 두줄 방지. 데스크톱(1025px↑) 원본 점 유지 ===== */
+  /* 분수 카운터 요소는 JS가 생성. 기본은 숨김(데스크톱), 반응형에서만 표시 */
+  .swiper-pagination-highlight_product .nutti-frac{ display:none; }
+  @media (max-width:1024px){
+    /* 반응형: 점 숨기고 분수만 표시 */
+    .swiper-pagination.swiper-pagination-highlight_product{
+      display:flex !important; justify-content:center !important; align-items:center !important;
+      width:100% !important; left:0 !important; right:0 !important;
+      -webkit-transform:none !important; transform:none !important; margin:0 !important;
+      white-space:nowrap !important; line-height:1 !important;
+    }
+    .swiper-pagination-highlight_product .swiper-pagination-bullet{ display:none !important; }
+    .swiper-pagination-highlight_product .nutti-frac{
+      display:inline-block !important;
+      font-size:14px !important; font-weight:600 !important; letter-spacing:1px !important;
+      color:#5c3d24 !important; line-height:1 !important; white-space:nowrap !important;
+    }
+    .swiper-pagination-highlight_product .nutti-frac .nutti-frac-cur{ color:#8c6239 !important; }
+    .swiper-pagination-highlight_product .nutti-frac .nutti-frac-sep{ margin:0 4px !important; opacity:.6 !important; }
+
+/* NUTTI fixed-state hamburger visibility fix (1024) */
+body.theme04 #header#header.fixed #top_nav_box .top_mypage,
+body.theme04 #header#header:not(.fixed) #top_nav_box .top_mypage{
+  top:0!important; bottom:0!important; height:60px!important; margin:0!important;
+  transform:none!important; display:flex!important; align-items:center!important;
+}
+body.theme04 #header#header.fixed #top_nav_box .top_mypage li.mo_nav,
+body.theme04 #header#header:not(.fixed) #top_nav_box .top_mypage li.mo_nav{
+  display:flex!important; align-items:center!important;
+}
+body.theme04 #header#header.fixed #top_nav_box .top_mypage li.mo_nav a.eNavFold,
+body.theme04 #header#header:not(.fixed) #top_nav_box .top_mypage li.mo_nav a.eNavFold{
+  display:block!important; position:relative!important; width:24px!important; height:24px!important; margin:0!important; overflow:visible!important;
+}
+body.theme04 #header#header.fixed #top_nav_box .top_mypage li.mo_nav a.eNavFold .icon.icoNav,
+body.theme04 #header#header:not(.fixed) #top_nav_box .top_mypage li.mo_nav a.eNavFold .icon.icoNav{
+  display:block!important; position:absolute!important; top:50%!important; bottom:auto!important; left:0!important;
+  width:24px!important; height:2px!important; margin:0!important; background:#3a3a3a!important; transform:translateY(-50%)!important;
+}
+body.theme04 #header#header.fixed #top_nav_box .top_mypage li.mo_nav a.eNavFold .icon.icoNav::before,
+body.theme04 #header#header.fixed #top_nav_box .top_mypage li.mo_nav a.eNavFold .icon.icoNav::after,
+body.theme04 #header#header:not(.fixed) #top_nav_box .top_mypage li.mo_nav a.eNavFold .icon.icoNav::before,
+body.theme04 #header#header:not(.fixed) #top_nav_box .top_mypage li.mo_nav a.eNavFold .icon.icoNav::after{
+  content:''!important; display:block!important; position:absolute!important; left:0!important; width:24px!important; height:2px!important; background:#3a3a3a!important;
+}
+body.theme04 #header#header.fixed #top_nav_box .top_mypage li.mo_nav a.eNavFold .icon.icoNav::before,
+body.theme04 #header#header:not(.fixed) #top_nav_box .top_mypage li.mo_nav a.eNavFold .icon.icoNav::before{ top:-8px!important; }
+body.theme04 #header#header.fixed #top_nav_box .top_mypage li.mo_nav a.eNavFold .icon.icoNav::after,
+body.theme04 #header#header:not(.fixed) #top_nav_box .top_mypage li.mo_nav a.eNavFold .icon.icoNav::after{ top:8px!important; }
+
+/* NUTTI header nav: identical layout for fixed & non-fixed (ham LEFT / logo center / search RIGHT) */
+body.theme04 #header#header.fixed #top_nav_box .top_mypage,
+body.theme04 #header#header:not(.fixed) #top_nav_box .top_mypage{
+  left:0!important; right:0!important; width:100%!important;
+  padding-left:20px!important; padding-right:20px!important; box-sizing:border-box!important;
+  justify-content:space-between!important; align-items:center!important;
+}
+body.theme04 #header#header.fixed #top_nav_box .top_mypage li.mo_nav,
+body.theme04 #header#header:not(.fixed) #top_nav_box .top_mypage li.mo_nav{
+  order:-1!important; margin:0!important; margin-right:auto!important;
+}
+body.theme04 #header#header.fixed #top_nav_box .top_mypage .top_search,
+body.theme04 #header#header:not(.fixed) #top_nav_box .top_mypage .top_search{
+  order:10!important; margin:0!important; margin-left:auto!important;
+}
+
+
+/* NUTTI fixed header: same height as top (remove 1px border to equalize margins) */
+body.theme04 #header#header.fixed{ border-bottom:0!important; border-top:0!important; }
+
+  }
+/* loved carousel scrollbar - identical to recommended carousel */
+.swiper-scrollbar-highlight_product{
+  height:6px !important;
+  border-radius:100px !important;
+  background:rgb(243,243,255) !important;
+  box-shadow:rgb(140,98,57) 0px 0px 0px 1px inset !important;
+  opacity:0.5 !important;
+}
+.swiper-scrollbar-highlight_product .swiper-scrollbar-drag{
+  height:6px !important;
+  border-radius:10px !important;
+  background:rgb(140,98,57) !important;
+  opacity:1 !important;
+}
+
+/* ===== index block #6 ===== */
+.nutti-hero-bottom{width:100%;overflow:hidden;line-height:0;margin-top:80px;}
+.nutti-hero-bottom video{width:100%;height:auto;display:block;background:#f9f6f0;}
+.nutti-hero-bottom .nutti-hero-bottom-d,.nutti-hero-bottom .nutti-hero-bottom-m{display:none;}
+.nutti-hero-bottom.is-desktop .nutti-hero-bottom-d{display:block;}
+.nutti-hero-bottom.is-mobile .nutti-hero-bottom-m{display:block;}

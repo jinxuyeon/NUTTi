@@ -244,16 +244,19 @@ body.nutti-login .titleArea,body.nutti-login .section.path,body.nutti-login #asi
 /* ===== block #9 nutti-header-edge (layout.html에서 추출) ===== */
 #header:not(.fixed) #top_nav_box .top_mypage{right:40px !important;}#header:not(.fixed) .toparea{padding-right:40px !important;padding-left:40px !important;box-sizing:border-box !important;}
 
-/* ===== block #10 nutti-cat-gap (layout.html에서 추출) ===== */
-#header:not(.fixed) #top_nav_box > *:not(.xans-layout-logotop):not(.top_mypage){padding-right:80px !important;box-sizing:border-box !important;}
-
-/* ===== block #11 (layout.html에서 추출) ===== */
+/* ===== block #11 (헤더 ul 뷰포트 중앙 정렬) ===== */
+/* ponytail: 고정폭 1150px 제거 — ul을 콘텐츠 크기로 두고 justify-content로 중앙 정렬 */
 #top_nav_box .top_category,
 #top_nav_box .top_category > ul {
-  width: 1150px !important;
+  width: auto !important;
   flex-wrap: nowrap !important;
   white-space: nowrap;
+  justify-content: center;
 }
+#top_nav_box .top_category { margin: 0 !important; }
+/* 마지막 li의 비대칭 padding(138px/40px) 제거 — 중앙 정렬 어긋남과 ul 밖 튀어나옴 원인 */
+#header:not(.fixed) #top_nav_box .top_category > ul > li:last-child { padding: 0 25px !important; }
+#header:not(.fixed) #top_nav_box .top_category > ul > li:last-child > a { padding-right: 0 !important; }
 
 /* ===== block #12 (layout.html에서 추출) ===== */
 .nr-carousel .nr-arrow.prev,

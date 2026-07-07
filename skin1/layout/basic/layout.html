@@ -133,18 +133,6 @@
 <script>
 /* nutti-underline: BEST 탭 언더라인 너비/위치 글자에 맞춤 */
 window.addEventListener('load', function(){
-  // bottom 값 적용
-  for(var i=0;i<document.styleSheets.length;i++){
-    try{
-      var rules=document.styleSheets[i].cssRules;
-      for(var j=0;j<rules.length;j++){
-        var r=rules[j];
-        if(r.selectorText&&r.selectorText.indexOf('top_category')>=0&&r.selectorText.indexOf('after')>=0&&r.style.bottom){
-          r.style.setProperty('bottom','30px','important');
-        }
-      }
-    }catch(e){}
-  }
   // 각 탭 ::after 너비/위치를 텍스트에 맞춤
   var as=document.querySelectorAll('#header .inner .top_nav_box .top_category > ul > li > a');
   var css='';

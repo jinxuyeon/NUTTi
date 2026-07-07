@@ -73,12 +73,11 @@ a:hover {text-decoration:none;}
 #header .inner .top_nav_box .top_category {margin:0 165px 0 25px;display:flex;flex-wrap:wrap;}
 #header .inner .top_nav_box .top_category > ul {display:flex;align-items:center;flex-wrap:wrap;}
 #header .inner .top_nav_box .top_category > ul > li {height:80px;display:flex;align-items:center;padding:0 20px;position:relative;}
-#header .inner .top_nav_box .top_category > ul > li > a {font-size:16px;font-weight:400;display:block;line-height:78px;color:#1a1a1a;white-space:nowrap;transition:font-weight 0s;position:relative;}
-#header .inner .top_nav_box .top_category > ul > li > a:after {content: "";position:absolute;display: block;bottom:0;left:0;width: 100%; height:2px; background-color: #d0ac88;-webkit-transform: scaleX(0); -ms-transform: scaleX(0); transform: scaleX(0);-webkit-transform-origin: 100% 0; -ms-transform-origin: 100% 0; transform-origin: 100% 0;-webkit-transition: -webkit-transform .3s cubic-bezier(.45,.46,.05,.96);-o-transition: transform .3s cubic-bezier(.45,.46,.05,.96);transition: transform .3s cubic-bezier(.45,.46,.05,.96);transition: transform .3s cubic-bezier(.45,.46,.05,.96),-webkit-transform .3s cubic-bezier(.45,.46,.05,.96);}
-#header .inner .top_nav_box .top_category > ul > li:hover > a:after {-webkit-transform: scaleX(1); -ms-transform: scaleX(1); transform: scaleX(1);-webkit-transform-origin: 0 0; -ms-transform-origin: 0 0; transform-origin: 0 0;-webkit-transition: -webkit-transform .5s cubic-bezier(.45,.46,.05,.96);-o-transition: transform .5s cubic-bezier(.45,.46,.05,.96);transition: transform .5s cubic-bezier(.45,.46,.05,.96);transition: transform .5s cubic-bezier(.45,.46,.05,.96),-webkit-transform .5s cubic-bezier(.45,.46,.05,.96);}
+#header .inner .top_nav_box .top_category > ul > li > a {font-size:16px;font-weight:400;display:block;line-height:78px;color:#1a1a1a;white-space:nowrap;position:relative;}
+#header .inner .top_nav_box .top_category > ul > li > a:after {content: "";position:absolute;display: block;bottom:0;left:0;width: 100%; height:2px; background-color: #d0ac88;-webkit-transform: scaleX(0); -ms-transform: scaleX(0); transform: scaleX(0);-webkit-transform-origin: 100% 0; -ms-transform-origin: 100% 0; transform-origin: 100% 0;-webkit-transition: -webkit-transform .2s cubic-bezier(.45,.46,.05,.96);-o-transition: transform .2s cubic-bezier(.45,.46,.05,.96);transition: transform .2s cubic-bezier(.45,.46,.05,.96);transition: transform .2s cubic-bezier(.45,.46,.05,.96),-webkit-transform .2s cubic-bezier(.45,.46,.05,.96);}
+#header .inner .top_nav_box .top_category > ul > li:hover > a:after {-webkit-transform: scaleX(1); -ms-transform: scaleX(1); transform: scaleX(1);-webkit-transform-origin: 0 0; -ms-transform-origin: 0 0; transform-origin: 0 0;-webkit-transition: -webkit-transform .25s cubic-bezier(.45,.46,.05,.96);-o-transition: transform .25s cubic-bezier(.45,.46,.05,.96);transition: transform .25s cubic-bezier(.45,.46,.05,.96);transition: transform .25s cubic-bezier(.45,.46,.05,.96),-webkit-transform .25s cubic-bezier(.45,.46,.05,.96);}
 #header .inner .top_nav_box .top_category > ul > li > a {display:inline-flex !important;flex-direction:column;align-items:center;justify-content:center;line-height:1 !important;height:80px;}
-#header .inner .top_nav_box .top_category > ul > li > a::before {content:attr(data-text);font-size:16px;font-weight:700;height:0;visibility:hidden;overflow:hidden;pointer-events:none;white-space:nowrap;display:block;}
-#header .inner .top_nav_box .top_category > ul > li:hover > a {font-weight:700 !important;color:#8c6239 !important;}
+#header .inner .top_nav_box .top_category > ul > li:hover > a {color:#8c6239 !important;}
 #header .inner .top_nav_box .top_category .sub_cate01 {display: none;}
 #header .inner .top_nav_box .top_category li.on .sub_cate01,
 #header .inner .top_nav_box .top_category .sub-category {display:block;position:absolute;top:80px;left:-5px;z-index:10;margin:0;width:auto;min-width:120px;padding:20px 0;background-color:#fff;box-shadow: 5px 3px 20px rgba(0, 0, 0, 0.05);-webkit-box-shadow: 5px 3px 20px rgba(0, 0, 0, 0.05);}
@@ -436,5 +435,5 @@ a:hover {text-decoration:none;}
 #modalContainer #modalContent { width:100%; height:100%; }
 /* 헤더 탭 hover 언더라인 위치 - 글자 바로 아래 */
 #header .inner .top_nav_box .top_category > ul > li > a::after {
-  bottom: 30px !important;
+  bottom: 24px !important;
 }

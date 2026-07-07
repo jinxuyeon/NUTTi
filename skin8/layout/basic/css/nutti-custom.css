@@ -598,3 +598,8 @@ body.theme04 #header #top_nav_box .top_mypage li:has(> a[href*="order/basket.htm
 
 /* ===== 리뷰 캐러셀 영상 카드 (2026-07-06 추가) ===== */
 .nutti-review .nr-vidbg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+
+/* ===== hover 밑줄은 데스크톱 가로 메뉴 전용 — 서랍(1025~1440)/모바일(~1024) 메뉴에선 링크가 낮아 취소선처럼 보임 ===== */
+@media (max-width:1440px){
+  #header .top_nav_box .top_category > ul > li > a::after{ display:none !important; }
+}

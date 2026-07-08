@@ -155,6 +155,9 @@ window.addEventListener('load', function(){
   // CART 버튼 클릭 시 장바구니 담고 패널 열기
   (function(){
     var PANEL_ID='nuttiCartPanel';
+    /* ── 장바구니(담기 패널) 스크래핑 설정. 주의: 헤더카트 패널은 별도 구현 2벌(아래 ncp IIFE / js/main.js)이 같은 값을 하드코딩 → 중복 정리 필요 ── */
+    var NUTTI_CART_CFG={ basketUrl:'/order/basket.html', dataVar:'aBasketProductData', badgeSel:'.EC-Layout_Basket-count-display' };
+    function ncWarn(m){ try{ console.warn('[NUTTI cart]', m); }catch(_){} }
     // 장바구니 담기 직후 basket.html 로 이동하려는 기본동작을 차단(armed 구간) 후 패널을 연다.
     var navGuardOn=false, navGuardUntil=0;
     function navGuardActive(){ return navGuardOn && Date.now()<navGuardUntil; }
@@ -203,12 +206,13 @@ window.addEventListener('load', function(){
       try{ if(window._nuttiCartFrame&&window._nuttiCartFrame.parentNode) window._nuttiCartFrame.parentNode.removeChild(window._nuttiCartFrame); }catch(e){}
       var fr=document.createElement('iframe');
       fr.style.cssText='position:fixed;width:1px;height:1px;left:-9999px;top:-9999px;border:0;opacity:0;pointer-events:none;';
-      fr.src='/order/basket.html';
+      fr.src=NUTTI_CART_CFG.basketUrl;
       window._nuttiCartFrame=fr;
       fr.addEventListener('load',function(){
-        var data=[];
-        try{ data=fr.contentWindow.aBasketProductData||[]; }catch(e){}
-        nuttiRenderCart(data);
+        var raw;
+        try{ raw=fr.contentWindow[NUTTI_CART_CFG.dataVar]; }catch(e){ ncWarn('iframe 접근 실패(교차출처?): '+e); }
+        if(typeof raw==='undefined'){ ncWarn('장바구니 데이터('+NUTTI_CART_CFG.dataVar+') 없음 — Cafe24 변경 또는 빈 장바구니'); }
+        nuttiRenderCart(raw||[]);
       });
       document.body.appendChild(fr);
     }
@@ -354,7 +358,7 @@ window.addEventListener('load', function(){
         var badge=document.getElementById('nuttiCartBadge');
         if(!badge)return;
         /* Cafe24 \uAE30\uBCF8 \uD5E4\uB354 \uC7A5\uBC14\uAD6C\uB2C8 \uCE74\uC6B4\uD2B8\uB97C \uADF8\uB300\uB85C \uBBF8\uB7EC\uB9C1(\uBAA8\uB4E0 \uD398\uC774\uC9C0\uC5D0 \uC874\uC7AC) */
-        var src=document.querySelector('.EC-Layout_Basket-count-display');
+        var src=document.querySelector(NUTTI_CART_CFG.badgeSel);
         var n=0;
         if(src){ var t=(src.textContent||'').replace(/[^0-9]/g,''); n=parseInt(t)||0; }
         badge.textContent=n;
@@ -655,8 +659,10 @@ window.addEventListener('load', function(){
     cartFrame.style.cssText='position:fixed;width:1px;height:1px;left:-9999px;top:-9999px;border:0;opacity:0;pointer-events:none;';
     cartFrame.src='/order/basket.html';
     cartFrame.addEventListener('load',function(){
-      var d=[];
-      try{d=cartFrame.contentWindow.aBasketProductData||[];}catch(e){}
+      var d=[],raw;
+      try{ raw=cartFrame.contentWindow.aBasketProductData; }catch(e){ try{console.warn('[NUTTI cart/ncp] iframe 접근 실패: '+e);}catch(_){} }
+      if(typeof raw==='undefined'){ try{console.warn('[NUTTI cart/ncp] aBasketProductData 없음 — Cafe24 변경 또는 빈 장바구니');}catch(_){} }
+      d=raw||[];
       ncpRender(d);
       cartLoaded=true;
     });

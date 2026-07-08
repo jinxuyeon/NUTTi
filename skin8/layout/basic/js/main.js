@@ -217,7 +217,7 @@ jQuery(document).ready(function() {
     frame.src="/order/basket.html";
     frame.onload=function(){
       var data=[],total="";
-      try{ var w=frame.contentWindow; data=w.aBasketProductData||[];
+      try{ var w=frame.contentWindow; if(typeof w.aBasketProductData==='undefined'){ try{console.warn('[NUTTI cart/main] aBasketProductData 없음 — Cafe24 변경 또는 빈 장바구니');}catch(_){} } data=w.aBasketProductData||[];
         var d=w.document; var tEl=d.querySelector("#totalSettlePrice, .total strong, strong#total_price, .ec-base-prdInfo .total"); if(tEl)total=tEl.textContent.trim();
       }catch(err){}
       render(data);

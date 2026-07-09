@@ -179,7 +179,7 @@ a:hover {text-decoration:none;}
 #footer .inner .inner_t .info_right .wrap_cs .bank_txt {margin-right:85px;}
 #footer .inner .inner_t .info_right .wrap_cs .cs_center_txt,
 #footer .inner .inner_t .info_right .wrap_cs .bank_txt {font-size:13px;font-weight:300;color:#000;line-height:24px;letter-spacing:-0.05em;}
-#footer .inner .inner_t .info_right .wrap_cs .sns_txt a {font-size:13px;font-weight:300;color:#000;line-height:24px;letter-spacing:-0.05em;display:block;transition:opacity .2s;}
+#footer .inner .inner_t .info_right .wrap_cs .sns_txt a {font-size:13px;font-weight:300;color:#000;line-height:24px;letter-spacing:normal;display:block;transition:opacity .2s;}
 #footer .inner .inner_t .info_right .wrap_cs .sns_txt a:hover {opacity:.6;}
 #footer .inner .inner_t .info_right .wrap_cs .sns_txt a img {width:18px;height:18px;vertical-align:middle;margin-right:6px;}
 #footer .inner .inner_t .info_right .wrap_cs .cs_center_txt .cs_center_title {font-size:13px;font-weight:300;color:#000;line-height:24px;letter-spacing:-0.05em;}

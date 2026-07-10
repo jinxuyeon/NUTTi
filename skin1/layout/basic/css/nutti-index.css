@@ -11,13 +11,13 @@
 /* ===== index block #3 ===== */
 .swiper-prev-highlight_product,
 .swiper-next-highlight_product{
-  background-image:url("/skin-skin1/SkinImg/img/left.png") !important;
+  background-image:url("/skin-skin1/SkinImg/img/left.png?v=2") !important;
   background-size:24px auto !important;
   background-repeat:no-repeat !important;
   background-position:center center !important;
 }
 .swiper-next-highlight_product{
-  background-image:url("/skin-skin1/SkinImg/img/right.png") !important;
+  background-image:url("/skin-skin1/SkinImg/img/right.png?v=2") !important;
 }
 .main_product_slide .swiper-prev-highlight_product,
 .main_product_slide .swiper-next-highlight_product{

@@ -2,7 +2,7 @@
 
 /* ===== index block #1 ===== */
 .nutti-hero-video{width:100%;overflow:hidden;line-height:0;margin-bottom:80px;}
-.nutti-hero-video video{width:100%;height:auto;display:block;background:#f9f6f0;}
+.nutti-hero-video video{width:100%;height:auto;display:block;background:var(--nutti-ivory);}
 .nutti-hero-video .nutti-hero-d{aspect-ratio:3440/1474;}
 .nutti-hero-video .nutti-hero-d,.nutti-hero-video .nutti-hero-m{display:none;}
 .nutti-hero-video.is-desktop .nutti-hero-d{display:block;}
@@ -24,13 +24,13 @@
   top:44% !important;
 }
 
-  /* ===== 메인 비주얼(히어로) 슬라이드 페이지네이션 버튼 라운딩 + 비활성 보더(#8c6239) (NUTTI) : 데스크톱·반응형 공통 ===== */
+  /* ===== 메인 비주얼(히어로) 슬라이드 페이지네이션 버튼 라운딩 + 비활성 보더(var(--nutti-caramel)) (NUTTI) : 데스크톱·반응형 공통 ===== */
   body.theme04 #contents .smart-banner-bx-wrapper .bx-pager .bx-pager-link{
     border-radius:9999px !important;
     background:transparent !important;
     background-color:transparent !important;
-    border:1px solid #8c6239 !important;
-    border-color:#8c6239 !important;
+    border:1px solid var(--nutti-caramel) !important;
+    border-color:var(--nutti-caramel) !important;
     box-sizing:border-box !important;
   }
   body.theme04 #contents .smart-banner-bx-wrapper .bx-pager .bx-pager-link.active{
@@ -50,8 +50,8 @@
     opacity:1 !important;
   }
   body.theme04 #contents .swiper-pagination-highlight_product .swiper-pagination-bullet-active{
-    background:#8c6239 !important;
-    background-color:#8c6239 !important;
+    background:var(--nutti-caramel) !important;
+    background-color:var(--nutti-caramel) !important;
     border:1px solid #8b6339 !important;
     border-color:#8b6339 !important;
     opacity:1 !important;
@@ -72,9 +72,9 @@
     .swiper-pagination-highlight_product .nutti-frac{
       display:inline-block !important;
       font-size:14px !important; font-weight:600 !important; letter-spacing:1px !important;
-      color:#5c3d24 !important; line-height:1 !important; white-space:nowrap !important;
+      color:var(--nutti-brown) !important; line-height:1 !important; white-space:nowrap !important;
     }
-    .swiper-pagination-highlight_product .nutti-frac .nutti-frac-cur{ color:#8c6239 !important; }
+    .swiper-pagination-highlight_product .nutti-frac .nutti-frac-cur{ color:var(--nutti-caramel) !important; }
     .swiper-pagination-highlight_product .nutti-frac .nutti-frac-sep{ margin:0 4px !important; opacity:.6 !important; }
 
   }
@@ -95,7 +95,7 @@
 
 /* ===== index block #6 ===== */
 .nutti-hero-bottom{width:100%;overflow:hidden;line-height:0;margin-top:80px;}
-.nutti-hero-bottom video{width:100%;height:auto;display:block;background:#f9f6f0;}
+.nutti-hero-bottom video{width:100%;height:auto;display:block;background:var(--nutti-ivory);}
 .nutti-hero-bottom .nutti-hero-bottom-d,.nutti-hero-bottom .nutti-hero-bottom-m{display:none;}
 .nutti-hero-bottom.is-desktop .nutti-hero-bottom-d{display:block;}
 .nutti-hero-bottom.is-mobile .nutti-hero-bottom-m{display:block;}

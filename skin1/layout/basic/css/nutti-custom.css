@@ -12,6 +12,14 @@
      블록들(파일 후반)처럼 기존 !important 층위와 순서로 얽힌 영역의 수정.
    남아있는 !important는 전부 위 사유로 유지된 것 (라이브 computed-style 전수 diff 검증됨). */
 
+/* ===== 브랜드 색상 토큰 (H-5) — 이 파일은 @css()로 전 페이지 로드되므로 :root 전역 유효 ===== */
+:root {
+  --nutti-brown:   #5C3D24;
+  --nutti-caramel: #8c6239;
+  --nutti-ivory:   #f9f6f0;
+  --nutti-ink:     #332e2a;
+}
+
 /* ===== block #3 nutti-brand-style (layout.html에서 추출) ===== */
 /* ===== NUTTI brand override (buttons brown / bg ivory / text dark) ===== */
 body.theme04 .xans-product-action .action_button .sub_sold, body.theme04 [class^="btnSubmit"]:not(.disabled),
@@ -32,7 +40,7 @@ body.theme04 .listpage_title::after,
 body.theme04 .ec-base-paginate.typeSwipe button.circle.selected,
 body.theme04 .tabProduct li.selected a span,
 body.theme04 .smart-banner-bx-wrapper .bx-pager.bx-default-pager a:hover, body.theme04 .smart-banner-bx-wrapper .bx-pager.bx-default-pager a.active,
-body.theme04 .ec-base-paginate.typeSwipe [id*="swipe-button"] button.selected {background-color:#8c6239 !important;}
+body.theme04 .ec-base-paginate.typeSwipe [id*="swipe-button"] button.selected {background-color:var(--nutti-caramel) !important;}
 body.theme04 #header .inner .top_nav_box .top_mypage .wrap_log_menu li a:hover, body.theme04 #header .inner .top_nav_box .top_category .sub-category li:hover > a, body.theme04 #header .inner .toparea .toparea_shoppinginfo .xans-layout-multishoplist > ul li a:hover,
 body.theme04 #header .inner .toparea .toparea_state .toparea_state_board > ul li a:hover,
 body.theme04 #header .inner .top_nav_box .top_category .sub_cate01 li:hover > a, body.theme04 #header .inner .top_nav_box .top_category .sub-category li:hover > a,
@@ -44,27 +52,27 @@ body.theme04 .xans-coupon-productdetailajax.section > .title h2,
 body.theme04 .xans-product-additional .view .ec-base-button a,
 body.theme04 .xans-product-detail .infoArea #totalProducts .option_product .theme04 .navigation-menu__category .cate_h,
 body.theme04 .navigation-menu__board .title, body.theme04 .navigation-menu__project .title,
-body.theme04 #aside .xans-layout-multishoplist .toggle {color:#8c6239 !important;}
+body.theme04 #aside .xans-layout-multishoplist .toggle {color:var(--nutti-caramel) !important;}
 body.theme04 [class^="btnNormal"]:not(.disabled):hover, body.theme04 [class^="btnNormal"]:not(.disabled).selected, body.theme04 .main_image_text_gallery_more .main_image_text_gallery_more_btn:hover, body.theme04 .more .btnMore:hover,
 body.theme04 .tabProduct li.selected a,
 body.theme04 .xans-coupon-productdetailajax.section > .title h2,
 body.theme04 .xans-product-additional .view .ec-base-button a .icon[class*="icoArrow"],
 body.theme04 #aside .xans-layout-multishoplist .toggle,
 body.theme04 #aside .xans-layout-multishoplist .toggle .icon.icoArrowBottom,
-body.theme04 #aside .xans-layout-multishoplist ul li {border-color:#8c6239 !important;}
+body.theme04 #aside .xans-layout-multishoplist ul li {border-color:var(--nutti-caramel) !important;}
 body.theme04 [class^="btnSubmit"]:not(.disabled), body.theme04 [class^="btnSubmit"]:not(.disabled):hover {color:#fff !important;}
-body.theme04, body.theme04 #wrap, body.theme04 #container, body.theme04 #contents {background-color:#f9f6f0;}
-body.theme04 {color:#332e2a;}
+body.theme04, body.theme04 #wrap, body.theme04 #container, body.theme04 #contents {background-color:var(--nutti-ivory);}
+body.theme04 {color:var(--nutti-ink);}
 
 /* nutti-white-fix: header/detail white -> ivory */
-body.theme04 #header, body.theme04 #header .inner {background-color:#f9f6f0;}
-body.theme04 #aside {background-color:#f9f6f0;}
-body.theme04 #footer {background-color:#f9f6f0;}
-body.theme04 #totalPrice, body.theme04 #tabProduct {background-color:#f9f6f0 !important;}
-body.theme04 #actionCart, body.theme04 #actionWish {background-color:#f9f6f0;border-color:#8c6239;}
+body.theme04 #header, body.theme04 #header .inner {background-color:var(--nutti-ivory);}
+body.theme04 #aside {background-color:var(--nutti-ivory);}
+body.theme04 #footer {background-color:var(--nutti-ivory);}
+body.theme04 #totalPrice, body.theme04 #tabProduct {background-color:var(--nutti-ivory) !important;}
+body.theme04 #actionCart, body.theme04 #actionWish {background-color:var(--nutti-ivory);border-color:var(--nutti-caramel);}
 
 /* nutti-tint-fix: lavender tints -> ivory */
-body.theme04 #totalProducts table tbody, body.theme04 .aisg-banner {background-color:#f9f6f0 !important;}
+body.theme04 #totalProducts table tbody, body.theme04 .aisg-banner {background-color:var(--nutti-ivory) !important;}
 
 /* nutti-all-ivory: forms tables cards login to ivory */
 body.theme04 fieldset, body.theme04 fieldset.form, body.theme04 table, body.theme04 caption, body.theme04 thead th, body.theme04 tbody th, body.theme04 tbody td, body.theme04 tfoot th, body.theme04 tfoot td,
@@ -72,35 +80,35 @@ body.theme04 input[type=text], body.theme04 input[type=password], body.theme04 i
 body.theme04 .ec-base-table, body.theme04 .ec-base-box, body.theme04 .ec-base-prdInfo, body.theme04 .ec-base-desc,
 body.theme04 .contents, body.theme04 .titleArea, body.theme04 .boardList, body.theme04 .board,
 body.theme04 .login label input, body.theme04 #member_id, body.theme04 #member_passwd
-{background-color:#f9f6f0 !important;}
+{background-color:var(--nutti-ivory) !important;}
 
 /* nutti-guestorder-fix: 비회원 주문조회 폼 흰배경 -> 이보리 */
 body.theme04 #historyNoLoginForm, body.theme04 #order_history_nologin_id, body.theme04 #order_history_nologin_id .login,
 body.theme04 #order_name, body.theme04 #order_id, body.theme04 #order_password,
-body.theme04 #order_history_nologin_id .form input {background-color:#f9f6f0 !important;}
+body.theme04 #order_history_nologin_id .form input {background-color:var(--nutti-ivory) !important;}
 
 /* nutti-tab-fix */
-body.theme04 ul.menu, body.theme04 ul.menu li, body.theme04 ul.menu li a, body.theme04 .xans-order .menu, body.theme04 .xans-order .menu li a {background-color:#f9f6f0 !important;}
+body.theme04 ul.menu, body.theme04 ul.menu li, body.theme04 ul.menu li a, body.theme04 .xans-order .menu, body.theme04 .xans-order .menu li a {background-color:var(--nutti-ivory) !important;}
 
 /* nutti-sweep */
 body.theme04 .summary, body.theme04 #contents h1, body.theme04 #contents h2, body.theme04 #contents h3, body.theme04 #contents h4,
 body.theme04 [class^="btnNormal"], body.theme04 [class*=" btnNormal"], body.theme04 .ec-base-button, body.theme04 .ec-base-button .button,
 body.theme04 dl, body.theme04 dt, body.theme04 dd, body.theme04 .box, body.theme04 .gBox, body.theme04 .group, body.theme04 .description, body.theme04 .info, body.theme04 .area
-{background-color:#f9f6f0 !important;}
+{background-color:var(--nutti-ivory) !important;}
 
 /* nutti-board-bright */
 body.theme04 #prdQnA, body.theme04 #prdReview, body.theme04 #prdQnA table, body.theme04 #prdReview table,
 body.theme04 #prdQnA th, body.theme04 #prdReview th, body.theme04 #prdQnA td, body.theme04 #prdReview td,
 body.theme04 #prdQnA .view, body.theme04 #prdReview .view, body.theme04 #prdQnA .memoCont, body.theme04 #prdReview .memoCont,
 body.theme04 #prdQnA .commentForm, body.theme04 #prdReview .commentForm, body.theme04 #prdQnA textarea, body.theme04 #prdReview textarea, html:not(.ez-view-type-mobile) body.theme04 #comment
-{background-color:#f9f6f0;}
+{background-color:var(--nutti-ivory);}
 
 /* nutti-board-fix */
 body.theme04 #prdQnA .ec-base-button, body.theme04 #prdReview .ec-base-button,
 body.theme04 #prdQnA h2, body.theme04 #prdReview h2,
 body.theme04 #prdQnA [class^="btnNormal"], body.theme04 #prdReview [class^="btnNormal"],
 body.theme04 #prdQnA [class*=" btnNormal"], body.theme04 #prdReview [class*=" btnNormal"]
-{background-color:#f9f6f0;}
+{background-color:var(--nutti-ivory);}
 body.theme04 #prdQnA .board_title, body.theme04 #prdReview .board_title {padding:16px 18px;box-sizing:border-box;}
 
 /* nutti-tabsel-fix */
@@ -108,19 +116,19 @@ body.theme04 #tabProduct a, body.theme04 #tabProduct li.selected a, body.theme04
 body.theme04 .tabProduct a, body.theme04 .tabProduct li.selected a {background-color:transparent;}
 
 /* nutti-buybox-divider: 구매영역 짙은갈색 구분선 */
-body.theme04 #totalProducts {border-top:1px solid #5C3D24 !important; padding-top:18px !important;}
-body.theme04 #totalPrice {border-bottom:1px solid #5C3D24 !important; padding-bottom:18px !important;}
+body.theme04 #totalProducts {border-top:1px solid var(--nutti-brown) !important; padding-top:18px !important;}
+body.theme04 #totalPrice {border-bottom:1px solid var(--nutti-brown) !important; padding-bottom:18px !important;}
 
 /* nutti-divider2: 상품정보 아래 + 탭 위 구분선 */
-body.theme04 .infoArea .xans-product-detaildesign {border-bottom:1px solid #5C3D24 !important; padding-bottom:18px !important;}
-body.theme04 .tabProduct_box {border-top:1px solid #5C3D24 !important; padding-top:24px !important;}
+body.theme04 .infoArea .xans-product-detaildesign {border-bottom:1px solid var(--nutti-brown) !important; padding-bottom:18px !important;}
+body.theme04 .tabProduct_box {border-top:1px solid var(--nutti-brown) !important; padding-top:24px !important;}
 
 /* nutti-divider3: 제목선/탭아래선/버튼간격/최소수량 비율 */
-body.theme04 .infoArea .headingArea {border-bottom:1px solid #5C3D24 !important; padding-bottom:16px !important; margin-bottom:18px !important;}
+body.theme04 .infoArea .headingArea {border-bottom:1px solid var(--nutti-brown) !important; padding-bottom:16px !important; margin-bottom:18px !important;}
 body.theme04 .infoArea .guideArea {margin:0 !important; padding:22px 0 !important;}
 body.theme04 #totalProducts {margin-top:0 !important;}
 body.theme04 #totalPrice {margin-bottom:28px !important;}
-body.theme04 .tabProduct_box {border-bottom:1px solid #5C3D24 !important; padding-bottom:24px !important;}
+body.theme04 .tabProduct_box {border-bottom:1px solid var(--nutti-brown) !important; padding-bottom:24px !important;}
 
 /* nutti-divider4: 여백 20px 통일 + 탭 선 제거 */
 body.theme04 .infoArea .headingArea {padding-bottom:20px !important; margin-bottom:20px !important;}
@@ -134,10 +142,10 @@ body.theme04 .tabProduct_box {border-top:0 !important; border-bottom:0 !importan
 body.theme04 .infoArea .guideArea {margin:0 !important; padding:9px 0 28px 0 !important;}
 
 /* nutti-board-divider: 리뷰/QA 헤더 구분선 */
-body.theme04 #prdQnA .board_title, body.theme04 #prdReview .board_title {border-bottom:1px solid #5C3D24 !important;}
+body.theme04 #prdQnA .board_title, body.theme04 #prdReview .board_title {border-bottom:1px solid var(--nutti-brown) !important;}
 
 /* nutti-paginate-fix: 현재 페이지 흰배경 제거 + 짙은갈색 */
-body.theme04 .ec-base-paginate a.this {background-color:transparent !important; color:#5C3D24 !important; border-color:#5C3D24 !important;}
+body.theme04 .ec-base-paginate a.this {background-color:transparent !important; color:var(--nutti-brown) !important; border-color:var(--nutti-brown) !important;}
 
 /* nutti-allbrown: 댓글 흰색 제거 + 모든 구분선 짙은 갈색 */
 html:not(.ez-view-type-mobile) body.theme04 .comment-box .input {background-color:transparent !important;}
@@ -147,27 +155,27 @@ body.theme04 #contents [class*="xans-board-product"],
 html:not(.ez-view-type-mobile) body.theme04 .comment-box .input, html:not(.ez-view-type-mobile) body.theme04 .comment-box textarea, html:not(.ez-view-type-mobile) body.theme04 .comment-box input,
 html:not(.ez-view-type-mobile) body.theme04 #comment_name, html:not(.ez-view-type-mobile) body.theme04 #comment_password, html:not(.ez-view-type-mobile) body.theme04 #comment, html:not(.ez-view-type-mobile) body.theme04 #comment_modify,
 body.theme04 #prdQnA td, body.theme04 #prdQnA th, body.theme04 #prdReview td, body.theme04 #prdReview th, body.theme04 #contents .subject
-{border-color:#5C3D24 !important;}
+{border-color:var(--nutti-brown) !important;}
 
 /* nutti-article-clean: 상품박스=아래선만, 이름/비번=밑줄 */
-body.theme04 #contents [class*="xans-board-product"] {border:0 !important; border-bottom:1px solid #5C3D24 !important; background-color:transparent !important;}
-html:not(.ez-view-type-mobile) body.theme04 #comment_name, html:not(.ez-view-type-mobile) body.theme04 #comment_password {border:0 !important; border-bottom:1px solid #5C3D24 !important;}
+body.theme04 #contents [class*="xans-board-product"] {border:0 !important; border-bottom:1px solid var(--nutti-brown) !important; background-color:transparent !important;}
+html:not(.ez-view-type-mobile) body.theme04 #comment_name, html:not(.ez-view-type-mobile) body.theme04 #comment_password {border:0 !important; border-bottom:1px solid var(--nutti-brown) !important;}
 
 
 /* nutti-commentbox2: 댓글 작성영역 - 텍스트영역만 박스, 이름/비번/등록 감싸는 박스 제거 */
 html:not(.ez-view-type-mobile) body.theme04 .comment-box .input{border:0 !important;background-color:transparent !important;}
-html:not(.ez-view-type-mobile) body.theme04 .comment-box textarea,html:not(.ez-view-type-mobile) body.theme04 #comment,html:not(.ez-view-type-mobile) body.theme04 #comment_modify{border:1px solid #5C3D24 !important;background-color:transparent !important;}
-html:not(.ez-view-type-mobile) body.theme04 #comment_name,html:not(.ez-view-type-mobile) body.theme04 #comment_password{border:0 !important;border-bottom:1px solid #5C3D24 !important;background-color:transparent !important;}
+html:not(.ez-view-type-mobile) body.theme04 .comment-box textarea,html:not(.ez-view-type-mobile) body.theme04 #comment,html:not(.ez-view-type-mobile) body.theme04 #comment_modify{border:1px solid var(--nutti-brown) !important;background-color:transparent !important;}
+html:not(.ez-view-type-mobile) body.theme04 #comment_name,html:not(.ez-view-type-mobile) body.theme04 #comment_password{border:0 !important;border-bottom:1px solid var(--nutti-brown) !important;background-color:transparent !important;}
 /* nutti-rellist-head: 관련 글 보기 헤더 하단 구분선 */
-html:not(.ez-view-type-mobile) body.theme04 .ec-base-table.typeList thead th{border-bottom:1px solid #5C3D24 !important;}
+html:not(.ez-view-type-mobile) body.theme04 .ec-base-table.typeList thead th{border-bottom:1px solid var(--nutti-brown) !important;}
 
 
-/* nutti-grayline-global: 회색 구분선/테두리 → 짙은 갈색 #5C3D24
+/* nutti-grayline-global: 회색 구분선/테두리 → 짙은 갈색 var(--nutti-brown)
    (구 `#contents *` 핵폭탄 대체 — 라이브 전 페이지 computed-style diff로 실측한 대상만.
     폼컨트롤/버튼/ec-base 컴포넌트/아이콘화살표/게시판 부속. 미검증: 로그인 필요 페이지(마이쇼핑·주문서) — 회색 새면 여기에 셀렉터 추가) */
-body.theme04 #contents :is(input,select,textarea,button,[class*="btnNormal"],[class*="btnSubmit"],.btnFacebook,.btnLine,.btnGoogle,.btnApple,.yahoojp,.ec-base-tab .menu,.ec-base-tab a,.ec-base-layer,.ec-base-layer .header,.ec-base-layer .box,.ec-base-help .inner,.ec-base-prdEmpty,.ec-base-fold .title,.ec-base-box,.icon,.icoSave,h3,.agreeAll,[class*="xans-member-join"] .contents,.searchInput,.autoDrop,.searchResult,li.xans-record- .option,li.xans-record- .wish,li.xans-record- .cart,[class*="xans-board-commentform"] .input,.captcha,[class*="xans-board-movement"] li,[class*="xans-board-empty"],.regularDelivery,.nlogin-tabs,[class*="xans-product-additional"] a){border-color:#5C3D24 !important;}
-body.theme04 #contents hr{border-color:#5C3D24 !important;background-color:#5C3D24 !important;color:#5C3D24 !important;}
-body.theme04 #footer *{border-color:#5C3D24 !important;}
+body.theme04 #contents :is(input,select,textarea,button,[class*="btnNormal"],[class*="btnSubmit"],.btnFacebook,.btnLine,.btnGoogle,.btnApple,.yahoojp,.ec-base-tab .menu,.ec-base-tab a,.ec-base-layer,.ec-base-layer .header,.ec-base-layer .box,.ec-base-help .inner,.ec-base-prdEmpty,.ec-base-fold .title,.ec-base-box,.icon,.icoSave,h3,.agreeAll,[class*="xans-member-join"] .contents,.searchInput,.autoDrop,.searchResult,li.xans-record- .option,li.xans-record- .wish,li.xans-record- .cart,[class*="xans-board-commentform"] .input,.captcha,[class*="xans-board-movement"] li,[class*="xans-board-empty"],.regularDelivery,.nlogin-tabs,[class*="xans-product-additional"] a){border-color:var(--nutti-brown) !important;}
+body.theme04 #contents hr{border-color:var(--nutti-brown) !important;background-color:var(--nutti-brown) !important;color:var(--nutti-brown) !important;}
+body.theme04 #footer *{border-color:var(--nutti-brown) !important;}
 /* 게시글 본문(.head) 하단 회색 실선 제거 */
 body.theme04 #BoardDelForm .ec-base-table.typeWrite .head,body.theme04 .xans-board-read .ec-base-table.typeWrite .head{border-bottom:0 !important;}
 
@@ -176,7 +184,7 @@ body.theme04 #contents .tabProduct_box,body.theme04 #contents #tabProduct{border
 
 /* nutti-board-grayline: 게시판 목록: 게시글 사이 구분선만 연한 회색, 맨위(헤더)·맨아래 줄은 갈색 유지 */
 html:not(.ez-view-type-mobile) body.theme04 #contents .ec-base-table.typeList tbody td{border-bottom-color:#E8E8E8 !important;}
-html:not(.ez-view-type-mobile) body.theme04 #contents .ec-base-table.typeList tbody tr:last-child td{border-bottom-color:#5C3D24 !important;}
+html:not(.ez-view-type-mobile) body.theme04 #contents .ec-base-table.typeList tbody tr:last-child td{border-bottom-color:var(--nutti-brown) !important;}
 
 /* nutti-paginate-arrow: 페이지네이션 좌우 화살표(이전/다음/처음/끝)의 흰 배경 PNG를 배경색에 녹여 동일하게 */
 body.theme04 .ec-base-paginate a{mix-blend-mode:multiply !important;}
@@ -185,12 +193,12 @@ body.theme04 .ec-base-paginate a{mix-blend-mode:multiply !important;}
 body.theme04 .ec-base-paginate a.this{border:0 !important;}
 
 /* nutti-cart-tab: 장바구니/주문 탭 선택 시 하단 흰색 ::after 줄을 배경색으로 */
-body.theme04 .xans-order li.selected a:after,body.theme04 .xans-order li.selected a::after,body.theme04 .xans-myshop li.selected a:after,body.theme04 .xans-myshop li.selected a::after{background-color:#F9F6F0 !important;}
+body.theme04 .xans-order li.selected a:after,body.theme04 .xans-order li.selected a::after,body.theme04 .xans-myshop li.selected a:after,body.theme04 .xans-myshop li.selected a::after{background-color:var(--nutti-ivory) !important;}
 /* nutti-cat-title: 카테고리 제목 아래 짙은 갈색 실선(전 카테고리 공통) */
-body.theme04 #contents .xans-product-headcategory h2{display:table !important;margin-left:auto !important;margin-right:auto !important;width:auto !important;border-bottom:2px solid #5C3D24 !important;padding-bottom:14px !important;}
+body.theme04 #contents .xans-product-headcategory h2{display:table !important;margin-left:auto !important;margin-right:auto !important;width:auto !important;border-bottom:2px solid var(--nutti-brown) !important;padding-bottom:14px !important;}
 
 /* nutti-cur-menu: 헤더 현재 카테고리 메뉴 강조(짙은 갈색+굵게) */
-body.theme04 a.nutti-cur-menu{color:#5C3D24 !important;}
+body.theme04 a.nutti-cur-menu{color:var(--nutti-brown) !important;}
 
 /* nutti-write-prodbox: 게시판 글쓰기 상품박스 굵은 갈색 테두리 제거(읽기페이지 xans-board-product는 제외) */
 html:not(.ez-view-type-mobile) body.theme04 #contents .ec-base-box.typeProduct:not([class*="xans-board-product"]){border:0 !important;background-color:transparent !important;}
@@ -213,8 +221,8 @@ body.theme04 #header.fixed .top_mypage{top:0 !important;}
 
 /* nutti-more-btn: 메인 더보기(More) 버튼 세련된 아웃라인 필 스타일 */
 body.theme04 .xans-product-listmore.more,body.theme04 .xans-product-listmore{text-align:center;}
-body.theme04 .xans-product-listmore a.btnMore{display:inline-block;width:auto;min-width:180px;height:auto;padding:15px 46px;background-color:transparent;color:#5C3D24 !important;border:1.5px solid #5C3D24 !important;border-radius:999px;font-size:14px;font-weight:500;letter-spacing:.18em;line-height:1.2;-webkit-transition:all .25s ease;transition:all .25s ease;}
-body.theme04 .xans-product-listmore a.btnMore:hover{background-color:#5C3D24 !important;color:#F9F6F0;}
+body.theme04 .xans-product-listmore a.btnMore{display:inline-block;width:auto;min-width:180px;height:auto;padding:15px 46px;background-color:transparent;color:var(--nutti-brown) !important;border:1.5px solid var(--nutti-brown) !important;border-radius:999px;font-size:14px;font-weight:500;letter-spacing:.18em;line-height:1.2;-webkit-transition:all .25s ease;transition:all .25s ease;}
+body.theme04 .xans-product-listmore a.btnMore:hover{background-color:var(--nutti-brown) !important;color:var(--nutti-ivory);}
 
 /* nutti-qty-btn: 상품 수량 -/+ 스텝퍼를 페이지네이션처럼(흰배경·테두리 제거, 아이콘 배경에 녹임) */
 body.theme04 span.quantity{border:0 !important;background-color:transparent !important;}
@@ -222,7 +230,7 @@ body.theme04 span.quantity a.up,body.theme04 span.quantity a.down{background-col
 body.theme04 span.quantity input#quantity,body.theme04 span.quantity input.quantity{background-color:transparent !important;border:0 !important;}
 
 /* nutti-mobile-board: 모바일 게시판 흰배경→아이보리 + 버튼 둥글게(레이아웃 영향 없는 색/모서리만) */
-html.ez-view-type-mobile body.theme04 #contents .ec-base-table.typeList tbody tr,html.ez-view-type-mobile body.theme04 #contents .ec-base-table.typeList tbody td,html.ez-view-type-mobile body.theme04 #contents .comment-box .input,html.ez-view-type-mobile body.theme04 #contents .comment-box .input *,html.ez-view-type-mobile body.theme04 #contents #commentWriteForm>div{background-color:#F9F6F0 !important;}
+html.ez-view-type-mobile body.theme04 #contents .ec-base-table.typeList tbody tr,html.ez-view-type-mobile body.theme04 #contents .ec-base-table.typeList tbody td,html.ez-view-type-mobile body.theme04 #contents .comment-box .input,html.ez-view-type-mobile body.theme04 #contents .comment-box .input *,html.ez-view-type-mobile body.theme04 #contents #commentWriteForm>div{background-color:var(--nutti-ivory) !important;}
 html.ez-view-type-mobile body.theme04 #contents .ec-base-button a,html.ez-view-type-mobile body.theme04 #contents .boardSearch a,html.ez-view-type-mobile body.theme04 #contents .boardSearch select,html.ez-view-type-mobile body.theme04 #contents .boardSearch input,html.ez-view-type-mobile body.theme04 #contents [class*=btnNormal],html.ez-view-type-mobile body.theme04 #contents [class*=btnSubmit]{border-radius:8px !important;}
 
 /* nutti-mobile-comment: 모바일 댓글폼 둥글게 */
@@ -247,10 +255,10 @@ body.theme04 .login__sns .sns_h::after{left:calc(50% + 50px) !important;}
 					.theme-box .word {color:#fff;}
 
 /* ===== block #4 nutti-review-style (layout.html에서 추출) ===== */
-.nutti-review{max-width:1480px;margin:-52px auto 62px;padding:52px 76px 52px;text-align:center;box-sizing:border-box;}.nutti-review *{box-sizing:border-box;}.nutti-review .nr-head{font-size:32px;letter-spacing:.08em;color:#332E2A;font-weight:400;margin:0 0 12px;}.nutti-review .nr-sub{font-size:14px;line-height:1.7;color:#9a9189;margin:0 0 34px;font-weight:300;}.nutti-review .nr-carousel{position:relative;}.nutti-review .nr-grid{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;padding:2px 0 6px;}.nutti-review .nr-grid::-webkit-scrollbar{height:0;display:none;}.nutti-review .nr-card{flex:0 0 calc((100% - 64px)/5);scroll-snap-align:start;}.nutti-review a.nr-card{text-decoration:none;color:inherit;display:block;}.nutti-review a.nr-card:hover .nr-thumb{box-shadow:0 10px 24px rgba(60,45,30,.16);}.nutti-review .nr-thumb{position:relative;width:100%;aspect-ratio:1/1;border-radius:10px;overflow:hidden;background:linear-gradient(135deg,#ece8e2,#d7d2c9);box-shadow:0 6px 16px rgba(60,45,30,.08);}.nutti-review .nr-text{position:absolute;left:0;right:0;bottom:0;padding:13px 12px;text-align:left;background:linear-gradient(to top,rgba(0,0,0,.6),rgba(0,0,0,0));color:#fff;}.nutti-review .nr-q{font-size:12px;font-weight:600;line-height:1.4;margin:0 0 3px;}.nutti-review .nr-d{font-size:11px;font-weight:300;line-height:1.4;margin:0;opacity:.95;}.nutti-review .nr-w{font-size:10px;opacity:.72;margin-top:6px;display:block;}.nutti-review .nr-user{display:flex;align-items:center;gap:7px;margin-top:11px;padding-left:2px;}.nutti-review .nr-ava{width:24px;height:24px;border-radius:50%;background:#cfc8be;flex:0 0 auto;}.nutti-review .nr-name{font-size:11px;color:#6b6259;}.nutti-review .nr-arrow{position:absolute;top:50%;transform:translateY(calc(-50% - 20px));width:42px;height:42px;border-radius:50%;border:0;background:rgba(255,255,255,.96);color:#5C3D24;font-size:20px;line-height:1;cursor:pointer;z-index:6;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 14px rgba(60,45,30,.2);padding:0;}.nutti-review .nr-arrow:hover{background:rgba(255,255,255,.96);color:#5C3D24;}.nutti-review .nr-arrow.prev{left:-60px;}.nutti-review .nr-arrow.next{right:-60px;}@media (max-width:1024px){.nutti-review{padding:40px 16px 40px;}.nutti-review .nr-card{flex:0 0 calc((100% - 16px)/2);}.nutti-review .nr-head{font-size:26px;}.nutti-review .nr-arrow{display:none;}}@media (max-width:600px){.nutti-review .nr-card{flex:0 0 70%;}}
+.nutti-review{max-width:1480px;margin:-52px auto 62px;padding:52px 76px 52px;text-align:center;box-sizing:border-box;}.nutti-review *{box-sizing:border-box;}.nutti-review .nr-head{font-size:32px;letter-spacing:.08em;color:var(--nutti-ink);font-weight:400;margin:0 0 12px;}.nutti-review .nr-sub{font-size:14px;line-height:1.7;color:#9a9189;margin:0 0 34px;font-weight:300;}.nutti-review .nr-carousel{position:relative;}.nutti-review .nr-grid{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;padding:2px 0 6px;}.nutti-review .nr-grid::-webkit-scrollbar{height:0;display:none;}.nutti-review .nr-card{flex:0 0 calc((100% - 64px)/5);scroll-snap-align:start;}.nutti-review a.nr-card{text-decoration:none;color:inherit;display:block;}.nutti-review a.nr-card:hover .nr-thumb{box-shadow:0 10px 24px rgba(60,45,30,.16);}.nutti-review .nr-thumb{position:relative;width:100%;aspect-ratio:1/1;border-radius:10px;overflow:hidden;background:linear-gradient(135deg,#ece8e2,#d7d2c9);box-shadow:0 6px 16px rgba(60,45,30,.08);}.nutti-review .nr-text{position:absolute;left:0;right:0;bottom:0;padding:13px 12px;text-align:left;background:linear-gradient(to top,rgba(0,0,0,.6),rgba(0,0,0,0));color:#fff;}.nutti-review .nr-q{font-size:12px;font-weight:600;line-height:1.4;margin:0 0 3px;}.nutti-review .nr-d{font-size:11px;font-weight:300;line-height:1.4;margin:0;opacity:.95;}.nutti-review .nr-w{font-size:10px;opacity:.72;margin-top:6px;display:block;}.nutti-review .nr-user{display:flex;align-items:center;gap:7px;margin-top:11px;padding-left:2px;}.nutti-review .nr-ava{width:24px;height:24px;border-radius:50%;background:#cfc8be;flex:0 0 auto;}.nutti-review .nr-name{font-size:11px;color:#6b6259;}.nutti-review .nr-arrow{position:absolute;top:50%;transform:translateY(calc(-50% - 20px));width:42px;height:42px;border-radius:50%;border:0;background:rgba(255,255,255,.96);color:var(--nutti-brown);font-size:20px;line-height:1;cursor:pointer;z-index:6;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 14px rgba(60,45,30,.2);padding:0;}.nutti-review .nr-arrow:hover{background:rgba(255,255,255,.96);color:var(--nutti-brown);}.nutti-review .nr-arrow.prev{left:-60px;}.nutti-review .nr-arrow.next{right:-60px;}@media (max-width:1024px){.nutti-review{padding:40px 16px 40px;}.nutti-review .nr-card{flex:0 0 calc((100% - 16px)/2);}.nutti-review .nr-head{font-size:26px;}.nutti-review .nr-arrow{display:none;}}@media (max-width:600px){.nutti-review .nr-card{flex:0 0 70%;}}
 
 /* ===== block #6 nutti-login-style (layout.html에서 추출) ===== */
-body.nutti-login .titleArea,body.nutti-login .section.path,body.nutti-login #aside{display:none !important;}body.nutti-login #contents{display:block !important;text-align:center !important;width:auto !important;float:none !important;padding-top:25px !important;}body.nutti-login #contents *{float:none !important;}body.nutti-login .nlogin-head{max-width:420px !important;margin:0 auto !important;}body.nutti-login fieldset.form{max-width:420px !important;margin-left:auto !important;margin-right:auto !important;width:auto !important;text-align:left;}body.nutti-login .nlogin-wrap>*{width:100%;}body.nutti-login .nlogin-wrap{margin-left:auto !important;margin-right:auto !important;}/*nlogin-centerwrap*/body.nutti-login .nlogin-wrap{display:block !important;width:auto !important;max-width:none !important;margin:0 !important;float:none !important;text-align:center !important;}body.nutti-login .nlogin-head{text-align:center;}body.nutti-login .nlogin-head h2{font-size:26px;font-weight:700;color:#332E2A;margin:0 0 10px;}body.nutti-login .nlogin-sub{font-size:14px;color:#8a8178;line-height:1.55;text-align:center;margin:0 0 26px;}body.nutti-login .nlogin-sub small{display:block;font-size:12px;color:#b3a89e;margin-top:5px;}body.nutti-login fieldset.form{display:flex !important;flex-direction:column;border:0;padding:0;margin:0;}body.nutti-login .login__sns{order:1;margin:0 0 4px;padding:0;border:0;}body.nutti-login .nlogin-coupon{order:2;}body.nutti-login .nlogin-or{order:3;}body.nutti-login .nlogin-tabs{order:4;}body.nutti-login .login{order:5;}body.nutti-login .wrap_security{order:6;display:none !important;}body.nutti-login .login__button{order:7;margin-top:8px;}body.nutti-login .wrap_find{order:8;}body.nutti-login .login__sns .sns_h{display:none !important;}body.nutti-login .login__sns .wrap_sns_log{display:block !important;}body.nutti-login fieldset.form .login,body.nutti-login fieldset.form .login__sns,body.nutti-login fieldset.form .login__button,body.nutti-login fieldset.form .wrap_find{max-width:none !important;width:auto !important;margin-left:0 !important;margin-right:0 !important;}body.nutti-login .login__sns a.btnKakao,body.nutti-login .login__sns a.btnNaver{display:flex !important;width:100% !important;height:52px !important;border-radius:8px !important;font-size:15px !important;margin:0 0 10px !important;}body.nutti-login a.nlogin-coupon{display:block;text-align:center;margin:18px 0 22px;text-decoration:none;}body.nutti-login .nlogin-ticket{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;width:210px;height:120px;background:#2b2b2b;color:#fff;border-radius:16px;position:relative;}body.nutti-login .nlogin-ticket b{font-size:30px;font-weight:800;}body.nutti-login .nlogin-ticket em{font-style:normal;font-size:12px;color:#c9b08c;margin-top:7px;}body.nutti-login .nlogin-ticket:before,body.nutti-login .nlogin-ticket:after{content:"";position:absolute;top:50%;width:18px;height:18px;background:#F9F6F0;border-radius:50%;transform:translateY(-50%);}body.nutti-login .nlogin-ticket:before{left:-9px;}body.nutti-login .nlogin-ticket:after{right:-9px;}body.nutti-login .nlogin-coupon p{margin:14px 0 0;font-size:14px;font-weight:700;color:#332E2A;}body.nutti-login .nlogin-or{display:flex;align-items:center;color:#b3a89e;font-size:12px;margin:4px 0 18px;}body.nutti-login .nlogin-or:before,body.nutti-login .nlogin-or:after{content:"";flex:1;height:1px;background:#e5ddd2;}body.nutti-login .nlogin-or span{padding:0 14px;}body.nutti-login .nlogin-tabs{display:flex;border-bottom:1px solid #e5ddd2;margin-bottom:20px;}body.nutti-login .nlogin-tabs a{flex:1;text-align:center;padding:12px 0;font-size:15px;color:#9a9189;text-decoration:none;cursor:pointer;}body.nutti-login .nlogin-tabs a.on{color:#332E2A;font-weight:700;box-shadow:inset 0 -2px 0 #332E2A;}body.nutti-login .login__button .btnSubmit{width:100% !important;}body.nutti-login .wrap_find{display:flex;align-items:center;gap:14px;margin-top:18px;font-size:13px;white-space:nowrap;}body.nutti-login .wrap_find a{color:#8a8178;text-decoration:none;white-space:nowrap;}body.nutti-login .wrap_find a[href*="agreement"]{margin-left:auto;color:#332E2A;font-weight:700;}body.nutti-login #header .toparea{display:none !important;}body.nutti-login #header form{display:none !important;}body.nutti-login #header #top_nav_box > *:not(.xans-layout-logotop){display:none !important;}body.nutti-login #header .xans-layout-logotop,body.nutti-login #header.fixed .xans-layout-logotop{position:static !important;left:auto !important;width:auto !important;height:auto !important;justify-content:center !important;}body.nutti-nonmember fieldset.form>.login,body.nutti-nonmember fieldset.form>.wrap_security,body.nutti-nonmember fieldset.form>.login__button,body.nutti-nonmember fieldset.form>.wrap_find,body.nutti-nonmember fieldset.form .wrap_security{display:none !important;}body.nutti-nonmember .nlogin-nmform{display:block !important;}body.nutti-login .nlogin-nmform{margin-top:6px;}body.nutti-login:not(.nutti-nonmember) .nlogin-nmform{display:none !important;}/* nlogin-center-fix */body.nutti-login .nlogin-wrap{margin-left:auto !important;margin-right:auto !important;float:none !important;}body.nutti-login #contents,body.nutti-login .xans-layout-main{text-align:center !important;}body.nutti-login .nlogin-wrap>*{text-align:left;}body.nutti-login .nlogin-head{text-align:center;}/*nlogin-nmform-style*/body.nutti-login .nlogin-nmform .xans-myshop{padding:0 !important;}body.nutti-login .nlogin-nmform .login{padding:0 !important;border:0 !important;}body.nutti-login .nlogin-nmform .txt_nonmem_check{margin:0 0 6px !important;font-size:15px !important;font-weight:700 !important;color:#332E2A !important;text-align:left !important;}body.nutti-login .nlogin-nmform .txtInfo{margin:0 0 18px !important;font-size:12px !important;color:#9a9189 !important;text-align:left !important;}body.nutti-login .nlogin-nmform .ec-base-table,body.nutti-login .nlogin-nmform table{width:100% !important;}body.nutti-login #contents .nlogin-nmform input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=button]):not([type=image]):not([type=hidden]){width:100% !important;height:44px !important;border:0 !important;border-bottom:1px solid #5C3D24 !important;border-radius:0 !important;background:transparent !important;padding:0 2px !important;box-sizing:border-box !important;}body.nutti-login .nlogin-nmform tr,body.nutti-login .nlogin-nmform td,body.nutti-login .nlogin-nmform th{display:block !important;width:100% !important;border:0 !important;padding:0 !important;text-align:left !important;}body.nutti-login .nlogin-nmform td{margin-bottom:16px !important;}body.nutti-login .nlogin-nmform th{font-size:12px !important;color:#8a8178 !important;margin:14px 0 4px !important;font-weight:400 !important;}body.nutti-login .nlogin-nmform .btnSubmit,body.nutti-login .nlogin-nmform button[type=submit]{width:100% !important;height:50px !important;border-radius:8px !important;margin-top:8px !important;}@media (max-width:767px){body.nutti-login .nlogin-wrap{width:auto !important;max-width:340px !important;margin:20px auto !important;}}@media (max-width:767px){body.nutti-login .nlogin-wrap{max-width:340px !important;margin:20px auto !important;padding:0;}}
+body.nutti-login .titleArea,body.nutti-login .section.path,body.nutti-login #aside{display:none !important;}body.nutti-login #contents{display:block !important;text-align:center !important;width:auto !important;float:none !important;padding-top:25px !important;}body.nutti-login #contents *{float:none !important;}body.nutti-login .nlogin-head{max-width:420px !important;margin:0 auto !important;}body.nutti-login fieldset.form{max-width:420px !important;margin-left:auto !important;margin-right:auto !important;width:auto !important;text-align:left;}body.nutti-login .nlogin-wrap>*{width:100%;}body.nutti-login .nlogin-wrap{margin-left:auto !important;margin-right:auto !important;}/*nlogin-centerwrap*/body.nutti-login .nlogin-wrap{display:block !important;width:auto !important;max-width:none !important;margin:0 !important;float:none !important;text-align:center !important;}body.nutti-login .nlogin-head{text-align:center;}body.nutti-login .nlogin-head h2{font-size:26px;font-weight:700;color:var(--nutti-ink);margin:0 0 10px;}body.nutti-login .nlogin-sub{font-size:14px;color:#8a8178;line-height:1.55;text-align:center;margin:0 0 26px;}body.nutti-login .nlogin-sub small{display:block;font-size:12px;color:#b3a89e;margin-top:5px;}body.nutti-login fieldset.form{display:flex !important;flex-direction:column;border:0;padding:0;margin:0;}body.nutti-login .login__sns{order:1;margin:0 0 4px;padding:0;border:0;}body.nutti-login .nlogin-coupon{order:2;}body.nutti-login .nlogin-or{order:3;}body.nutti-login .nlogin-tabs{order:4;}body.nutti-login .login{order:5;}body.nutti-login .wrap_security{order:6;display:none !important;}body.nutti-login .login__button{order:7;margin-top:8px;}body.nutti-login .wrap_find{order:8;}body.nutti-login .login__sns .sns_h{display:none !important;}body.nutti-login .login__sns .wrap_sns_log{display:block !important;}body.nutti-login fieldset.form .login,body.nutti-login fieldset.form .login__sns,body.nutti-login fieldset.form .login__button,body.nutti-login fieldset.form .wrap_find{max-width:none !important;width:auto !important;margin-left:0 !important;margin-right:0 !important;}body.nutti-login .login__sns a.btnKakao,body.nutti-login .login__sns a.btnNaver{display:flex !important;width:100% !important;height:52px !important;border-radius:8px !important;font-size:15px !important;margin:0 0 10px !important;}body.nutti-login a.nlogin-coupon{display:block;text-align:center;margin:18px 0 22px;text-decoration:none;}body.nutti-login .nlogin-ticket{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;width:210px;height:120px;background:#2b2b2b;color:#fff;border-radius:16px;position:relative;}body.nutti-login .nlogin-ticket b{font-size:30px;font-weight:800;}body.nutti-login .nlogin-ticket em{font-style:normal;font-size:12px;color:#c9b08c;margin-top:7px;}body.nutti-login .nlogin-ticket:before,body.nutti-login .nlogin-ticket:after{content:"";position:absolute;top:50%;width:18px;height:18px;background:var(--nutti-ivory);border-radius:50%;transform:translateY(-50%);}body.nutti-login .nlogin-ticket:before{left:-9px;}body.nutti-login .nlogin-ticket:after{right:-9px;}body.nutti-login .nlogin-coupon p{margin:14px 0 0;font-size:14px;font-weight:700;color:var(--nutti-ink);}body.nutti-login .nlogin-or{display:flex;align-items:center;color:#b3a89e;font-size:12px;margin:4px 0 18px;}body.nutti-login .nlogin-or:before,body.nutti-login .nlogin-or:after{content:"";flex:1;height:1px;background:#e5ddd2;}body.nutti-login .nlogin-or span{padding:0 14px;}body.nutti-login .nlogin-tabs{display:flex;border-bottom:1px solid #e5ddd2;margin-bottom:20px;}body.nutti-login .nlogin-tabs a{flex:1;text-align:center;padding:12px 0;font-size:15px;color:#9a9189;text-decoration:none;cursor:pointer;}body.nutti-login .nlogin-tabs a.on{color:var(--nutti-ink);font-weight:700;box-shadow:inset 0 -2px 0 var(--nutti-ink);}body.nutti-login .login__button .btnSubmit{width:100% !important;}body.nutti-login .wrap_find{display:flex;align-items:center;gap:14px;margin-top:18px;font-size:13px;white-space:nowrap;}body.nutti-login .wrap_find a{color:#8a8178;text-decoration:none;white-space:nowrap;}body.nutti-login .wrap_find a[href*="agreement"]{margin-left:auto;color:var(--nutti-ink);font-weight:700;}body.nutti-login #header .toparea{display:none !important;}body.nutti-login #header form{display:none !important;}body.nutti-login #header #top_nav_box > *:not(.xans-layout-logotop){display:none !important;}body.nutti-login #header .xans-layout-logotop,body.nutti-login #header.fixed .xans-layout-logotop{position:static !important;left:auto !important;width:auto !important;height:auto !important;justify-content:center !important;}body.nutti-nonmember fieldset.form>.login,body.nutti-nonmember fieldset.form>.wrap_security,body.nutti-nonmember fieldset.form>.login__button,body.nutti-nonmember fieldset.form>.wrap_find,body.nutti-nonmember fieldset.form .wrap_security{display:none !important;}body.nutti-nonmember .nlogin-nmform{display:block !important;}body.nutti-login .nlogin-nmform{margin-top:6px;}body.nutti-login:not(.nutti-nonmember) .nlogin-nmform{display:none !important;}/* nlogin-center-fix */body.nutti-login .nlogin-wrap{margin-left:auto !important;margin-right:auto !important;float:none !important;}body.nutti-login #contents,body.nutti-login .xans-layout-main{text-align:center !important;}body.nutti-login .nlogin-wrap>*{text-align:left;}body.nutti-login .nlogin-head{text-align:center;}/*nlogin-nmform-style*/body.nutti-login .nlogin-nmform .xans-myshop{padding:0 !important;}body.nutti-login .nlogin-nmform .login{padding:0 !important;border:0 !important;}body.nutti-login .nlogin-nmform .txt_nonmem_check{margin:0 0 6px !important;font-size:15px !important;font-weight:700 !important;color:var(--nutti-ink) !important;text-align:left !important;}body.nutti-login .nlogin-nmform .txtInfo{margin:0 0 18px !important;font-size:12px !important;color:#9a9189 !important;text-align:left !important;}body.nutti-login .nlogin-nmform .ec-base-table,body.nutti-login .nlogin-nmform table{width:100% !important;}body.nutti-login #contents .nlogin-nmform input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=button]):not([type=image]):not([type=hidden]){width:100% !important;height:44px !important;border:0 !important;border-bottom:1px solid var(--nutti-brown) !important;border-radius:0 !important;background:transparent !important;padding:0 2px !important;box-sizing:border-box !important;}body.nutti-login .nlogin-nmform tr,body.nutti-login .nlogin-nmform td,body.nutti-login .nlogin-nmform th{display:block !important;width:100% !important;border:0 !important;padding:0 !important;text-align:left !important;}body.nutti-login .nlogin-nmform td{margin-bottom:16px !important;}body.nutti-login .nlogin-nmform th{font-size:12px !important;color:#8a8178 !important;margin:14px 0 4px !important;font-weight:400 !important;}body.nutti-login .nlogin-nmform .btnSubmit,body.nutti-login .nlogin-nmform button[type=submit]{width:100% !important;height:50px !important;border-radius:8px !important;margin-top:8px !important;}@media (max-width:767px){body.nutti-login .nlogin-wrap{width:auto !important;max-width:340px !important;margin:20px auto !important;}}@media (max-width:767px){body.nutti-login .nlogin-wrap{max-width:340px !important;margin:20px auto !important;padding:0;}}
 
 /* ===== block #8 nutti-header-tight (layout.html에서 추출) ===== */
 #header:not(.fixed) .toparea{padding-top:8px !important;padding-bottom:8px !important;height:auto !important;min-height:0 !important;}#header:not(.fixed) #top_nav_box > .xans-layout-logotop{height:74px !important;}#header:not(.fixed) #top_nav_box > *:not(.xans-layout-logotop):not(.top_mypage){height:auto !important;}#header:not(.fixed) #top_nav_box > *:not(.xans-layout-logotop):not(.top_mypage) a{line-height:62px !important;}#header:not(.fixed) #top_nav_box .top_mypage{top:auto !important;bottom:0 !important;height:80px !important;display:flex !important;align-items:center !important;}
@@ -388,7 +396,7 @@ body.nutti-login .titleArea,body.nutti-login .section.path,body.nutti-login #asi
 .nrvx-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:15px;}
 .nrvx-tag{font-size:12px;font-weight:600;color:#7a5a1e;background:#f4ece0;border:1px solid #e7ddcd;border-radius:16px;padding:5px 11px;}
 .nrvx-foot{display:flex;border-top:1px solid #efe7da;flex:0 0 auto;}
-.nrvx-nav{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;padding:15px;background:#fff;border:0;font-size:13px;font-weight:700;color:#5c3d24;cursor:pointer;}
+.nrvx-nav{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;padding:15px;background:#fff;border:0;font-size:13px;font-weight:700;color:var(--nutti-brown);cursor:pointer;}
 .nrvx-nav:disabled{color:#cabfae;cursor:default;}
 .nrvx-nav+.nrvx-nav{border-left:1px solid #efe7da;}
 @media(max-width:600px){.nrvx-panel{width:100%;}}
@@ -452,10 +460,10 @@ a.btnNormalFix.rvw-wbtn{background:#fff !important;color:#7a5a1e !important;bord
 .rvwW-head b{font-size:16px;color:#3a2e25;font-weight:700;}
 .rvwW-close{background:none;border:0;font-size:14px;color:#6b5f52;cursor:pointer;text-decoration:underline;padding:4px;}
 .rvwW-msg{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;color:#6b5f52;font-size:15px;text-align:center;padding:36px 20px;}
-.rvwW-msg a{background:#5c3d24;color:#fff;padding:10px 24px;border-radius:8px;text-decoration:none;font-size:14px;}
+.rvwW-msg a{background:var(--nutti-brown);color:#fff;padding:10px 24px;border-radius:8px;text-decoration:none;font-size:14px;}
 
 /* ===== block #22 (layout.html에서 추출) ===== */
-.sort select,select[name="selArray"]{border:0;outline:0;box-shadow:0 2px 8px rgba(70,52,38,.14);background-color:#fbf8f1;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M2 4l4 4 4-4' stroke='%237a5a1e' stroke-width='1.6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 13px center;background-size:11px 11px;border-radius:9px;padding:8px 36px 8px 15px;color:#5c3d24 !important;font-weight:600;-webkit-appearance:none;-moz-appearance:none;appearance:none;cursor:pointer;}
+.sort select,select[name="selArray"]{border:0;outline:0;box-shadow:0 2px 8px rgba(70,52,38,.14);background-color:#fbf8f1;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M2 4l4 4 4-4' stroke='%237a5a1e' stroke-width='1.6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 13px center;background-size:11px 11px;border-radius:9px;padding:8px 36px 8px 15px;color:var(--nutti-brown) !important;font-weight:600;-webkit-appearance:none;-moz-appearance:none;appearance:none;cursor:pointer;}
 
 /* ===== NUTTI 반응형 헤더 통합 (2026-07-10) =====
    구 block #25 + nutti-mobile-header-fix + nutti-remove-header-icons

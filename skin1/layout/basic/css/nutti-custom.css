@@ -1,4 +1,16 @@
-/* nutti-custom.css — layout.html 인라인 <style> 블록 추출본 (원본 순서 유지) */
+/* nutti-custom.css — layout.html 인라인 <style> 블록 추출본 (원본 순서 유지)
+
+   [!important 규약 — 2026-07 정리]
+   이 파일은 옵티마이저 번들에서 테마 CSS(layout/sub_style/add_theme03 등)보다 뒤에 로드된다.
+   새 규칙 작성 시:
+   - 자체 위젯 클래스(.nr-*, .rvw-*, .ncp-*, .nrvx-* 등)는 !important 금지 — 싸울 상대가 없다.
+   - 테마 요소 오버라이드는 body.theme04 접두(특이성 확보)만으로 대부분 이긴다. 안 이기면
+     테마 쪽 규칙을 확인하고 셀렉터 특이성을 맞춰라(예: block #11의 #header#header 패턴).
+   - !important가 정당한 경우만 사용: ① 테마 CSS 자체가 !important인 지점
+     (layout.css 헤더/반응형, add_theme03 브랜드색, ec-base-ui 폼), ② JS inline style을
+     이겨야 할 때, ③ nutti-index.css의 중복 블록(선로드)과 겹치는 곳, ④ 모바일 헤더
+     블록들(파일 후반)처럼 기존 !important 층위와 순서로 얽힌 영역의 수정.
+   남아있는 !important는 전부 위 사유로 유지된 것 (라이브 computed-style 전수 diff 검증됨). */
 
 /* ===== block #3 nutti-brand-style (layout.html에서 추출) ===== */
 /* ===== NUTTI brand override (buttons brown / bg ivory / text dark) ===== */
@@ -41,15 +53,15 @@ body.theme04 #aside .xans-layout-multishoplist .toggle,
 body.theme04 #aside .xans-layout-multishoplist .toggle .icon.icoArrowBottom,
 body.theme04 #aside .xans-layout-multishoplist ul li {border-color:#8c6239 !important;}
 body.theme04 [class^="btnSubmit"]:not(.disabled), body.theme04 [class^="btnSubmit"]:not(.disabled):hover {color:#fff !important;}
-body.theme04, body.theme04 #wrap, body.theme04 #container, body.theme04 #contents {background-color:#f9f6f0 !important;}
+body.theme04, body.theme04 #wrap, body.theme04 #container, body.theme04 #contents {background-color:#f9f6f0;}
 body.theme04 {color:#332e2a;}
 
 /* nutti-white-fix: header/detail white -> ivory */
-body.theme04 #header, body.theme04 #header .inner {background-color:#f9f6f0 !important;}
-body.theme04 #aside {background-color:#f9f6f0 !important;}
-body.theme04 #footer {background-color:#f9f6f0 !important;}
+body.theme04 #header, body.theme04 #header .inner {background-color:#f9f6f0;}
+body.theme04 #aside {background-color:#f9f6f0;}
+body.theme04 #footer {background-color:#f9f6f0;}
 body.theme04 #totalPrice, body.theme04 #tabProduct {background-color:#f9f6f0 !important;}
-body.theme04 #actionCart, body.theme04 #actionWish {background-color:#f9f6f0 !important;border-color:#8c6239 !important;}
+body.theme04 #actionCart, body.theme04 #actionWish {background-color:#f9f6f0;border-color:#8c6239;}
 
 /* nutti-tint-fix: lavender tints -> ivory */
 body.theme04 #totalProducts table tbody, body.theme04 .aisg-banner {background-color:#f9f6f0 !important;}
@@ -81,19 +93,19 @@ body.theme04 #prdQnA, body.theme04 #prdReview, body.theme04 #prdQnA table, body.
 body.theme04 #prdQnA th, body.theme04 #prdReview th, body.theme04 #prdQnA td, body.theme04 #prdReview td,
 body.theme04 #prdQnA .view, body.theme04 #prdReview .view, body.theme04 #prdQnA .memoCont, body.theme04 #prdReview .memoCont,
 body.theme04 #prdQnA .commentForm, body.theme04 #prdReview .commentForm, body.theme04 #prdQnA textarea, body.theme04 #prdReview textarea, html:not(.ez-view-type-mobile) body.theme04 #comment
-{background-color:#f9f6f0 !important;}
+{background-color:#f9f6f0;}
 
 /* nutti-board-fix */
 body.theme04 #prdQnA .ec-base-button, body.theme04 #prdReview .ec-base-button,
 body.theme04 #prdQnA h2, body.theme04 #prdReview h2,
 body.theme04 #prdQnA [class^="btnNormal"], body.theme04 #prdReview [class^="btnNormal"],
 body.theme04 #prdQnA [class*=" btnNormal"], body.theme04 #prdReview [class*=" btnNormal"]
-{background-color:#f9f6f0 !important;}
-body.theme04 #prdQnA .board_title, body.theme04 #prdReview .board_title {padding:16px 18px !important;box-sizing:border-box;}
+{background-color:#f9f6f0;}
+body.theme04 #prdQnA .board_title, body.theme04 #prdReview .board_title {padding:16px 18px;box-sizing:border-box;}
 
 /* nutti-tabsel-fix */
 body.theme04 #tabProduct a, body.theme04 #tabProduct li.selected a, body.theme04 #tabProduct li a:hover, body.theme04 #tabProduct li a:focus, body.theme04 #tabProduct li a:active,
-body.theme04 .tabProduct a, body.theme04 .tabProduct li.selected a {background-color:transparent !important;}
+body.theme04 .tabProduct a, body.theme04 .tabProduct li.selected a {background-color:transparent;}
 
 /* nutti-buybox-divider: 구매영역 짙은갈색 구분선 */
 body.theme04 #totalProducts {border-top:1px solid #5C3D24 !important; padding-top:18px !important;}
@@ -198,9 +210,9 @@ body.theme04 #header.fixed .top_mypage{top:0 !important;}
 }
 
 /* nutti-more-btn: 메인 더보기(More) 버튼 세련된 아웃라인 필 스타일 */
-body.theme04 .xans-product-listmore.more,body.theme04 .xans-product-listmore{text-align:center !important;}
-body.theme04 .xans-product-listmore a.btnMore{display:inline-block !important;width:auto !important;min-width:180px !important;height:auto !important;padding:15px 46px !important;background-color:transparent !important;color:#5C3D24 !important;border:1.5px solid #5C3D24 !important;border-radius:999px !important;font-size:14px !important;font-weight:500 !important;letter-spacing:.18em !important;line-height:1.2 !important;-webkit-transition:all .25s ease !important;transition:all .25s ease !important;}
-body.theme04 .xans-product-listmore a.btnMore:hover{background-color:#5C3D24 !important;color:#F9F6F0 !important;}
+body.theme04 .xans-product-listmore.more,body.theme04 .xans-product-listmore{text-align:center;}
+body.theme04 .xans-product-listmore a.btnMore{display:inline-block;width:auto;min-width:180px;height:auto;padding:15px 46px;background-color:transparent;color:#5C3D24 !important;border:1.5px solid #5C3D24 !important;border-radius:999px;font-size:14px;font-weight:500;letter-spacing:.18em;line-height:1.2;-webkit-transition:all .25s ease;transition:all .25s ease;}
+body.theme04 .xans-product-listmore a.btnMore:hover{background-color:#5C3D24 !important;color:#F9F6F0;}
 
 /* nutti-qty-btn: 상품 수량 -/+ 스텝퍼를 페이지네이션처럼(흰배경·테두리 제거, 아이콘 배경에 녹임) */
 body.theme04 span.quantity{border:0 !important;background-color:transparent !important;}
@@ -242,18 +254,19 @@ body.nutti-login .titleArea,body.nutti-login .section.path,body.nutti-login #asi
 #header:not(.fixed) .toparea{padding-top:8px !important;padding-bottom:8px !important;height:auto !important;min-height:0 !important;}#header:not(.fixed) #top_nav_box > .xans-layout-logotop{height:74px !important;}#header:not(.fixed) #top_nav_box > *:not(.xans-layout-logotop):not(.top_mypage){height:auto !important;}#header:not(.fixed) #top_nav_box > *:not(.xans-layout-logotop):not(.top_mypage) a{line-height:62px !important;}#header:not(.fixed) #top_nav_box .top_mypage{top:auto !important;bottom:0 !important;height:80px !important;display:flex !important;align-items:center !important;}
 
 /* ===== block #9 nutti-header-edge (layout.html에서 추출) ===== */
-#header:not(.fixed) #top_nav_box .top_mypage{right:40px !important;}#header:not(.fixed) .toparea{padding-right:40px !important;padding-left:40px !important;box-sizing:border-box !important;}
+#header:not(.fixed) #top_nav_box .top_mypage{right:40px;}#header:not(.fixed) .toparea{padding-right:40px;padding-left:40px;box-sizing:border-box;}
 
 /* ===== block #11 (헤더 ul 뷰포트 중앙 정렬) ===== */
 /* ponytail: 고정폭 1150px 제거 — ul을 콘텐츠 크기로 두고 justify-content로 중앙 정렬 */
-#top_nav_box .top_category,
-#top_nav_box .top_category > ul {
-  width: auto !important;
-  flex-wrap: nowrap !important;
+/* layout.css 변형(#header.layoutNN ...) 규칙보다 높은 특이성(2 ID)으로 !important 없이 승리 */
+#header#header .inner .top_nav_box .top_category,
+#header#header .inner .top_nav_box .top_category > ul {
+  width: auto;
+  flex-wrap: nowrap;
   white-space: nowrap;
   justify-content: center;
 }
-#top_nav_box .top_category { margin: 0 !important; }
+#header#header .inner .top_nav_box .top_category { margin: 0; }
 
 /* ===== block #12 (layout.html에서 추출) ===== */
 .nr-carousel .nr-arrow.prev,
@@ -401,8 +414,8 @@ a.btnNormalFix.rvw-wbtn{background:#fff !important;color:#7a5a1e !important;bord
 .rvw-all{font-size:13px;color:#9b8e7d;cursor:pointer;}
 .rvw-ph-grid{display:flex !important;flex-wrap:nowrap !important;overflow-x:auto !important;gap:10px !important;scroll-snap-type:x proximity !important;cursor:grab !important;scrollbar-width:none !important;-ms-overflow-style:none !important;} .rvw-ph-grid::-webkit-scrollbar{display:none !important;} .rvw-ph-grid>.cell{flex:0 0 auto !important;width:180px !important;height:180px !important;padding-top:0 !important;align-self:flex-start !important;scroll-snap-align:start !important;} .board_title{border-bottom-color:#e5ddd0 !important;} #prdReview .board_title,.xans-product-review .board_title{border-bottom-color:#e5ddd0 !important;} #prdReview .rvw-sum,.xans-product-review .rvw-sum{border-bottom-color:#e5ddd0 !important;} #prdReview .rvw-list{border-top-color:#e5ddd0 !important;} #prdReview .rvw-card{border-bottom-color:#e5ddd0 !important;} #prdReview a.rvw-wbtn,.xans-product-review a.rvw-wbtn{border:1px solid #cbb079 !important;border-color:#cbb079 !important;} .action_button .btnSubmit,.action_button .btnNormal,.action_button a,.action_button button{border-radius:8px !important;} .board_title .ec-base-button a.rvw-wbtn.btnNormalFix{border-color:#cbb079 !important;border:1px solid #cbb079 !important;}
 .rvw-ph-grid .cell{position:relative;padding-top:100%;border-radius:8px;overflow:hidden;cursor:pointer;background-color:#f1ece4;background-size:cover;background-position:center;}
-.rvw-list{display:flex !important;flex-wrap:nowrap !important;overflow-x:auto !important;gap:16px !important;padding:18px 8px 12px !important;border-top:1px solid #e5ddd0 !important;scroll-snap-type:x proximity !important;cursor:grab !important;scrollbar-width:thin !important;scrollbar-color:#cbb079 #efe7da !important;} .rvw-list::-webkit-scrollbar{height:9px !important;display:block !important;} .rvw-list::-webkit-scrollbar-track{background:#efe7da !important;border-radius:10px !important;margin:0 8px !important;} .rvw-list::-webkit-scrollbar-thumb{background:#cbb079 !important;border-radius:10px !important;} .rvw-list::-webkit-scrollbar-thumb:hover{background:#b9986a !important;} .rvw-list>.rvw-card{flex:0 0 auto !important;width:340px !important;scroll-snap-align:start !important;}
-.rvw-card{padding:18px;border:0 !important;border-radius:14px;background:#fff !important;box-shadow:0 2px 14px rgba(70,52,38,.06);} .rvw-ig{padding:0 !important;overflow:hidden !important;} .ig-head{display:flex !important;align-items:center !important;gap:10px !important;padding:12px 14px !important;} .ig-ava{width:34px !important;height:34px !important;border-radius:50% !important;background:#e8dcc8 !important;color:#7a5a1e !important;display:flex !important;align-items:center !important;justify-content:center !important;font-weight:700 !important;font-size:14px !important;flex:0 0 auto !important;} .ig-hm{display:flex !important;flex-direction:column !important;line-height:1.3 !important;} .ig-name{font-size:13px !important;font-weight:700 !important;color:#3a2e25 !important;} .ig-date{font-size:11px !important;color:#a99a85 !important;} .rvw-ig .gmain.gmvid{background:#000 !important;}.gmain.gmvid video{position:absolute !important;inset:0 !important;width:100% !important;height:100% !important;object-fit:cover !important;display:block !important;}.gmain{position:relative !important;width:100% !important;height:auto !important;aspect-ratio:1/1 !important;background-size:cover !important;background-position:center !important;border-radius:0 !important;margin:0 !important;} .rvw-ig .gthumbs{display:none !important;} .gdots{position:absolute !important;left:0 !important;right:0 !important;bottom:10px !important;display:flex !important;justify-content:center !important;gap:6px !important;z-index:2 !important;} .gdot{width:7px !important;height:7px !important;border-radius:50% !important;background:rgba(255,255,255,.6) !important;box-shadow:0 1px 3px rgba(0,0,0,.35) !important;cursor:pointer !important;transition:all .2s ease !important;} .gdot.on{background:#fff !important;width:18px !important;border-radius:4px !important;} .ig-body{padding:12px 14px 16px !important;} .ig-body .stars{color:#eba62f !important;font-size:14px !important;letter-spacing:1px !important;margin-bottom:6px !important;} .ig-body .ti{font-size:14px !important;font-weight:700 !important;color:#3a2e25 !important;margin-bottom:4px !important;white-space:nowrap !important;overflow:hidden !important;text-overflow:ellipsis !important;} .ig-body .bd{font-size:13px !important;color:#5f5347 !important;line-height:1.6 !important;display:-webkit-box !important;-webkit-line-clamp:2 !important;-webkit-box-orient:vertical !important;overflow:hidden !important;height:42px !important;} .ig-body .prd{display:inline-block !important;margin-top:8px !important;font-size:11px !important;color:#a99a85 !important;} .ig-reply{background:#f6f1ea !important;border-radius:10px !important;padding:10px 12px !important;margin-top:10px !important;} .ig-reply .ig-rh{display:block !important;font-size:11px !important;font-weight:700 !important;color:#7a5a1e !important;margin-bottom:3px !important;} .ig-reply .ig-rt{font-size:12px !important;color:#5f5347 !important;line-height:1.5 !important;} a.ig-reply-btn{display:inline-block !important;margin-top:12px !important;font-size:12px !important;color:#7a5a1e !important;border:1px solid #cbb079 !important;border-radius:8px !important;padding:6px 12px !important;text-decoration:none !important;} .rvw-ig .gthumbs{flex-wrap:nowrap !important;overflow-x:auto !important;} .rvw-ig .gth{width:54px !important;height:54px !important;min-width:54px !important;flex:0 0 auto !important;border-radius:8px !important;background-size:cover !important;background-position:center !important;} @media (max-width:767px){ .rvw-list>.rvw-card{width:80vw !important;} .rvw-ig .gth{width:60px !important;height:60px !important;min-width:60px !important;} }
+.rvw-list{display:flex;flex-wrap:nowrap;overflow-x:auto;gap:16px;padding:18px 8px 12px;border-top:1px solid #e5ddd0 !important;scroll-snap-type:x proximity;cursor:grab;scrollbar-width:thin;scrollbar-color:#cbb079 #efe7da !important;} .rvw-list::-webkit-scrollbar{height:9px;display:block;} .rvw-list::-webkit-scrollbar-track{background:#efe7da;border-radius:10px;margin:0 8px;} .rvw-list::-webkit-scrollbar-thumb{background:#cbb079 !important;border-radius:10px;} .rvw-list::-webkit-scrollbar-thumb:hover{background:#b9986a;} .rvw-list>.rvw-card{flex:0 0 auto;width:340px;scroll-snap-align:start;}
+.rvw-card{padding:18px;border:0;border-radius:14px;background:#fff;box-shadow:0 2px 14px rgba(70,52,38,.06);} .rvw-ig{padding:0;overflow:hidden;} .ig-head{display:flex;align-items:center;gap:10px;padding:12px 14px;} .ig-ava{width:34px;height:34px;border-radius:50%;background:#e8dcc8;color:#7a5a1e;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;flex:0 0 auto;} .ig-hm{display:flex;flex-direction:column;line-height:1.3;} .ig-name{font-size:13px;font-weight:700;color:#3a2e25;} .ig-date{font-size:11px;color:#a99a85;} .rvw-ig .gmain.gmvid{background:#000 !important;}.gmain.gmvid video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;}.gmain{position:relative;width:100%;height:auto;aspect-ratio:1/1;background-size:cover;background-position:center;border-radius:0;margin:0;} .rvw-ig .gthumbs{display:none;} .gdots{position:absolute;left:0;right:0;bottom:10px;display:flex;justify-content:center;gap:6px;z-index:2;} .gdot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.6);box-shadow:0 1px 3px rgba(0,0,0,.35);cursor:pointer;transition:all .2s ease;} .gdot.on{background:#fff;width:18px;border-radius:4px;} .ig-body{padding:12px 14px 16px;} .ig-body .stars{color:#eba62f;font-size:14px;letter-spacing:1px;margin-bottom:6px;} .ig-body .ti{font-size:14px;font-weight:700;color:#3a2e25;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;} .ig-body .bd{font-size:13px;color:#5f5347;line-height:1.6;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;height:42px;} .ig-body .prd{display:inline-block;margin-top:8px;font-size:11px;color:#a99a85;} .ig-reply{background:#f6f1ea;border-radius:10px;padding:10px 12px;margin-top:10px;} .ig-reply .ig-rh{display:block;font-size:11px;font-weight:700;color:#7a5a1e;margin-bottom:3px;} .ig-reply .ig-rt{font-size:12px;color:#5f5347;line-height:1.5;} a.ig-reply-btn{display:inline-block;margin-top:12px;font-size:12px;color:#7a5a1e;border:1px solid #cbb079 !important;border-radius:8px;padding:6px 12px;text-decoration:none;} .rvw-ig .gthumbs{flex-wrap:nowrap;overflow-x:auto;} .rvw-ig .gth{width:54px;height:54px;min-width:54px;flex:0 0 auto;border-radius:8px;background-size:cover;background-position:center;} @media (max-width:767px){ .rvw-list>.rvw-card{width:80vw;} .rvw-ig .gth{width:60px;height:60px;min-width:60px;} }
 .rvw-card .stars{color:#f0b53d;font-size:14px;letter-spacing:2px;}
 .rvw-card .ti{font-weight:700;font-size:16px;margin:8px 0 4px;}
 .rvw-card .prd{display:inline-block;font-size:12px;color:#9b8e7d;background:#f3efe8;padding:3px 10px;border-radius:20px;}
@@ -411,7 +424,7 @@ a.btnNormalFix.rvw-wbtn{background:#fff !important;color:#7a5a1e !important;bord
 .rvw-card .gmain{width:300px;max-width:100%;height:300px;border-radius:12px;cursor:pointer;display:block;background-color:#f1ece4;background-size:cover;background-position:center;}
 .rvw-card .gthumbs{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap;}
 .rvw-card .gthumbs .gth{width:56px;height:56px;border-radius:8px;cursor:pointer;border:2px solid transparent;background-color:#f1ece4;background-size:cover;background-position:center;}
-.rvw-card .gthumbs .gth.on{border-color:#c98a3a;} .rvw-ig .gth{border:0 !important;} .rvw-ig .gth.on{border:1px solid #d0d0d0 !important;border-color:#d0d0d0 !important;}
+.rvw-card .gthumbs .gth.on{border-color:#c98a3a;} .rvw-ig .gth{border:0;} .rvw-ig .gth.on{border:1px solid #d0d0d0 !important;border-color:#d0d0d0 !important;}
 .rvw-modal-bd{position:fixed;inset:0;background:rgba(40,30,20,.45);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);z-index:99999;display:flex;align-items:center;justify-content:center;padding:20px;box-sizing:border-box;}
 .rvw-modal{position:relative;background:#fffdfa;border-radius:18px;max-width:560px;width:100%;max-height:88vh;overflow:auto;box-shadow:0 24px 60px rgba(40,30,20,.34);}
 .rvw-modal .mmain{width:100%;height:340px;object-fit:contain;background:#f1ece4;border-radius:18px 18px 0 0;display:block;}
@@ -440,7 +453,7 @@ a.btnNormalFix.rvw-wbtn{background:#fff !important;color:#7a5a1e !important;bord
 .rvwW-msg a{background:#5c3d24;color:#fff;padding:10px 24px;border-radius:8px;text-decoration:none;font-size:14px;}
 
 /* ===== block #22 (layout.html에서 추출) ===== */
-.sort select,select[name="selArray"]{border:0 !important;outline:0 !important;box-shadow:0 2px 8px rgba(70,52,38,.14) !important;background-color:#fbf8f1 !important;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M2 4l4 4 4-4' stroke='%237a5a1e' stroke-width='1.6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;background-repeat:no-repeat !important;background-position:right 13px center !important;background-size:11px 11px !important;border-radius:9px !important;padding:8px 36px 8px 15px !important;color:#5c3d24 !important;font-weight:600 !important;-webkit-appearance:none !important;-moz-appearance:none !important;appearance:none !important;cursor:pointer !important;}
+.sort select,select[name="selArray"]{border:0;outline:0;box-shadow:0 2px 8px rgba(70,52,38,.14);background-color:#fbf8f1;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M2 4l4 4 4-4' stroke='%237a5a1e' stroke-width='1.6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 13px center;background-size:11px 11px;border-radius:9px;padding:8px 36px 8px 15px;color:#5c3d24 !important;font-weight:600;-webkit-appearance:none;-moz-appearance:none;appearance:none;cursor:pointer;}
 
 /* ===== block #25 (layout.html에서 추출) ===== */
 #nuttiHamBtn { display: none; position: relative; z-index: 1002; width: 34px; height: 30px; background: none; border: 0px; padding: 4px; cursor: pointer; margin-right: 14px; }

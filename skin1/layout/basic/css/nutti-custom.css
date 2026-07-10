@@ -609,8 +609,8 @@ body.theme04 #header #top_nav_box .top_mypage li:has(> a[href*="order/basket.htm
   #header .top_nav_box .top_category > ul > li > a::after{ display:none !important; }
 }
 
-/* ===== 주문서(orderform) 브랜드 정렬 — #userStyle #mCafe24Order 훅 =====
-   orderform.html은 layout.html 미사용(자체 head) — 이 파일과 Jost 폰트 링크를 직접 로드.
+/* ===== 주문서(orderform)·주문완료(order_result) 브랜드 정렬 — #userStyle #mCafe24Order 훅 =====
+   두 페이지 모두 layout.html 미사용(자체 head) — 각 html에서 이 파일과 Jost 폰트 링크를 직접 로드.
    순정 onetouch 포인트: 결제버튼 #084FFF, 액센트 #1A54F5/#3971FF, btnSubmit #000/#4a5164.
    !important는 onetouch 모듈 CSS와의 번들 순서 비보장(규약 ③) 사유. */
 #userStyle,
@@ -619,8 +619,11 @@ body.theme04 #header #top_nav_box .top_mypage li:has(> a[href*="order/basket.htm
 /* 솔리드 버튼(결제하기·btnSubmit·btnStrong) 검정/남색/파랑 → 카라멜 */
 #userStyle #mCafe24Order .btnSubmit, #userStyle #mCafe24Order .btnStrong,
 #userStyle #mCafe24Order #orderFixItem [class*="btn"] {background:var(--nutti-caramel) !important;border-color:var(--nutti-caramel) !important;color:#fff !important;}
-/* 레이어 아웃라인 버튼(btnEm) 파랑 테두리/글자 → 카라멜 */
-#userStyle #mCafe24Order .ec-base-layer .btnEm {border-color:var(--nutti-caramel) !important;color:var(--nutti-caramel) !important;background:#fff !important;}
+/* 아웃라인 버튼(btnEm) 파랑 테두리/글자 → 카라멜 — 레이어 + 주문완료 하단 '주문 확인하기' */
+#userStyle #mCafe24Order .ec-base-layer .btnEm,
+#userStyle #mCafe24Order .ec-base-button .btnEm {border-color:var(--nutti-caramel) !important;color:var(--nutti-caramel) !important;background:#fff !important;}
+/* 주문완료 파란 쇼핑백 png 아이콘 → 카라멜 톤 (raster라 색 교체 불가, sepia 필터 변환) */
+#userStyle #mCafe24Order .resultArea .message:before {filter:grayscale(1) sepia(1) saturate(1.6) hue-rotate(-8deg) brightness(.95);}
 /* 포인트 텍스트(할인가 등) 파랑 → 카라멜 */
 #userStyle #mCafe24Order .txtEm {color:var(--nutti-caramel) !important;}
 /* 결제수단 선택 상태 파랑 → 카라멜 */

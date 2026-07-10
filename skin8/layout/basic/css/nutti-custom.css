@@ -608,3 +608,36 @@ body.theme04 #header #top_nav_box .top_mypage li:has(> a[href*="order/basket.htm
 @media (max-width:1440px){
   #header .top_nav_box .top_category > ul > li > a::after{ display:none !important; }
 }
+
+/* ===== 주문서(orderform) 브랜드 정렬 — #userStyle #mCafe24Order 훅 =====
+   orderform.html은 layout.html 미사용(자체 head) — 이 파일과 Jost 폰트 링크를 직접 로드.
+   순정 onetouch 포인트: 결제버튼 #084FFF, 액센트 #1A54F5/#3971FF, btnSubmit #000/#4a5164.
+   !important는 onetouch 모듈 CSS와의 번들 순서 비보장(규약 ③) 사유. */
+#userStyle,
+#userStyle #mCafe24Order input, #userStyle #mCafe24Order select,
+#userStyle #mCafe24Order textarea, #userStyle #mCafe24Order button {font-family:"Jost","Noto Sans KR",Arial,sans-serif !important;}
+/* 솔리드 버튼(결제하기·btnSubmit·btnStrong) 검정/남색/파랑 → 카라멜 */
+#userStyle #mCafe24Order .btnSubmit, #userStyle #mCafe24Order .btnStrong,
+#userStyle #mCafe24Order #orderFixItem [class*="btn"] {background:var(--nutti-caramel) !important;border-color:var(--nutti-caramel) !important;color:#fff !important;}
+/* 레이어 아웃라인 버튼(btnEm) 파랑 테두리/글자 → 카라멜 */
+#userStyle #mCafe24Order .ec-base-layer .btnEm {border-color:var(--nutti-caramel) !important;color:var(--nutti-caramel) !important;background:#fff !important;}
+/* 포인트 텍스트(할인가 등) 파랑 → 카라멜 */
+#userStyle #mCafe24Order .txtEm {color:var(--nutti-caramel) !important;}
+/* 결제수단 선택 상태 파랑 → 카라멜 */
+#userStyle #mCafe24Order .payMethod > li .inner > .ec-base-label > input:checked ~ label {border-color:var(--nutti-caramel) !important;color:var(--nutti-caramel) !important;}
+#userStyle #mCafe24Order .ec-order-button-list .ec-base-label input:checked + .text {border-color:var(--nutti-caramel) !important;background:var(--nutti-caramel) !important;}
+/* 탭 선택 상태 파랑 → 브라운 */
+#userStyle #mCafe24Order .ec-base-tab li.selected::after {background:var(--nutti-brown) !important;}
+#userStyle #mCafe24Order .ec-base-tab li.selected a {color:var(--nutti-brown) !important;}
+/* 배송일 달력 선택일 파랑 → 카라멜 (datepicker는 #mCafe24Order 밖에 붙음) */
+#userStyle .ui-datepicker td.ui-datepicker-current-day a {background:var(--nutti-caramel) !important;}
+/* 배송지/약관 파랑 배지·박스 → 브랜드 (mLayer도 #mCafe24Order 밖) */
+#userStyle #mCafe24Order .recentShipArea .name .txtEm:not(:empty) {color:var(--nutti-brown) !important;background:var(--nutti-ivory) !important;}
+#userStyle .mLayer.agree .blueBox {background:var(--nutti-ivory) !important;}
+#userStyle .mLayer.agree.typeNormal ol.step .label {color:var(--nutti-brown) !important;background:var(--nutti-ivory) !important;}
+#userStyle .mLayer.agree .btnConfirm {background:var(--nutti-caramel) !important;}
+/* 체크박스/라디오 checked 파랑(#084FFF) → 카라멜 — 순정이 CDN svg 이미지라 색 속성으로 못 바꿈,
+   같은 도형의 data-URI 사본으로 교체(색만 %238c6239, data-URI 안에서는 var() 불가) */
+#userStyle #mCafe24Order input:not(:disabled):checked[type="checkbox"] {background-image:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"><path fill="%238c6239" d="M1 2.002a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1z"/><path stroke="%238c6239" stroke-width="2" d="M1 2.002a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1z"/><path fill="%23fff" d="M7.814 12.42 4.969 9.575 4 10.537l3.814 3.813L16 6.165l-.962-.962z"/></svg>') !important;}
+#userStyle #mCafe24Order .fRadio:not(:disabled):checked[type="radio"],
+#userStyle #mCafe24Order input:not(:disabled):checked[type="radio"] {background-image:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"><path fill="%23fff" d="M1.002 10a9 9 0 1 1 18 0 9 9 0 0 1-18 0"/><path stroke="%238c6239" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1.002 10a9 9 0 1 1 18 0 9 9 0 0 1-18 0"/><path fill="%238c6239" d="M6.002 10a4 4 0 1 1 8 0 4 4 0 0 1-8 0"/></svg>') !important;}

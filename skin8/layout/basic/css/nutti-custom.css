@@ -162,8 +162,10 @@ html:not(.ez-view-type-mobile) body.theme04 #comment_name,html:not(.ez-view-type
 html:not(.ez-view-type-mobile) body.theme04 .ec-base-table.typeList thead th{border-bottom:1px solid #5C3D24 !important;}
 
 
-/* nutti-grayline-global: 전역 회색 구분선 → 짙은 갈색 #5C3D24 */
-body.theme04 #contents *{border-color:#5C3D24 !important;}
+/* nutti-grayline-global: 회색 구분선/테두리 → 짙은 갈색 #5C3D24
+   (구 `#contents *` 핵폭탄 대체 — 라이브 전 페이지 computed-style diff로 실측한 대상만.
+    폼컨트롤/버튼/ec-base 컴포넌트/아이콘화살표/게시판 부속. 미검증: 로그인 필요 페이지(마이쇼핑·주문서) — 회색 새면 여기에 셀렉터 추가) */
+body.theme04 #contents :is(input,select,textarea,button,[class*="btnNormal"],[class*="btnSubmit"],.btnFacebook,.btnLine,.btnGoogle,.btnApple,.yahoojp,.ec-base-tab .menu,.ec-base-tab a,.ec-base-layer,.ec-base-layer .header,.ec-base-layer .box,.ec-base-help .inner,.ec-base-prdEmpty,.ec-base-fold .title,.ec-base-box,.icon,.icoSave,h3,.agreeAll,[class*="xans-member-join"] .contents,.searchInput,.autoDrop,.searchResult,li.xans-record- .option,li.xans-record- .wish,li.xans-record- .cart,[class*="xans-board-commentform"] .input,.captcha,[class*="xans-board-movement"] li,[class*="xans-board-empty"],.regularDelivery,.nlogin-tabs,[class*="xans-product-additional"] a){border-color:#5C3D24 !important;}
 body.theme04 #contents hr{border-color:#5C3D24 !important;background-color:#5C3D24 !important;color:#5C3D24 !important;}
 body.theme04 #footer *{border-color:#5C3D24 !important;}
 /* 게시글 본문(.head) 하단 회색 실선 제거 */

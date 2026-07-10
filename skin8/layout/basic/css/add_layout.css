@@ -58,7 +58,7 @@
 	/* layout05 */
 	#header.layout05 .inner .top_nav_box {flex-wrap:wrap;position: relative;}
 	#header.layout05 .inner .top_nav_box .top_mypage {top:80px;}
-	#header.layout05 .inner .top_nav_box .top_mypage a.eNavFold {position:fixed;left:calc((100% - min(100%, 1480px)) / 2);display:flex;align-items:center;height:20px;margin-top:26px;padding:0;}
+	#header.layout05 .inner .top_nav_box .top_mypage .eNavFold {position:fixed;left:calc((100% - min(100%, 1480px)) / 2);display:flex;align-items:center;height:20px;margin-top:26px;padding:0;}
 	#header.layout05 .inner .top_nav_box .top_logo {width:100%;}
 	#header.layout05 .inner .top_nav_box .top_category {position:relative;margin:0 165px;justify-content:center;}
 	#header.layout05 .inner .top_nav_box .top_category > ul {height:80px;overflow:hidden;justify-content:center;}
@@ -84,7 +84,7 @@
 	.section_full {width:100% !important;max-width:100% !important;}
 }
 @media (max-width: 1602px) {
-    #header.layout05 .inner .top_nav_box .top_mypage a.eNavFold {
+    #header.layout05 .inner .top_nav_box .top_mypage .eNavFold {
         left:4%;
     }
 }

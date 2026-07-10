@@ -146,12 +146,12 @@
    <!-- //menu-main/1 -->
    <ul class="top_mypage">
     <li>
-     <a href="/myshop/index.html">
+     <a href="/myshop/index.html" aria-label="마이페이지">
       <!--@import(/svg/icon-user.html)-->
      </a>
     </li>
     <li>
-     <a href="/order/basket.html" module="Layout_orderBasketcount">
+     <a href="/order/basket.html" module="Layout_orderBasketcount" aria-label="장바구니">
       <!--@import(/svg/icon-cart.html)-->
       <span class="count {$basket_count_display|display} {$basket_count_display_class}">
        <span class="{$basket_count_class}">
@@ -161,15 +161,15 @@
      </a>
     </li>
     <li class="top_search">
-     <a class="eSearch" href="javascript:;">
+     <button type="button" class="eSearch" aria-label="검색">
       <!--@import(/svg/icon-search.html)-->
-     </a>
+     </button>
     </li>
     <li class="mo_nav">
-     <a class="eNavFold" href="javascript:;">
+     <button type="button" class="eNavFold" aria-label="메뉴">
       <i aria-hidden="true" class="icon icoNav">
       </i>
-     </a>
+     </button>
     </li>
    </ul>
    <!-- //top_mypage -->

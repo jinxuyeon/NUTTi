@@ -141,6 +141,9 @@ body.theme04 .tabProduct_box {border-top:0 !important; border-bottom:0 !importan
 /* nutti-mqfix: 최소주문수량 위아래 간격 균형 */
 body.theme04 .infoArea .guideArea {margin:0 !important; padding:9px 0 28px 0 !important;}
 
+/* nutti-price-scale: 구매박스 판매가 위계 — 관리자 인라인 12px 덮어쓰기, 카라멜 강조 */
+body.theme04 .xans-product-detaildesign #span_product_price_text {font-size:22px !important; color:var(--nutti-caramel) !important; font-weight:700; letter-spacing:.01em;}
+
 /* nutti-board-divider: 리뷰/QA 헤더 구분선 */
 body.theme04 #prdQnA .board_title, body.theme04 #prdReview .board_title {border-bottom:1px solid var(--nutti-brown) !important;}
 

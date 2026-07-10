@@ -23,21 +23,6 @@
 .main_product_slide .swiper-next-highlight_product{
   top:44% !important;
 }
-.nr-carousel .nr-arrow.prev,
-.nr-carousel .nr-arrow.next,
-.nutti-review .nr-arrow.prev,
-.nutti-review .nr-arrow.next{
-  background-image:url("/skin-skin1/SkinImg/img/left.png") !important;
-  background-size:24px auto !important;
-  background-repeat:no-repeat !important;
-  background-position:center center !important;
-  font-size:0 !important;
-  color:transparent !important;
-}
-.nr-carousel .nr-arrow.next,
-.nutti-review .nr-arrow.next{
-  background-image:url("/skin-skin1/SkinImg/img/right.png") !important;
-}
 
   /* ===== 메인 비주얼(히어로) 슬라이드 페이지네이션 버튼 라운딩 + 비활성 보더(#8c6239) (NUTTI) : 데스크톱·반응형 공통 ===== */
   body.theme04 #contents .smart-banner-bx-wrapper .bx-pager .bx-pager-link{

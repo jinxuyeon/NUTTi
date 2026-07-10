@@ -510,6 +510,8 @@ body.theme04 #header #top_nav_box .top_mypage li:has(> a[href*="order/basket.htm
   body.theme04 #header.fixed #top_nav_box .top_logo,
   body.theme04 #header #top_nav_box .xans-layout-logotop,
   body.theme04 #header.fixed #top_nav_box .xans-layout-logotop{position:absolute !important;inset:0 auto 0 50% !important;height:60px !important;max-height:60px !important;width:auto !important;margin:0 !important;display:flex !important;align-items:center !important;justify-content:center !important;transform:translateX(-50%) !important;text-align:center !important;z-index:1005 !important;}
+  /* 검색창 오버레이가 로고(z-index:1005)보다 아래라 로고가 검색창 위로 떠 보이던 문제 수정 */
+  body.theme04 .xans-layout-searchheader{z-index:1006 !important;}
   body.theme04 #header #top_nav_box .top_logo img,
   body.theme04 #header.fixed #top_nav_box .top_logo img{max-height:30px !important;height:auto !important;width:auto !important;max-width:200px !important;}
   body.theme04 #header #top_nav_box .top_logo a,

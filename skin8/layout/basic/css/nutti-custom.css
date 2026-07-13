@@ -364,7 +364,7 @@ body.nutti-login .titleArea,body.nutti-login .section.path,body.nutti-login #asi
 .nrv-meta{font-size:13px;color:#9b8e7d;margin-bottom:14px;}
 .nrv-content{font-size:14px;color:#4a4038;line-height:1.7;}
 .nrv-content img{display:none;}
-.nrv-close{position:absolute;top:14px;right:16px;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.92);border:0;font-size:22px;color:#3a2e25;cursor:pointer;z-index:2;box-shadow:0 2px 8px rgba(0,0,0,.15);}
+.nrv-close{position:absolute;top:14px;right:16px;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.92);border:0;font-size:22px;color:#3a2e25;cursor:pointer;z-index:2;box-shadow:0 2px 8px rgba(0,0,0,.15);}
 .nutti-review .nr-card{cursor:pointer;}
 
 /* ===== block #16 (layout.html에서 추출) ===== */
@@ -452,7 +452,7 @@ a.btnNormalFix.rvw-wbtn{background:#fff !important;color:#7a5a1e !important;bord
 .rvw-modal .mprd{display:inline-block;font-size:12px;color:#9b8e7d;background:#f3efe8;padding:3px 10px;border-radius:20px;}
 .rvw-modal .mmeta{font-size:12px;color:#a89c8c;margin:8px 0 12px;}
 .rvw-modal .mtext{font-size:14px;color:#4a4038;line-height:1.7;}
-.rvw-modal .mclose{position:absolute;top:16px;right:18px;background:none;border:0;font-size:14px;color:#6b5f52;cursor:pointer;text-decoration:underline;padding:4px 2px;z-index:3;}
+.rvw-modal .mclose{position:absolute;top:0;right:0;background:none;border:0;font-size:14px;color:#6b5f52;cursor:pointer;text-decoration:underline;padding:15px 17px;z-index:3;}
 .rvw-gal-h{padding:16px 18px 0;font-weight:700;}
 .rvw-gal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;padding:18px;}
 .rvw-gal-grid .cell{position:relative;padding-top:100%;border-radius:8px;overflow:hidden;cursor:pointer;background-color:#f1ece4;background-size:cover;background-position:center;}
@@ -605,6 +605,7 @@ body.theme04 #header #top_nav_box .top_mypage li:has(> a[href*="order/basket.htm
 .ncp-qty-btn:hover{background:#f1e7df;}
 .ncp-qty-btn:active{background:#e8d8c8;}
 .ncp-qty-num{min-width:30px;text-align:center;font-size:13px;color:#333;padding:0 4px;}
+@media (max-width:767px){.ncp-qty,.ncp-qty-btn{height:28px;} .ncp-qty-btn{width:28px;}}
 
 /* ===== 리뷰 캐러셀 영상 카드 (2026-07-06 추가) ===== */
 .nutti-review .nr-vidbg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}

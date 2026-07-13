@@ -2,7 +2,8 @@
 <!-- NUTTI detail fixes -->
 <style>
 .rvw.rvw-empty { display: none !important; }
-#tabProduct.tabProduct.tab_fixed { top: 81px !important; }
+@media (min-width:1025px) { #tabProduct.tabProduct.tab_fixed { top: 81px !important; } }
+@media (max-width:1024px) { #tabProduct.tabProduct.tab_fixed { top: 64px !important; } }
 </style>
 <div class="section path" module="product_headcategory" data-ez-module="product-head-breadcrumb/1" data-ez="contents-0xe2pes-1">
     <span>현재 위치</span>

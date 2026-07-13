@@ -96,7 +96,7 @@ jQuery(document).ready(function() {
 		var jh_offset = jQuery('.tabProduct_box').offset();
 		if ((jQuery(document).scrollTop() + header_height) >= jh_offset.top ) {
 			jQuery('#tabProduct').addClass('tab_fixed');
-			jQuery('#tabProduct').css('top',header_height + 1);
+			jQuery('#tabProduct').css('top',header_height);
 		} else {
 			jQuery('#tabProduct').removeClass('tab_fixed');
 		}

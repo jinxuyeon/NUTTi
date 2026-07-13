@@ -71,7 +71,7 @@ function nrPickDetail(doc){ for(var i=0;i<NUTTI_CFG.detailSel.length;i++){ var e
    curImgs=data.imgs||[];
    if(curImgs.length){ galMain.style.display='block'; galMain.src=curImgs[0]; }
    if(curImgs.length>1){ thumbs.style.display='flex'; for(var k=0;k<curImgs.length;k++){ var im=mk('img', k===0?'active':''); im.setAttribute('data-i',k); im.src=curImgs[k]; thumbs.appendChild(im); } }
-   elContent.innerHTML=data.html||'';
+   var _tmp=document.createElement('div'); _tmp.innerHTML=data.html||''; elContent.textContent=_tmp.textContent;
   }).catch(function(){ elContent.textContent='내용을 불러올 수 없어요'; });
  }
  function init(){

@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>누띠 리뷰 체험단 모집 | NUTTI Review Crew</title>
+<!--
+  ┌─────────────────────────────────────────────────────────────┐
+  │  폼 이메일 전송 설정 (Formspree)                              │
+  │  1) https://formspree.io 가입 (수신 이메일: wjdtjddns98@naver.com) │
+  │  2) New Form 생성 → 발급된 endpoint(예: https://formspree.io/f/abcdwxyz) 복사 │
+  │  3) 아래 <form> 의 action="..." 안의 YOUR_FORM_ID 부분을 교체 │
+  │  ⟶ 이후 폼 제출 시 wjdtjddns98@naver.com 으로 자동 전송됩니다. │
+  └─────────────────────────────────────────────────────────────┘
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600;1,700&display=swap">
+<style>
+  :root{
+    --yellow:#FBE79A;
+    --yellow-soft:#FCEEB5;
+    --cream:#F3EEE4;
+    --cream-card:#FBF8F1;
+    --olive:#6E7B54;
+    --olive-dark:#5C6746;
+    --brown:#7C5E3B;
+    --brown-soft:#8B7355;
+    --coral:#E7A28C;
+    --coral-soft:#F0C3B2;
+    --ink:#37312A;
+    --ink-soft:#6E655B;
+    --dark:#38322A;
+    --white:#ffffff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Pretendard',-apple-system,BlinkMacSystemFont,sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:600px;margin:0 auto;background:var(--cream);}
+  section{padding:64px 32px;}
+  .eyebrow{
+    font-size:14px;font-weight:800;letter-spacing:.04em;
+    color:var(--brown);margin-bottom:14px;
+  }
+  h2.title{font-size:40px;line-height:1.18;font-weight:800;letter-spacing:-.02em;}
+  .sub{margin-top:16px;font-size:16px;color:var(--ink-soft);font-weight:500;}
+
+  /* ===== HERO ===== */
+  .hero{
+    background:linear-gradient(160deg,var(--yellow) 0%,var(--yellow-soft) 100%);
+    padding:40px 32px 56px;position:relative;overflow:hidden;
+  }
+  .hero-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:56px;}
+  .logo{font-size:30px;font-weight:900;letter-spacing:-.02em;color:var(--ink);}
+  .logo .dot{color:var(--olive);}
+  .badge{
+    border:1.5px solid var(--olive);color:var(--olive);
+    padding:9px 20px;border-radius:999px;font-size:13px;font-weight:800;letter-spacing:.06em;
+    background:rgba(255,255,255,.35);
+  }
+  .hero-serif{
+    font-family:'Playfair Display',serif;font-style:italic;font-weight:700;
+    font-size:28px;color:var(--brown);margin-bottom:14px;
+  }
+  .hero h1{font-size:56px;line-height:1.12;font-weight:800;letter-spacing:-.02em;color:var(--ink);}
+  .hero .q{margin-top:30px;}
+  .hero .q .qmark{font-size:26px;font-weight:800;color:var(--ink);}
+  .hero .q p{font-size:18px;font-weight:600;color:var(--ink);margin-top:4px;}
+  .opts{margin-top:26px;display:flex;flex-direction:column;gap:12px;align-items:flex-start;}
+  .opt{
+    background:var(--dark);color:#fff;padding:12px 26px;border-radius:999px;
+    font-size:17px;font-weight:600;box-shadow:0 8px 18px rgba(56,50,42,.18);
+  }
+  .cta{
+    margin-top:44px;display:inline-flex;align-items:center;gap:16px;
+    background:var(--dark);color:#fff;padding:20px 40px;border-radius:999px;
+    font-size:20px;font-weight:700;text-decoration:none;
+    box-shadow:0 12px 26px rgba(56,50,42,.22);transition:transform .15s ease;
+  }
+  .cta:hover{transform:translateY(-2px);}
+  .cta .arrow{font-size:22px;}
+  .hero > *{position:relative;z-index:2;}
+  .hero-dog{
+    position:absolute;right:-24px;bottom:0;width:58%;max-width:400px;
+    z-index:1;pointer-events:none;user-select:none;
+    filter:drop-shadow(0 8px 22px rgba(120,90,20,.14));
+  }
+
+  /* ===== FORM ===== */
+  .form-sec{background:var(--cream);}
+  .form-card{
+    background:var(--cream-card);border-radius:28px;padding:34px 30px;
+    box-shadow:0 18px 40px rgba(120,100,70,.10);margin-top:30px;
+  }
+  .field{
+    display:flex;align-items:center;gap:12px;
+    padding:16px 0;border-bottom:1px solid #EDE6D8;
+  }
+  .field:last-child{border-bottom:none;}
+  .dot-lbl{display:flex;align-items:center;gap:12px;min-width:150px;flex-shrink:0;}
+  .dot-lbl::before{content:"";width:14px;height:14px;border-radius:50%;background:var(--coral-soft);flex-shrink:0;}
+  .dot-lbl label{font-size:16px;font-weight:800;color:var(--ink);}
+  .field input{
+    flex:1;border:none;background:transparent;font-family:inherit;
+    font-size:16px;color:var(--ink);padding:8px 6px;
+    border-bottom:1.5px dashed #D9CFBC;outline:none;transition:border-color .15s;
+  }
+  .field input:focus{border-bottom-color:var(--coral);}
+  .field input::placeholder{color:#BCB2A2;}
+  .full{flex-direction:column;align-items:stretch;gap:10px;}
+  .full .dot-lbl{min-width:0;}
+  .full input{width:100%;}
+  .submit-btn{
+    width:100%;margin-top:26px;border:none;cursor:pointer;
+    background:var(--dark);color:#fff;padding:20px;border-radius:16px;
+    font-family:inherit;font-size:18px;font-weight:700;letter-spacing:.01em;
+    box-shadow:0 10px 24px rgba(56,50,42,.2);transition:transform .15s;
+  }
+  .submit-btn:hover{transform:translateY(-2px);}
+  .note{
+    margin-top:22px;background:var(--yellow-soft);border-radius:16px;
+    padding:18px 22px;display:flex;align-items:center;gap:12px;
+    font-size:15px;font-weight:700;color:var(--brown);
+  }
+  .form-status{margin-top:16px;text-align:center;font-weight:700;font-size:15px;display:none;}
+  .form-status.ok{display:block;color:var(--olive);}
+  .form-status.err{display:block;color:#C0563C;}
+
+  /* ===== 필수조건 ===== */
+  .must{background:var(--olive);color:#fff;}
+  .must .eyebrow{color:var(--yellow);}
+  .must h2.title{color:#fff;}
+  .must .sub{color:rgba(255,255,255,.82);}
+  .must-card{
+    display:flex;align-items:center;gap:20px;text-decoration:none;
+    background:#fff;border-radius:22px;padding:26px 26px;margin-top:20px;
+    box-shadow:0 12px 26px rgba(0,0,0,.14);transition:transform .15s;
+  }
+  .must-card:hover{transform:translateY(-3px);}
+  .must-card:first-of-type{margin-top:34px;}
+  .must-icon{width:58px;height:58px;border-radius:16px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:30px;}
+  .ic-insta{background:linear-gradient(45deg,#F58529,#DD2A7B,#8134AF,#515BD4);}
+  .ic-kakao{background:#FEE500;}
+  .must-icon svg{width:34px;height:34px;display:block;}
+  .must-card .txt h3{font-size:22px;font-weight:800;color:var(--ink);}
+  .must-card .txt p{font-size:16px;color:var(--ink-soft);font-weight:600;margin-top:2px;}
+  .must-card .go{margin-left:auto;font-size:22px;color:#C9C2B6;flex-shrink:0;}
+  .must{position:relative;padding-bottom:0;overflow:hidden;}
+  .pack{display:block;width:calc(100% + 64px);margin:44px -32px 0;}
+
+  /* ===== 진행순서 ===== */
+  .steps-sec{background:var(--cream);}
+  .steps{margin-top:34px;position:relative;}
+  .step{display:flex;gap:22px;position:relative;padding-bottom:36px;}
+  .step:last-child{padding-bottom:0;}
+  .step-num{
+    width:64px;height:64px;border-radius:50%;flex-shrink:0;z-index:1;
+    display:flex;align-items:center;justify-content:center;
+    font-size:26px;font-weight:800;color:#fff;
+  }
+  .step:nth-child(1) .step-num{background:var(--olive);}
+  .step:nth-child(2) .step-num{background:var(--brown);}
+  .step:nth-child(3) .step-num{background:var(--coral);}
+  .step:nth-child(4) .step-num{background:var(--dark);}
+  .step:not(:last-child)::before{
+    content:"";position:absolute;left:31px;top:64px;bottom:0;
+    width:2px;background:#DCD3C2;
+  }
+  .step-body{padding-top:6px;}
+  .step-body h3{font-size:21px;font-weight:800;color:var(--ink);}
+  .step-body p{font-size:15.5px;color:var(--ink-soft);font-weight:500;margin-top:5px;}
+  .step-body strong{color:var(--coral);font-weight:800;}
+
+  /* ===== 리뷰미션 ===== */
+  .mission{background:linear-gradient(160deg,var(--yellow-soft) 0%,var(--yellow) 100%);}
+  .mission-cards{display:flex;gap:16px;margin-top:34px;}
+  .m-card{
+    flex:1;background:var(--cream-card);border-radius:22px;padding:30px 18px;text-align:center;
+    box-shadow:0 12px 26px rgba(120,100,70,.12);
+  }
+  .m-card .emoji{font-size:46px;}
+  .m-card .big{font-size:32px;font-weight:800;color:var(--ink);margin-top:12px;}
+  .m-card .cap{font-size:16px;font-weight:700;color:var(--ink-soft);margin-top:2px;}
+  .mission-foot{text-align:center;margin-top:44px;}
+  .mission-foot .heart{font-size:19px;font-weight:800;color:var(--ink);}
+  .mission-foot .links{margin-top:8px;font-size:15px;font-weight:600;color:var(--brown);}
+  .mission-foot .links a{color:var(--brown);text-decoration:none;border-bottom:1px solid rgba(124,94,59,.4);}
+  .mission{position:relative;padding-bottom:0;overflow:hidden;}
+  .treat-wrap{position:relative;width:calc(100% + 64px);margin:38px -32px 0;line-height:0;}
+  .treat-wrap img{display:block;width:100%;}
+  .treat-wrap .mission-foot{
+    position:absolute;left:0;right:0;bottom:0;margin:0;line-height:1.5;
+    padding:70px 20px 28px;
+    background:linear-gradient(to top,rgba(38,30,16,.78),rgba(38,30,16,.30) 55%,rgba(38,30,16,0));
+  }
+  .treat-wrap .heart{color:#fff;}
+  .treat-wrap .links,.treat-wrap .links a{color:#FCEEB5;}
+  .treat-wrap .links a{border-bottom-color:rgba(255,255,255,.5);}
+
+  @media (max-width:520px){
+    section{padding:52px 22px;}
+    .hero{padding:32px 22px 48px;}
+    .hero h1{font-size:44px;}
+    h2.title{font-size:32px;}
+    .hero-serif{font-size:24px;}
+    .field{flex-wrap:wrap;}
+    .dot-lbl{min-width:130px;}
+    .mission-cards{flex-direction:column;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="hero-top">
+      <div class="logo">NUTT<span class="dot">i</span></div>
+      <div class="badge">REVIEW CREW</div>
+    </div>
+    <div class="hero-serif">Be our first reviewer</div>
+    <h1>누띠 리뷰<br>체험단 모집</h1>
+    <div class="q">
+      <span class="qmark">Q.</span>
+      <p>기다리셨던 누띠의 제품을 공개합니다.<br>누띠와 함께 하시겠습니까?</p>
+    </div>
+    <div class="opts">
+      <span class="opt">A. 네</span>
+      <span class="opt">B. 네니오</span>
+    </div>
+    <a href="#apply" class="cta">참여 방법 보기 <span class="arrow">→</span></a>
+    <img class="hero-dog" src="hero-bichon.png" alt="누띠 리뷰 체험단 비숑">
+  </section>
+
+  <!-- ================= 01 신청폼 ================= -->
+  <section class="form-sec" id="apply">
+    <div class="eyebrow">01 — 체험단 작성폼</div>
+    <h2 class="title">아래 항목을 적어<br>보내주세요 ✏️</h2>
+
+    <!-- action 의 YOUR_FORM_ID 를 Formspree 발급 주소로 교체하세요 -->
+    <form class="form-card" id="applyForm"
+          action="https://formspree.io/f/xpqvzwqa" method="POST">
+      <input type="hidden" name="_subject" value="[누띠 체험단] 새 신청서가 도착했어요">
+      <input type="hidden" name="_language" value="ko">
+
+      <div class="field">
+        <span class="dot-lbl"><label for="f-name">신청자 이름</label></span>
+        <input id="f-name" name="신청자 이름" type="text" placeholder="이름을 입력해 주세요" required>
+      </div>
+      <div class="field">
+        <span class="dot-lbl"><label for="f-phone">연락처</label></span>
+        <input id="f-phone" name="연락처" type="tel" placeholder="010-0000-0000" required>
+      </div>
+      <div class="field">
+        <span class="dot-lbl"><label for="f-breed">견종</label></span>
+        <input id="f-breed" name="견종" type="text" placeholder="예) 비숑" required>
+      </div>
+      <div class="field">
+        <span class="dot-lbl"><label for="f-age">나이</label></span>
+        <input id="f-age" name="나이" type="text" placeholder="예) 3살" required>
+      </div>
+      <div class="field">
+        <span class="dot-lbl"><label for="f-weight">몸무게</label></span>
+        <input id="f-weight" name="몸무게" type="text" placeholder="예) 4.2kg" required>
+      </div>
+      <div class="field">
+        <span class="dot-lbl"><label for="f-insta">인스타그램 아이디</label></span>
+        <input id="f-insta" name="인스타그램 아이디" type="text" placeholder="@아이디" required>
+      </div>
+      <div class="field full">
+        <span class="dot-lbl"><label for="f-addr">배송지</label></span>
+        <input id="f-addr" name="배송지" type="text" placeholder="받으실 주소를 입력해 주세요" required>
+      </div>
+      <div class="field full">
+        <span class="dot-lbl"><label for="f-note">비고 (알러지 반응, 못 먹는 것 등)</label></span>
+        <input id="f-note" name="비고" type="text" placeholder="특이사항이 있다면 적어주세요">
+      </div>
+
+      <button type="submit" class="submit-btn">체험단 신청서 보내기</button>
+      <div class="form-status" id="formStatus"></div>
+    </form>
+
+    <div class="note">🎁 제품은 최대 3개까지 신청 가능해요 (중복 불가)</div>
+  </section>
+
+  <!-- ================= 02 필수조건 ================= -->
+  <section class="must">
+    <div class="eyebrow">02 — 필수 조건</div>
+    <h2 class="title">이 두 가지는<br>꼭 해주세요 🙏</h2>
+    <p class="sub">필수로 해주셔야 제품 발송이 가능해요!</p>
+
+    <a class="must-card" href="https://www.instagram.com/nutti_official/" target="_blank" rel="noopener">
+      <span class="must-icon ic-insta">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2.5" y="2.5" width="19" height="19" rx="5.5" stroke="#fff" stroke-width="2"/>
+          <circle cx="12" cy="12" r="4.6" stroke="#fff" stroke-width="2"/>
+          <circle cx="17.4" cy="6.6" r="1.5" fill="#fff"/>
+        </svg>
+      </span>
+      <span class="txt">
+        <h3>인스타그램 팔로우</h3>
+        <p>@nutti_official 팔로우하기</p>
+      </span>
+      <span class="go">›</span>
+    </a>
+
+    <a class="must-card" href="http://pf.kakao.com/_KvBXX" target="_blank" rel="noopener">
+      <span class="must-icon ic-kakao">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path fill="#3A1D1D" d="M12 3.6c-4.9 0-8.9 3.06-8.9 6.84 0 2.42 1.64 4.55 4.12 5.76-.18.63-.66 2.37-.76 2.74-.12.46.17.45.36.33.15-.1 2.4-1.62 3.37-2.28.58.08 1.19.13 1.81.13 4.9 0 8.9-3.06 8.9-6.84S16.9 3.6 12 3.6z"/>
+        </svg>
+      </span>
+      <span class="txt">
+        <h3>카카오톡 친구 추가</h3>
+        <p>플러스 친구에서 [누띠] 검색 후 친구추가</p>
+      </span>
+      <span class="go">›</span>
+    </a>
+
+    <img class="pack" src="dogs-group.png" alt="누띠와 함께하는 강아지들">
+  </section>
+
+  <!-- ================= 03 진행순서 ================= -->
+  <section class="steps-sec">
+    <div class="eyebrow">03 — 신청부터 발송까지</div>
+    <h2 class="title">이 순서대로<br>진행돼요 📦</h2>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h3>누띠 쇼핑몰 회원가입</h3>
+          <p>nutti.co.kr 접속 후 회원가입 하고 원하는 제품을 확인해요.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h3>카카오톡으로 희망 제품 알리기</h3>
+          <p>카카오톡 [누띠]에게 원하는 제품을 말씀해주세요. (주문 전 사전 재고 확인용)</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h3>쇼핑몰에서 무통장 입금으로 주문</h3>
+          <p>주문만 해주시면 돼요 — <strong>입금은 안 하셔도 됩니다!</strong></p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <h3>순차 발송</h3>
+          <p>확인 후 순서대로 보내드려요. 조금만 기다려주세요!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 04 리뷰미션 ================= -->
+  <section class="mission">
+    <div class="eyebrow">04 — 리뷰 미션</div>
+    <h2 class="title">배송받고 나면,<br>솔직 리뷰 부탁해요 👍</h2>
+    <p class="sub">배송 완료 후, 한 제품당 총 3제품 부탁드려요.</p>
+
+    <div class="mission-cards">
+      <div class="m-card">
+        <div class="emoji">📷</div>
+        <div class="big">3장</div>
+        <div class="cap">사진 리뷰</div>
+      </div>
+      <div class="m-card">
+        <div class="emoji">🎥</div>
+        <div class="big">1개</div>
+        <div class="cap">동영상 리뷰</div>
+      </div>
+    </div>
+
+    <figure class="treat-wrap">
+      <img src="treat.jpg" alt="누띠 간식을 먹는 강아지">
+      <figcaption class="mission-foot">
+        <div class="heart">우리 아이의 첫 누띠, 함께해요 ❤️</div>
+        <div class="links">
+          <a href="https://www.instagram.com/nutti_official/" target="_blank" rel="noopener">@nutti_official</a>
+          · <a href="https://nutti.co.kr" target="_blank" rel="noopener">nutti.co.kr</a>
+        </div>
+      </figcaption>
+    </figure>
+  </section>
+
+</div>
+
+<script>
+  // Formspree AJAX 제출 — 페이지 이동 없이 성공/실패 메시지 표시
+  const form = document.getElementById('applyForm');
+  const status = document.getElementById('formStatus');
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+    if(form.action.includes('YOUR_FORM_ID')){
+      status.className = 'form-status err';
+      status.textContent = '⚠️ Formspree endpoint를 먼저 연결해 주세요 (코드 상단 주석 참고).';
+      return;
+    }
+    const btn = form.querySelector('.submit-btn');
+    btn.disabled = true; btn.textContent = '보내는 중...';
+    try{
+      const res = await fetch(form.action, {
+        method:'POST', body:new FormData(form),
+        headers:{'Accept':'application/json'}
+      });
+      if(res.ok){
+        form.reset();
+        status.className = 'form-status ok';
+        status.textContent = '✅ 신청서가 전송되었어요! 감사합니다 🐶';
+      }else{
+        throw new Error('fail');
+      }
+    }catch(err){
+      status.className = 'form-status err';
+      status.textContent = '❌ 전송에 실패했어요. 잠시 후 다시 시도해 주세요.';
+    }finally{
+      btn.disabled = false; btn.textContent = '체험단 신청서 보내기';
+    }
+  });
+</script>
+</body>
+</html>

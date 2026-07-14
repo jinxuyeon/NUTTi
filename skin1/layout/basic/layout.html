@@ -159,10 +159,9 @@ window.addEventListener('load', function(){
 
   // CART 버튼 클릭 시 장바구니 담고 패널 열기
   (function(){
-    var PANEL_ID='nuttiCartPanel';
-    /* ── 장바구니(담기 패널) 스크래핑 설정. 주의: 헤더카트 패널은 별도 구현 2벌(아래 ncp IIFE / js/main.js)이 같은 값을 하드코딩 → 중복 정리 필요 ── */
-    var NUTTI_CART_CFG={ basketUrl:'/order/basket.html', dataVar:'aBasketProductData', badgeSel:'.EC-Layout_Basket-count-display' };
-    function ncWarn(m){ try{ console.warn('[NUTTI cart]', m); }catch(_){} }
+    /* 헤더카트 패널(#nuttiCartPanel) 렌더링/오픈은 아래 ncp IIFE(같은 script, 뒤쪽) 하나로 통합됨.
+       여기서는 "담기 버튼을 눌렀다"는 트리거만 감지해서 window.__ncpOpenFresh()를 호출한다. */
+    var NUTTI_CART_CFG={ badgeSel:'.EC-Layout_Basket-count-display' };
     // 장바구니 담기 직후 basket.html 로 이동하려는 기본동작을 차단(armed 구간) 후 패널을 연다.
     var navGuardOn=false, navGuardUntil=0;
     function navGuardActive(){ return navGuardOn && Date.now()<navGuardUntil; }
@@ -178,136 +177,13 @@ window.addEventListener('load', function(){
         window.location.replace=function(u){ if(navGuardActive() && /order\/basket/.test(String(u))){ disarmNavGuard(); openAndLoadSafe(); return; } return origReplace(u); };
       }catch(e){}
     })();
-    function openAndLoadSafe(){ try{ openNuttiCartPanel(); loadNuttiCart(); }catch(e){} }
+    function openAndLoadSafe(){ try{ window.__ncpOpenFresh(); }catch(e){} }
     var armed=false;          // CART 버튼을 눌렀을 때만 동작
     var armedUntil=0;
     function isArmed(){ return armed && Date.now()<armedUntil; }
     function disarm(){ armed=false; }
 
-    function openNuttiCartPanel(){
-      var panel=document.getElementById(PANEL_ID);
-      if(!panel) return;
-      panel.style.transition='opacity 0.3s ease, transform 0.3s ease';
-      panel.style.opacity='1'; panel.style.transform='translateX(0)';
-      panel.style.pointerEvents='auto'; panel.setAttribute('aria-hidden','false');
-    }
-    function closeNuttiCartPanel(){
-      var panel=document.getElementById(PANEL_ID);
-      if(!panel) return;
-      panel.style.opacity='0'; panel.style.transform='translateX(16px)';
-      panel.style.pointerEvents='none'; panel.setAttribute('aria-hidden','true');
-    }
-    function esc(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
-    function renderEmpty(){
-      var body=document.getElementById('nuttiCartBody');
-      if(body) body.innerHTML='<div class="ncp-empty">장바구니가 비어 있습니다.</div>';
-      var t=document.getElementById('nuttiCartTotal'); if(t) t.textContent='0원';
-      var ef=document.getElementById('nuttiCartFoot'); if(ef) ef.style.display='none';
-    }
-    function loadNuttiCart(){
-      var body=document.getElementById('nuttiCartBody');
-      if(body) body.innerHTML='<div class="ncp-loading">\uBD88\uB7EC\uC624\uB294 \uC911...</div>';
-      /* \uC228\uACA8\uC9C4 iframe\uC73C\uB85C \uC2E4\uC81C \uC7A5\uBC14\uAD6C\uB2C8 \uB370\uC774\uD130(aBasketProductData) \uB85C\uB4DC \u2192 \uC218\uB7C9\uC81C\uC5B4 \uD3EC\uD568 \uB80C\uB354 + \uC11C\uBC84 \uBC18\uC601 */
-      try{ if(window._nuttiCartFrame&&window._nuttiCartFrame.parentNode) window._nuttiCartFrame.parentNode.removeChild(window._nuttiCartFrame); }catch(e){}
-      var fr=document.createElement('iframe');
-      fr.style.cssText='position:fixed;width:1px;height:1px;left:-9999px;top:-9999px;border:0;opacity:0;pointer-events:none;';
-      fr.src=NUTTI_CART_CFG.basketUrl;
-      window._nuttiCartFrame=fr;
-      fr.addEventListener('load',function(){
-        var raw;
-        try{ raw=fr.contentWindow[NUTTI_CART_CFG.dataVar]; }catch(e){ ncWarn('iframe 접근 실패(교차출처?): '+e); }
-        if(typeof raw==='undefined'){ ncWarn('장바구니 데이터('+NUTTI_CART_CFG.dataVar+') 없음 — Cafe24 변경 또는 빈 장바구니'); }
-        nuttiRenderCart(raw||[]);
-      });
-      document.body.appendChild(fr);
-    }
-    var NUTTI_SHIP=2500;
-    var nuttiCartState=[];
-    function nuttiEsc2(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
-    function nuttiRenderCart(data){
-      var body=document.getElementById('nuttiCartBody');
-      if(!data||!data.length){ renderEmpty(); return; }
-      nuttiCartState=[];
-      var h='';
-      for(var i=0;i<data.length;i++){
-        var p=data[i];
-        var src=(p.product_image||''); if(src&&src.indexOf('//')===0) src='https:'+src;
-        var nm=(p.product_name||'');
-        var pr=parseInt(p.product_price)||0;
-        var qt=parseInt(p.quantity||p.basket_quantity)||1;
-        var no=p.basket_prd_no||'';
-        nuttiCartState.push({price:pr,qty:qt,no:no});
-        h+='<div class="ncp-item" data-idx="'+i+'" data-prdno="'+no+'">';
-        h+='<img class="ncp-item-thumb" src="'+nuttiEsc2(src)+'" alt="">';
-        h+='<div class="ncp-item-info"><span class="ncp-item-name">'+nuttiEsc2(nm)+'</span>';
-        h+='<div class="ncp-item-meta">';
-        h+='<div class="ncp-qty">';
-        h+='<button type="button" class="ncp-qty-btn ncp-qty-minus" data-idx="'+i+'" aria-label="\uC218\uB7C9 \uAC10\uC18C">\u2212</button>';
-        h+='<span class="ncp-qty-num" data-idx="'+i+'">'+qt+'</span>';
-        h+='<button type="button" class="ncp-qty-btn ncp-qty-plus" data-idx="'+i+'" aria-label="\uC218\uB7C9 \uC99D\uAC00">+</button>';
-        h+='</div>';
-        h+='<span class="ncp-item-price" data-idx="'+i+'">'+(pr*qt).toLocaleString()+'\uC6D0</span>';
-        h+='</div></div>';
-        h+='<button type="button" class="ncp-item-del" data-idx="'+i+'" data-prdno="'+no+'" aria-label="\uC0AD\uC81C">\uC0AD\uC81C</button>';
-        h+='</div>';
-      }
-      if(body) body.innerHTML=h;
-      var sf=document.getElementById('nuttiCartFoot'); if(sf) sf.style.display='block';
-      nuttiUpdateTotals();
-      nuttiBindCart();
-    }
-    function nuttiUpdateTotals(){
-      var sub=0;
-      for(var i=0;i<nuttiCartState.length;i++){ sub+=nuttiCartState[i].price*nuttiCartState[i].qty; }
-      var total=sub>0?sub+NUTTI_SHIP:0;
-      var t=document.getElementById('nuttiCartTotal'); if(t) t.textContent=total.toLocaleString()+'\uC6D0';
-    }
-    var nuttiPersistTimers={};
-    function nuttiPersistQty(idx,q){
-      try{
-        if(nuttiPersistTimers[idx])clearTimeout(nuttiPersistTimers[idx]);
-        nuttiPersistTimers[idx]=setTimeout(function(){
-          try{
-            var fr=window._nuttiCartFrame; if(!fr||!fr.contentWindow)return;
-            var w=fr.contentWindow;
-            var inp=w.document.getElementById('quantity_id_'+idx);
-            if(inp){inp.value=q;}
-            if(w.Basket&&typeof w.Basket.modifyQuantity==='function'){ w.Basket.modifyQuantity('quantity_id_'+idx); }
-          }catch(e){}
-        },550);
-      }catch(e){}
-    }
-    function nuttiSetQty(idx,q){
-      if(!nuttiCartState[idx])return;
-      if(q<1)q=1;
-      nuttiCartState[idx].qty=q;
-      var body=document.getElementById('nuttiCartBody');
-      if(body){
-        var numEl=body.querySelector('.ncp-qty-num[data-idx="'+idx+'"]');
-        if(numEl)numEl.textContent=q;
-        var prEl=body.querySelector('.ncp-item-price[data-idx="'+idx+'"]');
-        if(prEl)prEl.textContent=(nuttiCartState[idx].price*q).toLocaleString()+'\uC6D0';
-      }
-      nuttiUpdateTotals();
-      nuttiPersistQty(idx,q);
-    }
-    var nuttiCartBound=false;
-    function nuttiBindCart(){
-      var body=document.getElementById('nuttiCartBody');
-      if(nuttiCartBound||!body)return; nuttiCartBound=true;
-      body.addEventListener('click',function(e){
-        var minus=e.target.closest&&e.target.closest('.ncp-qty-minus');
-        var plus=e.target.closest&&e.target.closest('.ncp-qty-plus');
-        var del=e.target.closest&&e.target.closest('.ncp-item-del');
-        if(minus){e.preventDefault();var i=parseInt(minus.getAttribute('data-idx'));nuttiSetQty(i,(nuttiCartState[i]?nuttiCartState[i].qty:1)-1);return;}
-        if(plus){e.preventDefault();var j=parseInt(plus.getAttribute('data-idx'));nuttiSetQty(j,(nuttiCartState[j]?nuttiCartState[j].qty:1)+1);return;}
-        if(del){e.preventDefault();var di=parseInt(del.getAttribute('data-idx'));var row=del.closest('.ncp-item');if(row)row.style.display='none';if(nuttiCartState[di]){nuttiCartState[di].qty=0;nuttiCartState[di].price=0;}nuttiUpdateTotals();try{var fr=window._nuttiCartFrame;if(fr&&fr.contentWindow&&fr.contentWindow.Basket&&typeof fr.contentWindow.Basket.deleteBasket==='function'){var inp=fr.contentWindow.document.getElementById('basket_chk_id_'+di);if(inp)inp.checked=true;}}catch(e2){}return;}
-      });
-    }
-    function openAndLoad(){ disarm(); openNuttiCartPanel(); loadNuttiCart(); }
-    window.openNuttiCartPanel=openNuttiCartPanel;
-    window.loadNuttiCart=loadNuttiCart;
-    window.closeNuttiCartPanel=closeNuttiCartPanel;
+    function openAndLoad(){ disarm(); window.__ncpOpenFresh(); }
 
     // ===== 네비게이션 차단: CART 담기 직후 장바구니 페이지로 이동/팝업하는 기본동작 무력화 =====
     function neutralizeNav(){
@@ -354,10 +230,6 @@ window.addEventListener('load', function(){
         }, false);
       });
     }
-    function bindPanelControls(){
-      var closeBtn=document.getElementById('nuttiCartClose');
-      if(closeBtn && !closeBtn._nb){ closeBtn._nb=true; closeBtn.addEventListener('click',function(e){e.preventDefault();closeNuttiCartPanel();}); }
-    }
     function syncCartBadge(){
       try{
         var badge=document.getElementById('nuttiCartBadge');
@@ -370,10 +242,11 @@ window.addEventListener('load', function(){
         badge.style.display = n>0 ? '' : 'none';
       }catch(e){}
     }
-    function initNutti(){ installAll(); bindCartButtons(); bindPanelControls(); syncCartBadge(); }
-    initNutti();
-    if(document.readyState==='loading'){ document.addEventListener('DOMContentLoaded', initNutti); }
-    window.addEventListener('load', initNutti);
+    function initNutti(){ installAll(); bindCartButtons(); }
+    function initNuttiOnce(){ initNutti(); syncCartBadge(); }
+    initNuttiOnce();
+    if(document.readyState==='loading'){ document.addEventListener('DOMContentLoaded', initNuttiOnce); }
+    window.addEventListener('load', initNuttiOnce);
     // 영구 인터벌: Cafe24가 함수를 재정의해도 다시 후킹
     setInterval(initNutti, 500);
   })();
@@ -596,7 +469,7 @@ window.addEventListener('load', function(){
         html+='</div>';
         html+='<span class="ncp-item-price" data-idx="'+i+'">'+(pr*qt).toLocaleString()+'원</span>';
         html+='</div></div>';
-        html+='<button type="button" class="ncp-item-del" data-prdno="'+no+'" aria-label="삭제">삭제</button>';
+        html+='<button type="button" class="ncp-item-del" data-idx="'+i+'" data-prdno="'+no+'" aria-label="삭제">삭제</button>';
         html+='</div>';
       }
       if(cartBody)cartBody.innerHTML=html;
@@ -614,9 +487,12 @@ window.addEventListener('load', function(){
     var total=sub>0?sub+NCP_SHIP:0;
     if(cartTotal)cartTotal.textContent=total.toLocaleString()+'원';
   }
-  function ncpSetQty(idx,q){
-    if(!ncpState[idx])return;
-    if(q<1)q=1;
+  var ncpQtyBusy=false;
+  function ncpAdjustQty(idx,isPlus){
+    if(ncpQtyBusy||!ncpState[idx])return;
+    var cur=ncpState[idx].qty;
+    if(!isPlus&&cur<=1)return;
+    var q=isPlus?cur+1:cur-1;
     ncpState[idx].qty=q;
     if(cartBody){
       var numEl=cartBody.querySelector('.ncp-qty-num[data-idx="'+idx+'"]');
@@ -625,25 +501,23 @@ window.addEventListener('load', function(){
       if(prEl)prEl.textContent=(ncpState[idx].price*q).toLocaleString()+'\uC6D0';
     }
     ncpUpdateTotals();
-    ncpPersistQty(idx,q);
-  }
-  /* \uC11C\uBC84 \uC7A5\uBC14\uAD6C\uB2C8 \uC218\uB7C9\uC744 \uC2E4\uC81C\uB85C \uBC18\uC601(iframe \uB0B4 Cafe24 Basket API \uAD6C\uB3D9, \uB514\uBC14\uC6B4\uC2A4) */
-  var ncpPersistTimers={};
-  function ncpPersistQty(idx,q){
+    ncpQtyBusy=true;
+    if(cartBody)cartBody.style.opacity='0.5';
     try{
-      if(ncpPersistTimers[idx])clearTimeout(ncpPersistTimers[idx]);
-      ncpPersistTimers[idx]=setTimeout(function(){
-        try{
-          if(!cartFrame||!cartFrame.contentWindow)return;
-          var w=cartFrame.contentWindow;
-          var inp=w.document.getElementById('quantity_id_'+idx);
-          if(inp){inp.value=q;}
-          if(w.Basket&&typeof w.Basket.modifyQuantity==='function'){
-            w.Basket.modifyQuantity('quantity_id_'+idx);
-          }
-        }catch(e){}
-      },550);
+      var w=cartFrame&&cartFrame.contentWindow;
+      var Bk=w&&w.Basket;
+      var qid='quantity_id_'+idx;
+      if(Bk){
+        if(isPlus){Bk.addQuantityShortcut(qid, idx);} else {Bk.outQuantityShortcut(qid, idx);}
+        Bk.modifyQuantity();
+      }
     }catch(e){}
+    setTimeout(function(){
+      ncpQtyBusy=false;
+      if(cartBody)cartBody.style.opacity='';
+      cartLoaded=false;
+      ncpLoad();
+    },900);
   }
   var ncpRowBound=false;
   function ncpBindRowEvents(){
@@ -652,10 +526,30 @@ window.addEventListener('load', function(){
       var minus=e.target.closest&&e.target.closest('.ncp-qty-minus');
       var plus=e.target.closest&&e.target.closest('.ncp-qty-plus');
       var del=e.target.closest&&e.target.closest('.ncp-item-del');
-      if(minus){e.preventDefault();var i=parseInt(minus.getAttribute('data-idx'));ncpSetQty(i,(ncpState[i]?ncpState[i].qty:1)-1);return;}
-      if(plus){e.preventDefault();var j=parseInt(plus.getAttribute('data-idx'));ncpSetQty(j,(ncpState[j]?ncpState[j].qty:1)+1);return;}
-      if(del){e.preventDefault();var row=del.closest('.ncp-item');if(row)row.style.display='none';var di=row?parseInt(row.getAttribute('data-idx')):-1;if(ncpState[di]){ncpState[di].qty=0;ncpState[di].price=0;}ncpUpdateTotals();return;}
+      if(minus){e.preventDefault();ncpAdjustQty(parseInt(minus.getAttribute('data-idx')),false);return;}
+      if(plus){e.preventDefault();ncpAdjustQty(parseInt(plus.getAttribute('data-idx')),true);return;}
+      if(del){e.preventDefault();ncpDeleteItem(parseInt(del.getAttribute('data-idx')));return;}
     });
+  }
+  function ncpDeleteItem(di){
+    var row=cartBody&&cartBody.querySelector('.ncp-item[data-idx="'+di+'"]');
+    if(row)row.style.display='none';
+    if(ncpState[di]){ncpState[di].qty=0;ncpState[di].price=0;}
+    ncpUpdateTotals();
+    try{
+      var w=cartFrame&&cartFrame.contentWindow;
+      if(w&&w.Basket&&typeof w.Basket.deleteBasket==='function'){
+        var allChk=w.document.querySelectorAll('[id^="basket_chk_id_"]');
+        for(var k=0;k<allChk.length;k++){ allChk[k].checked=false; }
+        var chk=w.document.getElementById('basket_chk_id_'+di);
+        if(chk)chk.checked=true;
+        w.Basket.deleteBasket();
+      }
+    }catch(e2){}
+    setTimeout(function(){
+      cartLoaded=false;
+      ncpLoad();
+    },900);
   }
   function ncpLoad(){
     if(cartBody)cartBody.innerHTML='<div class="ncp-loading">불러오는 중…</div>';
@@ -692,13 +586,8 @@ window.addEventListener('load', function(){
   }
   function ncpInit(){
     var btn=document.getElementById('nuttiCartBtn');
-    if(!btn)return;
-    /* \uCD5C\uC801\uD654/\uC678\uBD80 \uC2A4\uD06C\uB9BD\uD2B8\uAC00 \uBC14\uC778\uB529\uD55C \uC624\uB798\uB41C \uD578\uB4E4\uB7EC\uB97C \uC81C\uAC70\uD558\uACE0(\uD074\uB860 \uAD50\uCCB4) \uC6B0\uB9AC \uD1A0\uAE00\uB9CC \uB0A8\uAE34\uB2E4 */
-    if(!btn._ncToggleBound){
-      var fresh=btn.cloneNode(true);
-      if(btn.parentNode){ btn.parentNode.replaceChild(fresh,btn); }
-      btn=fresh;
-      btn.removeAttribute('data-ncbound');
+    /* EZ\uBE4C\uB354\uAC00 \uD5E4\uB354\uB97C \uB2A6\uAC8C \uB2E4\uC2DC \uADF8\uB824\uB3C4 \uC7A1\uB3C4\uB85D \uC8FC\uAE30\uC801\uC73C\uB85C \uC7AC\uD655\uC778(\uC774\uC81C \uACBD\uC7C1 \uBC14\uC778\uB354\uAC00 \uC5C6\uC5B4 clone\uC740 \uBD88\uD544\uC694) */
+    if(btn && !btn._ncToggleBound){
       btn._ncToggleBound=true;
       btn.addEventListener('click',function(e){
         e.preventDefault();e.stopPropagation();
@@ -712,6 +601,8 @@ window.addEventListener('load', function(){
       closeBtn.addEventListener('click',function(e){ e.preventDefault(); e.stopPropagation(); ncpClose(); });
     }
   }
+  /* \uB2F4\uAE30(#1) \uD2B8\uB9AC\uAC70\uC6A9: \uCE90\uC2DC \uBB34\uC2DC\uD558\uACE0 \uAC15\uC81C \uC7AC\uB85C\uB4DC \uD6C4 \uD328\uB110 \uC624\uD508 */
+  window.__ncpOpenFresh=function(){ cartLoaded=false; ncpOpen(); };
   document.addEventListener('click',function(e){
     if(!panel.classList.contains('is-open'))return;
     var t=e.target;

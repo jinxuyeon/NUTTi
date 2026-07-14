@@ -250,6 +250,18 @@ function nrPickDetail(doc){ for(var i=0;i<NUTTI_CFG.detailSel.length;i++){ var e
  function buildMini(){ return; if(document.querySelector('.rvwm')){return;} var anc=document.getElementById('prdDetail')||document.getElementById('tabProduct'); if(!anc){return;} var sec=(document.querySelector('.xans-product-review')||document.getElementById('prdReview')); if(!sec){return;} loadReviews(sec).then(function(data){ renderMini(data.reviews, data.pname); }); }
  function styleButtons(){ var bts=document.querySelectorAll('.board_title'); for(var z=0;z<bts.length;z++){ bts[z].style.setProperty('border-bottom-color','#e5ddd0','important'); bts[z].style.setProperty('margin-top','-70px','important'); } var dvs=document.querySelectorAll('.rvw-sum,.rvw-list,.rvw-ph,.rvw-card'); for(var z2=0;z2<dvs.length;z2++){ dvs[z2].style.setProperty('border-color','#e5ddd0','important'); } var gths=document.querySelectorAll('.gth'); for(var g3=0;g3<gths.length;g3++){ gths[g3].style.setProperty('border-color','#d0d0d0','important'); } var as=document.querySelectorAll('a.btnNormalFix'); for(var i=0;i<as.length;i++){ var a=as[i]; var h=a.getAttribute('href')||''; var tx=(a.textContent||'').trim(); if(h.indexOf('write')>-1||tx==='WRITE'){ if(tx!=='리뷰 작성'){a.textContent='리뷰 작성';} a.classList.add('rvw-wbtn'); a.style.setProperty('border-color','#cbb079','important'); a.style.setProperty('color','#7a5a1e','important'); } else if(h.indexOf('list')>-1||tx==='LIST'){ a.style.display='none'; } } }
  function maybeBuild(){ styleButtons(); var sec=(document.querySelector('.xans-product-review')||document.getElementById('prdReview')); if(!sec||sec.__rvwBuilt){return;} if(sec.offsetParent===null){return;} sec.__rvwBuilt=true; build(sec); }
+ function refresh(){
+  var sec=(document.querySelector('.xans-product-review')||document.getElementById('prdReview'));
+  if(!sec){ location.reload(); return; }
+  fetch(location.href,{credentials:'same-origin'}).then(function(r){return r.text();}).then(function(t){
+   var d=new DOMParser().parseFromString(t,'text/html');
+   var nsec=d.querySelector('.xans-product-review')||d.getElementById('prdReview');
+   if(!nsec){ location.reload(); return; }
+   sec.innerHTML=nsec.innerHTML; sec.__rvwBuilt=false; sec.__rvwLoad=null;
+   maybeBuild();
+  }).catch(function(){ location.reload(); });
+ }
+ window.__rvwRefresh=refresh;
  function setup(){ var sec=(document.querySelector('.xans-product-review')||document.getElementById('prdReview')); if(!sec){return;} styleButtons(); if(window.IntersectionObserver){ var io=new IntersectionObserver(function(es){ for(var i=0;i<es.length;i++){ if(es[i].isIntersecting){ maybeBuild(); } } }); io.observe(sec); } document.addEventListener('click',function(e){ var t=e.target; if(t && /review/i.test((t.textContent||'')) && (t.textContent||'').length<14){ setTimeout(maybeBuild,400); } }); setTimeout(buildMini,1200); setTimeout(maybeBuild,1600); setTimeout(styleButtons,1800); }
  if(document.readyState!=='loading'){setup();}else{document.addEventListener('DOMContentLoaded',setup);}
 })();
@@ -268,7 +280,7 @@ function nrPickDetail(doc){ for(var i=0;i<NUTTI_CFG.detailSel.length;i++){ var e
   var win=window.open(href,'rvwWrite','width='+W+',height='+H+',left='+l+',top='+t+',scrollbars=yes,resizable=yes');
   if(!win){ window.location.href=href; return; }
   try{win.focus();}catch(e){} var bd=document.getElementById('rvwW-backdrop'); if(!bd){ bd=document.createElement('div'); bd.id='rvwW-backdrop'; bd.style.cssText='position:fixed;top:0;left:0;right:0;bottom:0;z-index:99998;background:rgba(40,30,20,.38);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);'; document.body.appendChild(bd); }
-  var iv=setInterval(function(){ if(win.closed){ clearInterval(iv); var bdc=document.getElementById('rvwW-backdrop'); if(bdc){bdc.parentNode.removeChild(bdc);} window.location.reload(); } },300);
+  var iv=setInterval(function(){ if(win.closed){ clearInterval(iv); var bdc=document.getElementById('rvwW-backdrop'); if(bdc){bdc.parentNode.removeChild(bdc);} if(window.__rvwRefresh){window.__rvwRefresh();}else{window.location.reload();} } },300);
  }
  document.addEventListener('click',function(e){ var a=(e.target&&e.target.closest)?e.target.closest('a.rvw-wbtn, a[href*="board/product/write"]'):null; if(a){ e.preventDefault(); e.stopPropagation(); var href=a.getAttribute('href'); if(href){ open(href); } } }, true);
 })();

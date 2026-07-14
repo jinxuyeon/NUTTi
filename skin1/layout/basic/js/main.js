@@ -263,7 +263,8 @@ jQuery(document).ready(function() {
     });
   }
   bindBtn();
-  document.getElementById("nuttiCartClose").addEventListener("click",function(){panel.classList.remove("is-open");panel.setAttribute("aria-hidden","true");});
+  var closeBtn=document.getElementById("nuttiCartClose");
+  if(closeBtn)closeBtn.addEventListener("click",function(){panel.classList.remove("is-open");panel.setAttribute("aria-hidden","true");});
   document.addEventListener("click",function(e){if(!panel.classList.contains("is-open"))return;if((e.target.closest&&e.target.closest("#nuttiCartBtn"))||(e.target.closest&&e.target.closest("#nuttiCartPanel")))return;panel.classList.remove("is-open");panel.setAttribute("aria-hidden","true");});
 })();
 

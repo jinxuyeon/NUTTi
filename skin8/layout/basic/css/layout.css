@@ -28,7 +28,7 @@ a:hover {text-decoration:none;}
 .main_top_banner.ez-align-center .top_banner_box_inner .top_banner_text {text-align:center;}
 .main_top_banner.ez-align-right .top_banner_box_inner .top_banner_text {text-align:right;}
 .main_top_banner.ez-align-center .top_banner_box_inner .top_banner_close {position:absolute;top:0;right:0;bottom:0;}
-.main_top_banner .top_banner_box_inner .top_banner_text a {font-size:15px;font-weight:300;color:#3e3329;line-height:1.6;}
+.main_top_banner .top_banner_box_inner .top_banner_text a {font-size:14px;font-weight:300;color:#3e3329;line-height:1.6;}
 .main_top_banner .top_banner_box_inner .top_banner_close {font-size:12px;font-weight:300;color:#3e3329;line-height:1;display:flex;align-items:center;margin-left:30px;}
 .main_top_banner .top_banner_box_inner .top_banner_close input[type="checkbox"] {width:15px;height:15px;background-size:15px;}
 .main_top_banner .top_banner_box_inner .top_banner_close label {margin-left:5px;cursor:pointer;}
@@ -219,7 +219,7 @@ a:hover {text-decoration:none;}
 
 @media all and (max-width:1680px) {
 	/* 최상단 배너 */
-	.main_top_banner .top_banner_box_inner .top_banner_text a {font-size:calc(13px + (15 - 13) * ((100vw - 370px) / (1680 - 370)));}
+	.main_top_banner .top_banner_box_inner .top_banner_text a {font-size:calc(13px + (14 - 13) * ((100vw - 370px) / (1680 - 370)));}
 }
 
 @media all and (max-width:1480px) {

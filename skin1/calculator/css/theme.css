@@ -1,0 +1,39 @@
+/* ─────────────────────────────────────────────
+   NUTTI 디자인 토큰 (theme.css)
+   5색 팔레트:
+     다크   #332E2A  (텍스트·다크 히어로)
+     브라운 #564438  (메인 액션·선택·진행)
+     살몬   #E5A991  (구매 CTA 포인트)
+     세이지 #4E5E52  (보조 액센트·추천/안전)
+     크림   #F5EFEB  (배경)
+   calculator.css는 --green*, products.css는 --moss* 슬롯 사용(둘 다 브라운).
+   ───────────────────────────────────────────── */
+:root {
+  /* 베이스 */
+  --cream: #F5EFEB; --bark: #332E2A; --bark-soft: #3D362F;
+  /* 메인 액션(브라운) */
+  --green: #564438; --green-dark: #3F3228; --green-light: #ECE5DE; --green-mid: #A2917F;
+  --moss:  #564438; --moss-dark:  #3F3228; --moss-light:  #ECE5DE; --moss-mid:  #A2917F;
+  /* 보조 액센트(세이지 그린) */
+  --olive: #4E5E52; --olive-dark: #3A463D; --olive-light: #E6EBE6;
+  /* 시맨틱: 안전·추천(세이지) */
+  --safe: #4E5E52; --safe-light: #E6EBE6; --safe-dark: #36443B;
+  /* 포인트 CTA(살몬) */
+  --terra: #E5A991; --terra-dark: #CE8D71; --terra-light: #F8E9E1;
+  /* 서브 팔레트 */
+  --sand: #E7DFD3; --sand-dark: #C8BCAC;
+  --amber: #B98A3C; --amber-light: #F6ECD9; --amber-dark: #6E5018;
+  --red: #C0563E; --red-light: #F7E7E1; --red-dark: #7A3322;
+  --blue-light: #E6EBE6; --blue-dark: #36443B;
+  --sky: #5E7A8F; --sky-light: #E9EEF1;
+  --purple: #8A7E9E; --purple-light: #EEEAF2;
+  /* 텍스트·서피스 */
+  --text: #332E2A; --text-muted: #6E635A; --text-light: #A89E94;
+  --bg: #F5EFEB; --surface: #ffffff; --border: #E7DFD4; --border-hover: #CFC3B3;
+  /* 형태·모션 */
+  --radius: 20px; --radius-sm: 14px;
+  --shadow-sm: 0 1px 2px rgba(51,46,42,.04), 0 3px 10px rgba(51,46,42,.05);
+  --shadow-md: 0 2px 4px rgba(51,46,42,.04), 0 14px 36px rgba(51,46,42,.09);
+  --ring: 0 0 0 4px rgba(86,68,56,.16);
+  --ease: cubic-bezier(.22,.61,.36,1);
+}

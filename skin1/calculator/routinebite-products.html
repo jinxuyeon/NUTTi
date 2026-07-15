@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="theme-color" content="#F9F6F0"/>
+<title>누띠 — 맞춤 간식 추천</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=DM+Serif+Display:ital@0;1&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/theme.css?v=6">
+<link rel="stylesheet" href="css/products.css?v=6">
+<script src="js/ga.js?v=2"></script>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="app-head">
+    <div class="logo"><img src="assets/nutti-logo.jpg" alt="NUTTI 누띠" /></div>
+    <div class="app-head-right">
+      <span class="app-tagline">프리미엄 수제 강아지 간식</span>
+      <button type="button" class="back-btn">← 계산기로</button>
+    </div>
+  </div>
+
+  <div class="hero">
+    <div class="hero-eyebrow">누띠 · 맞춤 간식 추천</div>
+    <h1 class="hero-title" id="heroTitle">내 강아지에게 <em>딱 맞는</em><br>간식 루틴</h1>
+    <p class="hero-desc" id="heroDesc">국내 제조 프리미엄 수제간식. 견종·연령·건강 상태에 맞는 제품을 추천해 드립니다.</p>
+  </div>
+
+  <div class="persona-bar">
+    <div class="persona-tag" id="pNameTag" style="display:none;">🐾 <span id="pName"></span></div>
+    <div class="persona-tag">🐶 <span id="pBreed">소형견</span></div>
+    <div class="persona-tag">🎂 <span id="pAge">성견</span></div>
+    <div class="persona-tag">⚡ <span id="pAct">보통</span></div>
+    <div class="persona-tag" id="pBcsTag" style="display:none;">⚖️ <span id="pBcs"></span></div>
+    <div class="persona-tag">💚 <span id="pHealth">없음</span></div>
+    <div class="persona-edit">다시 계산하기 ↗</div>
+  </div>
+
+  <div class="controls">
+  <div class="filter-wrap">
+    <span class="filter-label">기능</span>
+    <button type="button" class="filter-btn active" data-filter="all">전체</button>
+    <button type="button" class="filter-btn" data-filter="관절">🦴 관절</button>
+    <button type="button" class="filter-btn" data-filter="피부">🌿 피부·모질</button>
+    <button type="button" class="filter-btn" data-filter="다이어트">🥗 다이어트</button>
+    <button type="button" class="filter-btn" data-filter="치아">🦷 치아·치석</button>
+    <button type="button" class="filter-btn" data-filter="두뇌">🧠 두뇌발달</button>
+    <button type="button" class="filter-btn" data-filter="면역">🛡 면역력</button>
+    <div class="filter-sep"></div>
+    <span class="filter-label">질감</span>
+    <button type="button" class="filter-btn" data-filter="SOFT">SOFT</button>
+    <button type="button" class="filter-btn" data-filter="MIDDLE">MIDDLE</button>
+    <button type="button" class="filter-btn" data-filter="HARD">HARD</button>
+  </div>
+
+  <div class="view-tabs" role="tablist">
+    <button type="button" class="view-tab active" data-view="recommend" role="tab">
+      <span class="view-tab-main">✦ 맞춤 추천</span>
+      <span class="view-tab-count" id="recTabCount">0</span>
+    </button>
+    <button type="button" class="view-tab" data-view="all" role="tab">
+      <span class="view-tab-main">전체 상품</span>
+      <span class="view-tab-count" id="allTabCount">15</span>
+    </button>
+    <span class="filter-count" id="filterCount">15개 제품</span>
+  </div>
+</div>
+
+  <div class="grid-wrap">
+    <div class="products-grid" id="productsGrid"></div>
+    <div class="empty" id="emptyState" style="display:none;"><div class="empty-icon">🐾</div><p>조건에 맞는 제품이 없습니다</p></div>
+  </div>
+
+</div><!-- /container -->
+
+<footer class="site-footer">
+  <img class="footer-logo" src="assets/nutti-logo.jpg" alt="NUTTI 누띠" />
+  국내 제조 프리미엄 수제간식 · 우리의 가족, 댕냥이를 위해
+</footer>
+
+<script src="js/products-data.js?v=6"></script>
+<script src="js/products.js?v=9"></script>
+</body>
+</html>

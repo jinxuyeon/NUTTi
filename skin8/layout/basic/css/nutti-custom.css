@@ -674,11 +674,15 @@ body.theme04 #header #top_nav_box .top_mypage li:has(> a[href*="order/basket.htm
 /* ===== 탑배너 닫기 X 키보드 포커스 표시 (nutti-custom.js 키보드 핸들러와 세트) ===== */
 .main_top_banner .top_banner_close .icoClose:focus-visible {outline:2px solid #ffdf8e;outline-offset:3px;}
 
-/* ===== 탑배너 닫기 X·체크박스 터치 타깃 확대 (시각 15px 유지, 탭 영역 39px) =====
-   음수 마진으로 레이아웃 footprint는 기존과 동일. X의 왼쪽은 마진 보정 없음 —
-   레이블 탭 영역과 겹치면 오탭으로 배너가 닫히므로 의도적으로 12px 띄움. */
-.main_top_banner .top_banner_box_inner .top_banner_close input[type="checkbox"] {width:39px;height:39px;margin:-12px -12px -12px 0;border:0;}
-.main_top_banner .top_banner_box_inner .top_banner_close label {padding:12px 0;margin:-12px 0;}
-.main_top_banner .top_banner_close .icoClose {width:39px;height:39px;margin:-12px -12px -12px 0;}
+/* ===== 탑배너 X 단독 개편 =====
+   체크박스·레이블은 DOM 유지(EZ 모듈이 disable-term을 참조할 수 있어 구조 불변) + CSS 숨김.
+   X 클릭 시 24시간 쿠키는 nutti-custom.js가 처리 → html.nutti-tbhide로 재노출 차단.
+   !important: EZ 모듈 JS가 inline display를 세팅하므로 (규약 사유 ②) */
+.main_top_banner .top_banner_box_inner .top_banner_close input[type="checkbox"],
+.main_top_banner .top_banner_box_inner .top_banner_close label {display:none;}
+html.nutti-tbhide .main_top_banner {display:none !important;}
+
+/* X 터치 타깃 확대 (시각 15px 유지, 탭 영역 39px) — 음수 마진으로 레이아웃 footprint 동일 */
+.main_top_banner .top_banner_close .icoClose {width:39px;height:39px;margin:-12px;}
 .main_top_banner .top_banner_close .icoClose:before {top:12px;right:19px;}
 .main_top_banner .top_banner_close .icoClose:after {top:19px;right:12px;}

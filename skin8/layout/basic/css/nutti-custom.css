@@ -662,3 +662,11 @@ body.theme04 #header #top_nav_box .top_mypage li:has(> a[href*="order/basket.htm
    사이트 전역에서 outline이 제거되어 커스텀 컴포넌트에 키보드 포커스 표시가 전혀 없었음.
    :focus-visible은 키보드 탐색 시에만 발동하므로 마우스 클릭 시 외곽선은 그대로 안 뜬다. */
 :focus-visible {outline:2px solid var(--nutti-caramel) !important;outline-offset:2px;}
+
+/* ===== 탑배너 문구 2개 세로 자동 롤링 (2026-07-15) =====
+   header.html의 .top_banner_roll — 항목 3개(마지막은 첫 문구 복제, 끊김 없는 루프용).
+   line-height:24px 고정으로 layout.css의 1.6을 덮어 롤링 높이를 고정. */
+.main_top_banner .top_banner_box_inner .top_banner_text .top_banner_roll {height:24px;overflow:hidden;}
+.main_top_banner .top_banner_box_inner .top_banner_text .top_banner_roll a {display:block;height:24px;line-height:24px;animation:nuttiTopBannerRoll 8s ease infinite;}
+@keyframes nuttiTopBannerRoll {0%,42%{transform:translateY(0);}50%,92%{transform:translateY(-24px);}100%{transform:translateY(-48px);}}
+@media (prefers-reduced-motion:reduce){.main_top_banner .top_banner_box_inner .top_banner_text .top_banner_roll a {animation:none;}}

@@ -670,3 +670,6 @@ body.theme04 #header #top_nav_box .top_mypage li:has(> a[href*="order/basket.htm
 .main_top_banner .top_banner_box_inner .top_banner_text .top_banner_roll a {display:block;height:24px;line-height:24px;animation:nuttiTopBannerRoll 8s ease infinite;}
 @keyframes nuttiTopBannerRoll {0%,42%{transform:translateY(0);}50%,92%{transform:translateY(-24px);}100%{transform:translateY(-48px);}}
 @media (prefers-reduced-motion:reduce){.main_top_banner .top_banner_box_inner .top_banner_text .top_banner_roll a {animation:none;}}
+
+/* ===== 탑배너 닫기 X 키보드 포커스 표시 (nutti-custom.js 키보드 핸들러와 세트) ===== */
+.main_top_banner .top_banner_close .icoClose:focus-visible {outline:2px solid #ffdf8e;outline-offset:3px;}

@@ -682,6 +682,12 @@ body.theme04 #header #top_nav_box .top_mypage li:has(> a[href*="order/basket.htm
 .main_top_banner .top_banner_box_inner .top_banner_close label {display:none;}
 html.nutti-tbhide .main_top_banner {display:none !important;}
 
+/* X를 뷰포트 우측 20px에 앵커 — 배너는 풀블리드 스트립이라 콘텐츠 컬럼이 아닌 스트립 기준.
+   inner의 relative를 풀어 close의 absolute 기준을 .main_top_banner(풀폭, relative)로 승격.
+   모바일(≤1024px)은 layout.css:272가 close를 static으로 되돌리므로 right 무해 */
+.main_top_banner .top_banner_box_inner {position:static;}
+.main_top_banner.ez-align-center .top_banner_box_inner .top_banner_close {right:20px;}
+
 /* X 터치 타깃 확대 (시각 15px 유지, 탭 영역 39px) — 음수 마진으로 레이아웃 footprint 동일.
    스트로크 1px→2px (카라멜 위 흰 헤어라인 시인성), 0.5px 오프셋은 39px 박스 정중앙 보정 */
 .main_top_banner .top_banner_close .icoClose {width:39px;height:39px;margin:-12px;}

@@ -693,7 +693,14 @@ html.nutti-tbhide .main_top_banner {display:none !important;}
 .main_top_banner .top_banner_close .icoClose {width:39px;height:39px;margin:-12px;}
 .main_top_banner .top_banner_close .icoClose:before {top:12px;right:18.5px;width:2px;}
 .main_top_banner .top_banner_close .icoClose:after {top:18.5px;right:12px;height:2px;}
-/* 모바일: X 단독이 된 둘째 줄의 과한 상단 패딩 축소 (16px → 6px, layout.css:271 override) */
+/* 모바일 한 줄 구조: 기존 2줄(문구 100% + X 둘째 줄) → 문구 flex:1 + X 인라인.
+   X↔문구 간격 30px→10px로 문구 폭 확보, 좁은 화면 넘침은 nowrap+ellipsis 방어 */
 @media all and (max-width:1024px){
- .main_top_banner .top_banner_box_inner .top_banner_close {padding-top:6px;}
+ .main_top_banner .top_banner_box_inner {flex-wrap:nowrap;}
+ .main_top_banner .top_banner_box_inner .top_banner_text {width:auto;flex:1;min-width:0;}
+ .main_top_banner .top_banner_box_inner .top_banner_text .top_banner_roll a {white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+ .main_top_banner .top_banner_box_inner .top_banner_close {padding-top:0;margin-left:10px;}
+}
+@media all and (max-width:767px){
+ .main_top_banner .top_banner_box_inner .top_banner_text a {font-size:12px;}
 }

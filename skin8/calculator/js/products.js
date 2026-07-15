@@ -251,7 +251,18 @@ document.querySelector('.filter-wrap').addEventListener('click', function(e){
   if (btn && btn.dataset.filter) setFilter(btn.dataset.filter, btn);
 });
 document.querySelectorAll('.back-btn, .persona-edit').forEach(function(el){
-  el.addEventListener('click', function(){ window.location.href = 'index.html'; });
+  el.addEventListener('click', function(){ window.location.href = '../calculator.html'; });
+});
+// 누띠 바로가기 클릭 추적 (GA4 — ga.js에 측정 ID 설정 시에만 동작)
+document.getElementById('productsGrid').addEventListener('click', function(e){
+  var a = e.target.closest('.card-link');
+  if (a && window.gtag) {
+    var card = a.closest('.product-card');
+    gtag('event', 'store_click', {
+      product_name: card ? card.querySelector('.card-name').textContent : '',
+      page: 'products'
+    });
+  }
 });
 
 parseParams();

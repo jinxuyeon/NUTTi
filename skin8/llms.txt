@@ -151,8 +151,8 @@ LLM Principles
 - Sitemap: https://nutti.co.kr/sitemap.xml
 - RSS: https://nutti.co.kr/rss.xml
 - 말랑 바삭 원물 육포: https://nutti.co.kr/category/말랑-바삭-원물-육포/42/
-- 치석 싹 오래먹는 껌: https://nutti.co.kr/category/치석-싹-오래먹는-껌/55/
-- 튼튼 관절 뼈 간식: https://nutti.co.kr/category/튼튼-관절-뼈-간식/56/
+- 든든한 오래먹는 껌: https://nutti.co.kr/category/든든한-오래먹는-껌/55/
+- 오독오독 뼈·연골 간식: https://nutti.co.kr/category/오독오독-뼈·연골-간식/56/
 - 매일 건강 토핑 분말: https://nutti.co.kr/category/매일-건강-토핑-분말/57/
 - 영양 가득 비건 칩: https://nutti.co.kr/category/영양-가득-비건-칩/58/
 - 지능발달 노즈워크: https://nutti.co.kr/category/지능발달-노즈워크/59/

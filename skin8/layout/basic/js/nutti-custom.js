@@ -287,3 +287,30 @@ function nrPickDetail(doc){ for(var i=0;i<NUTTI_CFG.detailSel.length;i++){ var e
 
 /* ===== block #23 (layout.html에서 추출) ===== */
 (function(){function nrPaint(){var ss=document.querySelectorAll('.sort select,select[name="selArray"]');for(var i=0;i<ss.length;i++){ss[i].style.setProperty('background-color','#fbf8f1','important');}}if(document.readyState!=='loading')nrPaint();else document.addEventListener('DOMContentLoaded',nrPaint);setTimeout(nrPaint,600);setTimeout(nrPaint,1500);})();
+
+/* ===== 탑배너 닫기 X 키보드 접근성 (header.html role="button"과 세트) ===== */
+(function(){
+ function setup(){
+  var x=document.querySelector('.main_top_banner .top_banner_close .icoClose');
+  if(!x){return;}
+  x.addEventListener('keydown',function(e){
+   if(e.key==='Enter'||e.key===' '||e.key==='Spacebar'){ e.preventDefault(); x.click(); }
+  });
+ }
+ if(document.readyState!=='loading'){setup();}else{document.addEventListener('DOMContentLoaded',setup);}
+})();
+
+/* ===== 탑배너 X 단독 24시간 억제 (체크박스는 nutti-custom.css에서 숨김) ===== */
+(function(){
+ var K='nutti_tb_hide=1';
+ if(document.cookie.indexOf(K)>-1){ document.documentElement.classList.add('nutti-tbhide'); return; }
+ function setup(){
+  var x=document.querySelector('.main_top_banner .top_banner_close .icoClose');
+  if(!x){return;}
+  x.addEventListener('click',function(){
+   document.cookie=K+'; max-age=86400; path=/';
+   document.documentElement.classList.add('nutti-tbhide');
+  });
+ }
+ if(document.readyState!=='loading'){setup();}else{document.addEventListener('DOMContentLoaded',setup);}
+})();

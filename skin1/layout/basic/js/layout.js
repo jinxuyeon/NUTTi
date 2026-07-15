@@ -297,7 +297,7 @@ jQuery(document).ready(function() {
 
 	/* 최상단배너 하루동안 닫기 - 서정환 */
     jQuery(".main_top_banner .top_banner_box_inner .top_banner_close .icon").bind("click", function() {
-		if(jQuery("#top_banner_box_cloase").is(":checked")){
+		if(jQuery("#top_banner_box_close").is(":checked")){
 			jQuery(".main_top_banner").slideUp("fast");
 			setCookiem("top_banner_cookie", "top_banner_cookie", 1);
 		 } else {

@@ -175,21 +175,22 @@ fieldset.form .wrap_find {
    로그인 버튼
    ============================================= */
 
+/* display:contents로 박스를 없애 자식(로그인 버튼/비회원 구매 버튼)이
+   fieldset.form의 flex 순서(order)에 직접 참여하게 함 — 비회원 구매를 상단으로 올리기 위함 */
 .login__button {
-  display: block;
-  margin-top: 0;
-  padding: 0;
+  display: contents !important;
 }
 
 .login__button .btnSubmit.gFull.sizeL,
 .login__button button.btnSubmit.gFull.sizeL {
+  order: 8 !important;
   display: flex !important;
   align-items: center;
   justify-content: center;
   width: 100% !important;
   height: 52px !important;
   padding: 0 !important;
-  margin: 0 !important;
+  margin: 8px 0 0 !important;
   background: var(--nutti-brown) !important;
   color: #fff !important;
   border: none !important;
@@ -211,14 +212,42 @@ fieldset.form .wrap_find {
   box-shadow: 0 8px 18px rgba(140, 98, 57, 0.22) !important;
 }
 
-/* 로그인 영역 안의 비회원 구매 버튼 숨김 */
+/* 비회원 구매 버튼: 로그인 없이 주문 진행 (숨기면 비회원 구매가 막힘)
+   카카오/네이버 로그인 바로 다음 순서로 상단에 노출 */
 fieldset.form .login__button .btnNormal.gFull.sizeL {
-  display: none !important;
+  order: 2 !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 100% !important;
+  height: 52px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: #fff !important;
+  color: var(--nutti-brown) !important;
+  border: 1px solid var(--nutti-brown) !important;
+  border-radius: 4px !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  text-decoration: none !important;
+  box-sizing: border-box !important;
 }
 
 fieldset.form .login__button > div {
-  display: none !important;
+  order: 2 !important;
+  margin: 8px 0 0;
+  font-size: 12px;
+  color: var(--nutti-sub);
+  text-align: center;
 }
+
+/* 비회원 구매 버튼 뒤로 밀려나는 나머지 로그인 영역 순서 재배치 */
+body.nutti-login .nlogin-coupon { order: 3 !important; }
+body.nutti-login .nlogin-or { order: 4 !important; }
+body.nutti-login .nlogin-tabs { order: 5 !important; }
+body.nutti-login .login { order: 6 !important; }
+body.nutti-login .wrap_security { order: 7 !important; }
+body.nutti-login .wrap_find { order: 9 !important; }
 
 /* =============================================
    아이디 찾기 / 비밀번호 찾기 / 회원가입

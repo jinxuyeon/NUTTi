@@ -314,3 +314,47 @@ function nrPickDetail(doc){ for(var i=0;i<NUTTI_CFG.detailSel.length;i++){ var e
  }
  if(document.readyState!=='loading'){setup();}else{document.addEventListener('DOMContentLoaded',setup);}
 })();
+
+/* ===== block #30 nutti-chatbot-ui: AI 추천 챗봇 토글 (UI/UX만, 실제 응답 로직은 미연동) ===== */
+(function(){
+  function init(){
+    var btn=document.getElementById('nuttiChatBtn'),
+        panel=document.getElementById('nuttiChatPanel'),
+        closeBtn=document.getElementById('nuttiChatClose'),
+        body=document.getElementById('nuttiChatBody'),
+        input=document.getElementById('nuttiChatInput'),
+        send=document.getElementById('nuttiChatSend');
+    if(!btn||!panel)return;
+    function open(){panel.classList.add('is-open');panel.setAttribute('aria-hidden','false');}
+    function close(){panel.classList.remove('is-open');panel.setAttribute('aria-hidden','true');}
+    btn.addEventListener('click',function(e){
+      e.preventDefault();
+      panel.classList.contains('is-open')?close():open();
+    });
+    if(closeBtn)closeBtn.addEventListener('click',close);
+    document.addEventListener('click',function(e){
+      if(!panel.classList.contains('is-open'))return;
+      var t=e.target;
+      if(t.closest&&(t.closest('#nuttiChatBtn')||t.closest('#nuttiChatPanel')))return;
+      close();
+    });
+    // ponytail: 데모용 에코 응답. 실제 AI 추천 연동 시 sendMsg 안의 setTimeout을 API 호출로 교체.
+    function addMsg(text,who){
+      var div=document.createElement('div');
+      div.className='nchat-msg '+who;
+      div.textContent=text;
+      body.appendChild(div);
+      body.scrollTop=body.scrollHeight;
+    }
+    function sendMsg(){
+      var v=(input.value||'').trim();
+      if(!v)return;
+      addMsg(v,'user');
+      input.value='';
+      setTimeout(function(){addMsg('아직 준비 중이에요! 곧 실제 추천으로 찾아올게요 🙏','bot');},500);
+    }
+    if(send)send.addEventListener('click',sendMsg);
+    if(input)input.addEventListener('keydown',function(e){if(e.key==='Enter')sendMsg();});
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}
+})();

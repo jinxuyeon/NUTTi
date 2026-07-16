@@ -287,6 +287,15 @@ window.addEventListener('load', function(){
 </div>
   <!-- //wrap -->
 <div id="quick_float">
+  <a href="#none" class="qbtn chatbot" id="nuttiChatBtn">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 4h16v11H7l-3 3V4z"></path>
+      <circle cx="9" cy="9.5" r="1" fill="currentColor" stroke="none"></circle>
+      <circle cx="12" cy="9.5" r="1" fill="currentColor" stroke="none"></circle>
+      <circle cx="15" cy="9.5" r="1" fill="currentColor" stroke="none"></circle>
+    </svg>
+    <span>AI추천</span>
+  </a>
   <a href="https://pf.kakao.com/_KvBXX/chat" target="_blank" class="qbtn kakao">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#3C1E1E">
       <path d="M12 3C6.477 3 2 6.686 2 11.182c0 2.92 1.745 5.492 4.373 7.014L5.5 21.5l3.868-2.045A11.5 11.5 0 0012 19.364c5.523 0 10-3.686 10-8.182C22 6.686 17.523 3 12 3z"></path>
@@ -404,6 +413,34 @@ window.addEventListener('load', function(){
 <!-- style block #26 → css/nutti-custom.css -->
 
 <!-- nutti-cart-widget-block END -->
+
+<!-- nutti-chatbot-widget-block START (UI/UX만 구현, AI 응답 로직은 미연동) -->
+<div class="nutti-chat-panel" id="nuttiChatPanel" aria-hidden="true">
+  <div class="nchat-head">
+    <strong>NUTTi AI 추천</strong>
+    <button type="button" class="nchat-close" id="nuttiChatClose">&times;</button>
+  </div>
+  <div class="nchat-body" id="nuttiChatBody">
+    <div class="nchat-msg bot">안녕하세요! 우리 강아지에게 맞는 간식을 찾아드릴게요 🐾<br>궁금한 걸 말씀해주세요.</div>
+    <div class="nchat-msg bot">
+      이런 상품은 어떠세요?
+      <div class="nchat-card">
+        <div class="nchat-card-thumb"></div>
+        <div class="nchat-card-info">
+          <span class="nchat-card-name">누띠 소고기 져키</span>
+          <span class="nchat-card-price">12,900원</span>
+        </div>
+        <a href="#none" class="nchat-card-btn">보러가기</a>
+      </div>
+    </div>
+  </div>
+  <div class="nchat-foot">
+    <input type="text" id="nuttiChatInput" placeholder="메시지를 입력하세요">
+    <button type="button" id="nuttiChatSend">전송</button>
+  </div>
+</div>
+<!-- style block #29 → css/nutti-custom.css --><!-- script block #30 → js/nutti-custom.js -->
+<!-- nutti-chatbot-widget-block END -->
 
 
 <script>

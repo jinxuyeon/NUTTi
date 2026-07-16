@@ -109,18 +109,20 @@ function cardHTML(p, isRec, show, concerns) {
       '<span class="cat-badge cat-'+escapeHtml(p.cat)+'">'+escapeHtml(p.catLabel)+'</span>'+
     '</div>'+
     '<div class="card-body">'+
-      reasonHTML+
-      '<div class="card-name">'+escapeHtml(p.name)+'</div>'+
-      '<div class="card-weight">'+escapeHtml(p.weight)+'</div>'+
-      '<div class="specs">'+
-        (isPowder
-          ? '<div class="spec-row"><div class="spec-labels"><span>분말형 제품</span></div><div class="spec-track"><div class="spec-dot powder" style="left:0%;top:50%;transform:translate(-50%,-50%);position:relative;display:inline-block;margin-left:2px;"></div></div></div>'
-          : makeSpec(['SOFT','MIDDLE','HARD'], texPct, false)
-        )+
-        makeSpec(['자견','성견','노령견','전연령'], agePct, false)+
-        makeSpec(['초소형','소형견','중대형','모든견종'], sizePct, false)+
+      '<div class="card-content">'+
+        reasonHTML+
+        '<div class="card-name">'+escapeHtml(p.name)+'</div>'+
+        '<div class="card-weight">'+escapeHtml(p.weight)+'</div>'+
+        '<div class="specs">'+
+          (isPowder
+            ? '<div class="spec-row"><div class="spec-labels"><span>분말형 제품</span></div><div class="spec-track"><div class="spec-dot powder" style="left:0%;top:50%;transform:translate(-50%,-50%);position:relative;display:inline-block;margin-left:2px;"></div></div></div>'
+            : makeSpec(['SOFT','MIDDLE','HARD'], texPct, false)
+          )+
+          makeSpec(['자견','성견','노령견','전연령'], agePct, false)+
+          makeSpec(['초소형','소형견','중대형','모든견종'], sizePct, false)+
+        '</div>'+
+        '<div class="tag-row">'+hlFns+'</div>'+
       '</div>'+
-      '<div class="tag-row">'+hlFns+'</div>'+
       footerHTML+
     '</div>'+
   '</div>';
@@ -153,11 +155,12 @@ function renderCards() {
   // 빈 상태(맥락별 메시지)
   var empty = document.getElementById('emptyState');
   if (visible === 0) {
+    var needsPersona = (currentView === 'recommend' && recCount === 0);
     empty.style.display = 'block';
-    empty.querySelector('p').textContent =
-      (currentView === 'recommend' && recCount === 0)
-        ? '건강 특이사항을 입력하면 맞춤 추천을 보여드려요'
-        : '조건에 맞는 제품이 없습니다';
+    empty.querySelector('p').textContent = needsPersona
+      ? '건강 특이사항을 입력하면 맞춤 추천을 보여드려요'
+      : '조건에 맞는 제품이 없습니다';
+    document.getElementById('emptyCta').style.display = needsPersona ? 'inline-flex' : 'none';
   } else {
     empty.style.display = 'none';
   }
@@ -167,7 +170,10 @@ function renderCards() {
 function setView(v, el) {
   currentView = v;
   currentFilter = 'all';
-  document.querySelectorAll('.view-tab').forEach(function(b){ b.classList.toggle('active', b===el); });
+  document.querySelectorAll('.view-tab').forEach(function(b){
+    b.classList.toggle('active', b===el);
+    b.setAttribute('aria-selected', b===el ? 'true' : 'false');
+  });
   document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.toggle('active', b.dataset.filter==='all'); });
   renderCards();
 }
@@ -237,7 +243,9 @@ function initView() {
   var hasRec = PRODUCTS.some(function(p){ return recScore(p) > 0; });
   currentView = hasRec ? 'recommend' : 'all';
   document.querySelectorAll('.view-tab').forEach(function(b){
-    b.classList.toggle('active', b.dataset.view === currentView);
+    var on = b.dataset.view === currentView;
+    b.classList.toggle('active', on);
+    b.setAttribute('aria-selected', on ? 'true' : 'false');
   });
 }
 

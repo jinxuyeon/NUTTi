@@ -5,8 +5,11 @@ body {
   font-family: 'Noto Sans KR', sans-serif; color: var(--text); min-height: 100vh; line-height: 1.6;
   background: radial-gradient(1100px 480px at 50% -120px, #EFE6DC 0%, var(--bg) 65%) fixed, var(--bg);
   -webkit-font-smoothing: antialiased;
+  word-break: keep-all; overflow-wrap: break-word;
 }
 :focus-visible { outline: none; box-shadow: var(--ring); border-radius: 8px; }
+/* 모바일 탭 300ms 지연 제거 + 카드류 더블탭 확대 방지 */
+.btn, .breed-card, .bcs-card, .choice-card, .tag, .ing-row-sel, input, select { touch-action: manipulation; }
 
 /* ── App card (가운데 떠 있는 카드 안에 계산기) ── */
 .container {
@@ -21,7 +24,7 @@ body {
   padding-bottom: 16px; margin-bottom: 18px; border-bottom: 1px solid var(--border);
 }
 .logo { display: flex; align-items: center; }
-.logo img { height: 22px; display: block; mix-blend-mode: multiply; }
+.logo img { height: 22px; width: auto; display: block; mix-blend-mode: multiply; }
 .app-tagline { font-size: 11.5px; color: var(--text-light); letter-spacing: .03em; }
 
 /* ── Progress ── */
@@ -62,7 +65,9 @@ body {
 /* ── Breed ── */
 .breed-search {
   width: 100%; height: 46px; border: 1.5px solid var(--border); border-radius: 99px;
-  padding: 0 18px 0 42px; font-size: 14px; font-family: 'Noto Sans KR', sans-serif;
+  /* 16px 미만이면 iOS가 포커스 시 화면을 자동 확대함 */
+  padding: 0 18px 0 42px; font-size: 16px; font-family: 'Noto Sans KR', sans-serif;
+  -webkit-appearance: none; appearance: none;
   outline: none; margin-bottom: 14px; transition: all .18s var(--ease); background: var(--cream);
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='15' viewBox='0 0 24 24' fill='none' stroke='%23A89C8E' stroke-width='2.4' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E");
   background-repeat: no-repeat; background-position: 17px center;
@@ -106,7 +111,8 @@ body {
 .field > label { display: block; font-size: 13px; font-weight: 600; color: var(--text-muted); margin-bottom: 8px; letter-spacing: .01em; }
 input[type=text], select {
   width: 100%; height: 50px; border: 1.5px solid var(--border); border-radius: var(--radius-sm);
-  padding: 0 16px; font-size: 15px; font-family: 'Noto Sans KR', sans-serif; color: var(--text);
+  /* 16px 미만이면 iOS가 포커스 시 화면을 자동 확대함 */
+  padding: 0 16px; font-size: 16px; font-family: 'Noto Sans KR', sans-serif; color: var(--text);
   background: var(--surface); outline: none; transition: all .18s var(--ease);
 }
 input[type=text]:focus, select:focus { border-color: var(--green); box-shadow: var(--ring); }
@@ -194,7 +200,8 @@ input[type=range]::-moz-range-thumb {
 .ing-tip { font-size: 11px; padding: 3px 9px; border-radius: 99px; font-weight: 600; white-space: nowrap; }
 .tip-recommend { background: var(--safe-light); color: var(--safe-dark); }
 .tip-caution { background: var(--amber-light); color: var(--amber-dark); }
-.tip-danger { background: var(--red-light); color: var(--red-dark); }
+/* 위험(독성) 배지는 솔리드 반전 — 주의(파스텔)와 한눈에 구분 */
+.tip-danger { background: var(--red-dark); color: var(--red-light); }
 .tip-info { background: var(--green-light); color: var(--green-dark); }
 .ing-check {
   width: 20px; height: 20px; border-radius: 50%; border: 2px solid var(--border);
@@ -258,17 +265,20 @@ input[type=range]::-moz-range-thumb {
 .ing-badge { display: inline-flex; align-items: center; gap: 3px; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 99px; }
 .badge-safe { background: var(--safe-light); color: var(--safe-dark); }
 .badge-warn { background: var(--amber-light); color: var(--amber-dark); }
-.badge-danger { background: var(--red-light); color: var(--red-dark); }
+.badge-danger { background: var(--red-dark); color: var(--red-light); }
 
 .rec-item {
   background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm);
-  padding: 14px 16px; display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  padding: 14px 16px; display: flex; flex-direction: column;
   margin-bottom: 8px; transition: all .18s var(--ease);
 }
 .rec-item:hover { border-color: var(--green-mid); transform: translateY(-2px); box-shadow: var(--shadow-sm); }
 a.rec-item { text-decoration: none; color: inherit; cursor: pointer; }
+.rec-item-body { flex: 1; }
+.rec-item-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
 .rec-item-name { font-family: 'Gowun Dodum', serif; font-size: 14.5px; color: var(--text); }
 .rec-item-desc { font-size: 12px; color: var(--text-light); margin-top: 2px; line-height: 1.5; }
+.rec-item-cta { font-size: 12px; font-weight: 600; color: var(--green-dark); margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--border); }
 .rec-badge { font-size: 11px; padding: 4px 11px; border-radius: 99px; font-weight: 600; white-space: nowrap; flex-shrink: 0; }
 .b-green { background: var(--safe-light); color: var(--safe-dark); }
 .b-amber { background: var(--amber-light); color: var(--amber-dark); }
@@ -294,10 +304,10 @@ a.rec-item { text-decoration: none; color: inherit; cursor: pointer; }
 }
 .btn.primary:hover { transform: translateY(-1px); background: var(--green-dark); box-shadow: 0 10px 24px rgba(86,68,56,.38); }
 .btn.cta {
-  background: var(--terra); color: var(--bark); border: none; font-weight: 700;
-  box-shadow: 0 6px 18px rgba(206,141,113,.4);
+  background: var(--terra); color: #fff; border: none; font-weight: 700;
+  box-shadow: 0 6px 18px rgba(176,92,56,.35);
 }
-.btn.cta:hover { transform: translateY(-1px); background: var(--terra-dark); box-shadow: 0 10px 24px rgba(206,141,113,.5); }
+.btn.cta:hover { transform: translateY(-1px); background: var(--terra-dark); box-shadow: 0 10px 24px rgba(176,92,56,.45); }
 
 /* ── BCS ── */
 .bcs-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 7px; margin-bottom: 10px; }
@@ -323,7 +333,7 @@ a.rec-item { text-decoration: none; color: inherit; cursor: pointer; }
 
 /* ── Footer ── */
 .site-footer { text-align: center; padding: 38px 20px 30px; font-size: 11.5px; color: var(--text-light); letter-spacing: .08em; line-height: 1.9; }
-.footer-logo { height: 17px; display: block; margin: 0 auto 8px; mix-blend-mode: multiply; opacity: .85; }
+.footer-logo { height: 17px; width: auto; display: block; margin: 0 auto 8px; mix-blend-mode: multiply; opacity: .85; }
 
 /* ── Responsive / Motion ── */
 @media (max-width: 430px) {

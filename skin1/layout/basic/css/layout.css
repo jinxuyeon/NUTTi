@@ -189,7 +189,10 @@ a:hover {text-decoration:none;}
 #footer .inner .inner_t .info_right .wrap_cs .bank_txt .bt_title_sub > strong,
 #footer .inner .inner_t .info_right .wrap_cs .bt_mail > strong,
 #footer .inner .inner_t .info_right .wrap_cs .bt_time > strong  {font-weight:600;display:block;}
+#footer .inner .inner_t .info_right .wrap_cs .bt_tel {display:flex;white-space:nowrap;}
 #footer .inner .inner_t .info_right .wrap_cs .bt_tel > strong {font-weight:600;}
+#footer .inner .inner_t .info_right .wrap_cs .bt_tel [data-ez-role="value"] a {display:inline-flex;align-items:center;color:inherit;}
+#footer .inner .inner_t .info_right .wrap_cs .bt_tel [data-ez-role="value"] a svg.icon {display:inline-block;width:16px;height:16px;margin-right:4px;flex-shrink:0;}
 
 /* 하단 에스크로 */
 #footer .inner .inner_b .bt_escrow a {font-size:0px;display:flex;align-items:center;}

@@ -6,17 +6,18 @@
 <meta name="theme-color" content="#F9F6F0"/>
 <title>누띠 — 맞춤 간식 추천</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=DM+Serif+Display:ital@0;1&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/theme.css?v=6">
-<link rel="stylesheet" href="css/products.css?v=6">
-<script src="js/ga.js?v=2"></script>
+<link rel="stylesheet" href="css/theme.css?v=8">
+<link rel="stylesheet" href="css/products.css?v=12">
+<script src="js/ga.js?v=2" defer></script>
 </head>
 <body>
 
-<div class="container">
+<main class="container">
 
   <div class="app-head">
-    <div class="logo"><img src="assets/nutti-logo.jpg" alt="NUTTI 누띠" /></div>
+    <div class="logo"><img src="assets/nutti-logo.jpg" alt="NUTTI 누띠" width="1920" height="580" /></div>
     <div class="app-head-right">
       <span class="app-tagline">프리미엄 수제 강아지 간식</span>
       <button type="button" class="back-btn">← 계산기로</button>
@@ -36,7 +37,7 @@
     <div class="persona-tag">⚡ <span id="pAct">보통</span></div>
     <div class="persona-tag" id="pBcsTag" style="display:none;">⚖️ <span id="pBcs"></span></div>
     <div class="persona-tag">💚 <span id="pHealth">없음</span></div>
-    <div class="persona-edit">다시 계산하기 ↗</div>
+    <button type="button" class="persona-edit">다시 계산하기 ↗</button>
   </div>
 
   <div class="controls">
@@ -71,17 +72,17 @@
 
   <div class="grid-wrap">
     <div class="products-grid" id="productsGrid"></div>
-    <div class="empty" id="emptyState" style="display:none;"><div class="empty-icon">🐾</div><p>조건에 맞는 제품이 없습니다</p></div>
+    <div class="empty" id="emptyState" style="display:none;"><div class="empty-icon">🐾</div><p>조건에 맞는 제품이 없습니다</p><a class="empty-cta" id="emptyCta" href="../calculator.html" style="display:none;">계산기에서 정보 입력하기 →</a></div>
   </div>
 
-</div><!-- /container -->
+</main><!-- /container -->
 
 <footer class="site-footer">
-  <img class="footer-logo" src="assets/nutti-logo.jpg" alt="NUTTI 누띠" />
+  <img class="footer-logo" src="assets/nutti-logo.jpg" alt="NUTTI 누띠" width="1920" height="580" />
   국내 제조 프리미엄 수제간식 · 우리의 가족, 댕냥이를 위해
 </footer>
 
 <script src="js/products-data.js?v=6"></script>
-<script src="js/products.js?v=9"></script>
+<script src="js/products.js?v=12"></script>
 </body>
 </html>

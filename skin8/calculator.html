@@ -6,17 +6,18 @@
 <meta name="theme-color" content="#F9F6F0" />
 <title>간식 계산기 — 누띠</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=DM+Serif+Display:ital@0;1&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="calculator/css/theme.css?v=6">
-<link rel="stylesheet" href="calculator/css/calculator.css?v=7">
-<script src="calculator/js/ga.js?v=2"></script>
+<link rel="stylesheet" href="calculator/css/theme.css?v=8">
+<link rel="stylesheet" href="calculator/css/calculator.css?v=13">
+<script src="calculator/js/ga.js?v=2" defer></script>
 </head>
 <body>
 
-<div class="container">
+<main class="container">
 
   <div class="app-head">
-    <div class="logo"><img src="calculator/assets/nutti-logo.jpg" alt="NUTTI 누띠" /></div>
+    <div class="logo"><img src="calculator/assets/nutti-logo.jpg" alt="NUTTI 누띠" width="1920" height="580" /></div>
     <div class="app-tagline">프리미엄 수제 강아지 간식</div>
   </div>
 
@@ -32,7 +33,7 @@
       <div class="step-line" id="line3"></div>
       <div class="step-dot" id="dot4">5</div>
     </div>
-    <div class="progress-label" id="progLabel"><strong>견종 선택</strong> · 5단계 중 1단계</div>
+    <div class="progress-label" id="progLabel" aria-live="polite"><strong>견종 선택</strong> · 5단계 중 1단계</div>
   </div>
 
   <!-- STEP 1: 견종 -->
@@ -41,7 +42,7 @@
       <h1>견종을 선택해 주세요</h1>
       <p>견종별 대사율을 반영해 더 정확하게 계산합니다</p>
     </div>
-    <input class="breed-search" type="text" placeholder="견종 검색..." />
+    <input class="breed-search" type="search" placeholder="견종 검색..." aria-label="견종 검색" />
     <div class="breed-grid" id="breedGrid"></div>
     <div class="btn-row">
       <button type="button" class="btn primary" data-goto="1">다음 →</button>
@@ -55,18 +56,18 @@
       <p>체중과 나이가 칼로리 계산의 핵심입니다</p>
     </div>
     <div class="field">
-      <label>강아지 이름</label>
-      <input type="text" id="dogName" placeholder="예: 몽이" maxlength="20" />
+      <label for="dogName">강아지 이름</label>
+      <input type="text" id="dogName" placeholder="예: 몽이" maxlength="20" autocomplete="off" />
     </div>
     <div class="field">
-      <label>체중</label>
+      <label for="weightSlider">체중</label>
       <div class="range-wrap">
-        <input type="range" min="0.5" max="60" step="0.5" value="5" id="weightSlider" />
+        <input type="range" min="0.5" max="60" step="0.5" value="5" id="weightSlider" aria-describedby="weightVal" />
         <div class="range-display" id="weightVal">5.0kg</div>
       </div>
     </div>
     <div class="field">
-      <label>나이</label>
+      <label for="dogAge">나이</label>
       <select id="dogAge">
         <option value="puppy">퍼피 (1살 미만)</option>
         <option value="adult" selected>성견 (1~7살)</option>
@@ -130,12 +131,12 @@
       <label>중성화 여부</label>
       <div class="choice-grid">
         <div class="choice-card selected" data-group="neuter" data-val="Y">
-          <div class="choice-icon">✅</div>
+          <div class="choice-icon">✂️</div>
           <div class="choice-label">중성화 완료</div>
           <div class="choice-sub">칼로리 약 20% 감소</div>
         </div>
         <div class="choice-card" data-group="neuter" data-val="N">
-          <div class="choice-icon">⭕</div>
+          <div class="choice-icon">🐾</div>
           <div class="choice-label">중성화 미완료</div>
           <div class="choice-sub">표준 요구량 적용</div>
         </div>
@@ -208,13 +209,13 @@
     </div>
   </div>
 
-</div>
+</main>
 
 <footer class="site-footer">
-  <img class="footer-logo" src="calculator/assets/nutti-logo.jpg" alt="NUTTI 누띠" />
+  <img class="footer-logo" src="calculator/assets/nutti-logo.jpg" alt="NUTTI 누띠" width="1920" height="580" />
   국내 제조 프리미엄 수제간식 · 본 계산기는 수의영양학 공식 기반 참고용입니다
 </footer>
 
-<script src="calculator/js/calculator.js?v=10"></script>
+<script src="calculator/js/calculator.js?v=14"></script>
 </body>
 </html>

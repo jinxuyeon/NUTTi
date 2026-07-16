@@ -3,7 +3,7 @@
    5색 팔레트:
      다크   #332E2A  (텍스트·다크 히어로)
      브라운 #564438  (메인 액션·선택·진행)
-     살몬   #E5A991  (구매 CTA 포인트)
+     테라코타 #B05C38 (구매 CTA 포인트)
      세이지 #4E5E52  (보조 액센트·추천/안전)
      크림   #F5EFEB  (배경)
    calculator.css는 --green*, products.css는 --moss* 슬롯 사용(둘 다 브라운).
@@ -19,7 +19,7 @@
   /* 시맨틱: 안전·추천(세이지) */
   --safe: #4E5E52; --safe-light: #E6EBE6; --safe-dark: #36443B;
   /* 포인트 CTA(살몬) */
-  --terra: #E5A991; --terra-dark: #CE8D71; --terra-light: #F8E9E1;
+  --terra: #B05C38; --terra-dark: #96482A; --terra-light: #F5E4DA;
   /* 서브 팔레트 */
   --sand: #E7DFD3; --sand-dark: #C8BCAC;
   --amber: #B98A3C; --amber-light: #F6ECD9; --amber-dark: #6E5018;
@@ -28,7 +28,8 @@
   --sky: #5E7A8F; --sky-light: #E9EEF1;
   --purple: #8A7E9E; --purple-light: #EEEAF2;
   /* 텍스트·서피스 */
-  --text: #332E2A; --text-muted: #6E635A; --text-light: #A89E94;
+  /* text-light: 소형 라벨에도 WCAG 4.5:1 근접하도록 #A89E94 → #857567 로 다크닝 */
+  --text: #332E2A; --text-muted: #6E635A; --text-light: #857567;
   --bg: #F5EFEB; --surface: #ffffff; --border: #E7DFD4; --border-hover: #CFC3B3;
   /* 형태·모션 */
   --radius: 20px; --radius-sm: 14px;

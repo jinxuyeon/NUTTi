@@ -1,7 +1,9 @@
 /* 디자인 토큰(:root)은 css/theme.css 에서 로드 — 이 파일보다 먼저 link 필요 */
 *{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'Noto Sans KR',sans-serif;background:var(--cream);color:var(--text);min-height:100vh;-webkit-font-smoothing:antialiased;}
-:focus-visible{outline:none;box-shadow:0 0 0 4px rgba(140,98,57,.14);border-radius:8px;}
+body{font-family:'Noto Sans KR',sans-serif;background:var(--cream);color:var(--text);min-height:100vh;-webkit-font-smoothing:antialiased;word-break:keep-all;overflow-wrap:break-word;}
+:focus-visible{outline:none;box-shadow:var(--ring);border-radius:8px;}
+/* 모바일 탭 300ms 지연 제거 */
+button,.card-link{touch-action:manipulation;}
 
 /* ── App card (가운데 떠 있는 카드 안에 상품추천) ── */
 .container{max-width:1040px;margin:30px auto;padding:22px 26px 26px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow-md);}
@@ -9,7 +11,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--cream);color:var(--t
 /* 카드 안 상단 헤더 (로고 + 태그라인 + 계산기로) */
 .app-head{display:flex;align-items:center;justify-content:space-between;padding-bottom:16px;margin-bottom:18px;border-bottom:1px solid var(--border);}
 .logo{display:flex;align-items:center;}
-.logo img{height:22px;display:block;mix-blend-mode:multiply;}
+.logo img{height:22px;width:auto;display:block;mix-blend-mode:multiply;}
 .app-head-right{display:flex;align-items:center;gap:14px;}
 .app-tagline{font-size:11.5px;color:var(--text-light);letter-spacing:.03em;}
 .back-btn{background:var(--surface);border:1.5px solid var(--border);color:var(--text-muted);font-size:12px;font-weight:500;padding:7px 15px;border-radius:99px;cursor:pointer;font-family:'Noto Sans KR',sans-serif;transition:all .18s var(--ease);}
@@ -26,7 +28,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--cream);color:var(--t
 .persona-bar{display:flex;align-items:center;gap:7px;flex-wrap:wrap;padding:14px 0;border-top:1px solid var(--border);}
 .persona-tag{background:var(--cream);border:1px solid var(--border);color:var(--text-muted);font-size:12px;padding:5px 12px;border-radius:99px;display:flex;align-items:center;gap:5px;}
 .persona-tag span{color:var(--moss-dark);font-weight:600;}
-.persona-edit{margin-left:auto;font-size:11.5px;color:var(--text-light);cursor:pointer;letter-spacing:.02em;font-weight:500;transition:color .15s;}
+.persona-edit{margin-left:auto;font-size:11.5px;color:var(--text-light);cursor:pointer;letter-spacing:.02em;font-weight:500;transition:color .15s;background:none;border:none;padding:6px 2px;font-family:'Noto Sans KR',sans-serif;}
 .persona-edit:hover{color:var(--moss-dark);}
 
 /* ── Controls (카테고리 필터 + 맞춤추천 토글을 한 묶음으로) ── */
@@ -45,7 +47,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--cream);color:var(--t
 /* ── Filter bar (카테고리) — controls 안의 인라인 행 ── */
 .filter-wrap{display:flex;gap:7px;flex-wrap:wrap;align-items:center;margin-bottom:12px;}
 .filter-label{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-light);margin-right:2px;flex-shrink:0;font-weight:700;}
-.filter-btn{border:1.5px solid var(--border);border-radius:99px;padding:6px 15px;font-size:12.5px;font-weight:500;cursor:pointer;background:var(--surface);color:var(--text-muted);font-family:'Noto Sans KR',sans-serif;transition:all .18s var(--ease);user-select:none;}
+.filter-btn{border:1.5px solid var(--border);border-radius:99px;padding:6px 15px;min-height:36px;font-size:12.5px;font-weight:500;cursor:pointer;background:var(--surface);color:var(--text-muted);font-family:'Noto Sans KR',sans-serif;transition:all .18s var(--ease);user-select:none;}
 .filter-btn:hover{border-color:var(--moss-mid);color:var(--moss-dark);transform:translateY(-1px);box-shadow:var(--shadow-sm);}
 .filter-btn.active{background:var(--moss);border-color:transparent;color:white;box-shadow:0 4px 12px rgba(86,68,56,.28);}
 .filter-sep{width:1px;height:20px;background:var(--border);flex-shrink:0;margin:0 2px;}
@@ -55,7 +57,14 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--cream);color:var(--t
 .grid-wrap{padding:14px 0 6px;}
 .products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px;}
 
-.product-card{background:var(--surface);border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);transition:all .22s var(--ease);cursor:default;display:flex;flex-direction:column;box-shadow:var(--shadow-sm);}
+.product-card{background:var(--surface);border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);transition:all .22s var(--ease);cursor:default;display:flex;flex-direction:column;box-shadow:var(--shadow-sm);animation:cardIn .45s var(--ease) both;}
+@keyframes cardIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:none;}}
+/* 처음 6장만 30ms 간격 스태거 — 그 뒤는 즉시 표시 */
+.product-card:nth-child(2){animation-delay:.03s;}
+.product-card:nth-child(3){animation-delay:.06s;}
+.product-card:nth-child(4){animation-delay:.09s;}
+.product-card:nth-child(5){animation-delay:.12s;}
+.product-card:nth-child(6){animation-delay:.15s;}
 .product-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-md);border-color:var(--sand-dark);}
 .product-card.hidden{display:none;}
 .product-card.matched{border-color:var(--moss-mid);}
@@ -73,6 +82,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--cream);color:var(--t
 .cat-mixed{background:var(--moss-light);color:var(--moss-dark);}
 
 .card-body{padding:16px 18px 18px;flex:1;display:flex;flex-direction:column;}
+.card-content{flex:1;display:flex;flex-direction:column;}
 /* 추천 이유 배지 — 이 강아지의 어떤 고민에 맞는지 */
 .reason-tag{align-self:flex-start;font-size:11px;font-weight:700;letter-spacing:.01em;color:var(--moss-dark);background:var(--moss-light);border:1px solid var(--moss-mid);border-radius:99px;padding:3px 10px;margin-bottom:8px;}
 .card-name{font-family:'Gowun Dodum',serif;font-size:15.5px;color:var(--text);margin-bottom:3px;line-height:1.35;}
@@ -93,14 +103,16 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--cream);color:var(--t
 
 /* 자사몰 바로가기 (url 있는 상품에만 렌더) */
 .card-footer{margin-top:14px;padding-top:12px;border-top:1px solid var(--border);}
-.card-link{display:flex;align-items:center;justify-content:center;gap:6px;height:42px;border-radius:99px;background:var(--terra);color:var(--bark);font-size:13px;font-weight:700;text-decoration:none;box-shadow:0 4px 12px rgba(206,141,113,.35);transition:all .18s var(--ease);}
-.card-link:hover{transform:translateY(-1px);background:var(--terra-dark);box-shadow:0 8px 18px rgba(206,141,113,.45);}
+.card-link{display:flex;align-items:center;justify-content:center;gap:6px;height:42px;border-radius:99px;background:var(--terra);color:#fff;font-size:13px;font-weight:700;text-decoration:none;box-shadow:0 4px 12px rgba(176,92,56,.30);transition:all .18s var(--ease);}
+.card-link:hover{transform:translateY(-1px);background:var(--terra-dark);box-shadow:0 8px 18px rgba(176,92,56,.40);}
 
 /* ── Empty / Footer ── */
 .empty{text-align:center;padding:70px 20px;color:var(--text-light);}
 .empty-icon{font-size:44px;margin-bottom:14px;opacity:.7;}
+.empty-cta{display:inline-flex;align-items:center;margin-top:18px;padding:11px 22px;min-height:44px;border-radius:99px;background:var(--moss);color:#fff;font-size:13.5px;font-weight:600;text-decoration:none;transition:all .18s var(--ease);}
+.empty-cta:hover{background:var(--moss-dark);transform:translateY(-1px);box-shadow:var(--shadow-sm);}
 .site-footer{text-align:center;padding:38px 20px 30px;font-size:11.5px;color:var(--text-light);letter-spacing:.08em;line-height:1.9;}
-.footer-logo{height:17px;display:block;margin:0 auto 8px;mix-blend-mode:multiply;opacity:.85;}
+.footer-logo{height:17px;width:auto;display:block;margin:0 auto 8px;mix-blend-mode:multiply;opacity:.85;}
 
 @media (max-width:640px){
   .container{margin:14px auto;padding:18px 16px 20px;border-radius:18px;}
@@ -137,4 +149,9 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--cream);color:var(--t
 }
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important;}
+}
+/* 터치 기기에서 최소 44px 터치 타깃 (WCAG 2.5.8) — 시각 크기는 유지, 히트 영역만 확장 */
+@media (pointer:coarse){
+  .filter-btn,.back-btn,.persona-edit{min-height:44px;}
+  .card-link{min-height:44px;height:auto;}
 }

@@ -151,6 +151,7 @@ function showStepError(step, msg) {
   if (!err) {
     err = document.createElement('div');
     err.className = 'step-error alert amber';
+    err.setAttribute('role', 'alert');
     err.innerHTML = '<span class="alert-icon">⚠️</span><span class="step-error-msg"></span>';
     panel.insertBefore(err, panel.querySelector('.btn-row'));
   }
@@ -182,7 +183,7 @@ function initBreeds() {
   var grid = document.getElementById('breedGrid');
   grid.innerHTML = BREEDS.map(function(b,i){
     var sizeClass = b.size==='소형'?'size-small':b.size==='중형'?'size-medium':'size-large';
-    return '<div class="breed-card'+(i===0?' selected':'')+'" data-idx="'+i+'" data-name="'+escapeHtml(b.name)+'">' +
+    return '<div class="breed-card'+(i===0?' selected':'')+'" role="button" tabindex="0" aria-pressed="'+(i===0?'true':'false')+'" data-idx="'+i+'" data-name="'+escapeHtml(b.name)+'">' +
       '<div class="breed-emoji">'+b.emoji+'</div>' +
       '<div class="breed-name">'+escapeHtml(b.name)+'</div>' +
       '<span class="breed-size-tag '+sizeClass+'">'+escapeHtml(b.size)+'</span>' +
@@ -265,7 +266,7 @@ function renderIngGrid() {
       }
     }
 
-    return '<div class="ing-row-sel'+isSel+'" data-val="'+escapeHtml(ing.val)+'">' +
+    return '<div class="ing-row-sel'+isSel+'" role="button" tabindex="0" aria-pressed="'+(isSel?'true':'false')+'" data-val="'+escapeHtml(ing.val)+'">' +
       '<div class="ing-left">' +
         '<span class="ing-emoji">'+ing.emoji+'</span>' +
         '<span class="ing-label">'+escapeHtml(ing.val)+'</span>' +
@@ -448,19 +449,28 @@ function renderResult() {
     '<div class="divider"></div>' +
     '<div class="section-title">'+nameSafe+'에게 맞는 누띠 추천</div>' +
     recs.map(function(r){
-      var inner = '<div><div class="rec-item-name">'+escapeHtml(r.name)+'</div><div class="rec-item-desc">'+escapeHtml(r.desc)+' · 누띠에서 보러가기 →</div></div><span class="rec-badge '+r.bc+'">'+escapeHtml(r.badge)+'</span>';
+      var inner = '<div class="rec-item-body"><div class="rec-item-top"><div class="rec-item-name">'+escapeHtml(r.name)+'</div><span class="rec-badge '+r.bc+'">'+escapeHtml(r.badge)+'</span></div><div class="rec-item-desc">'+escapeHtml(r.desc)+'</div></div><div class="rec-item-cta">누띠에서 보러가기 →</div>';
       var link = storeUrl(r.url);
       return link
         ? '<a class="rec-item" href="'+escapeHtml(link)+'" target="_blank" rel="noopener noreferrer">'+inner+'</a>'
         : '<div class="rec-item">'+inner+'</div>';
     }).join('') +
 
-    '<div class="disclaimer"><span style="flex-shrink:0;">ℹ️</span><span>본 결과는 수의영양학 공식(RER = 70 × 체중^0.75) 기반 참고값입니다. 정확한 급여량은 담당 수의사와 상담하세요.</span></div>';
+    '<div class="disclaimer"><span style="flex-shrink:0;">🩺</span><span>본 결과는 수의영양학 공식(RER = 70 × 체중^0.75) 기반 참고값입니다. 정확한 급여량은 담당 수의사와 상담하세요.</span></div>';
 
   setTimeout(function(){
     var el = document.getElementById('accFill');
     if(el) el.style.width = accuracy+'%';
   }, 100);
+
+  // 카드마다 이름/설명 길이가 달라도 구분선·CTA를 같은 y좌표에 맞추기 위해
+  // 가장 큰 카드 높이를 나머지 카드에 맞춤 (rec-item-body가 flex:1로 여백 흡수)
+  var recCards = document.querySelectorAll('.rec-item');
+  if (recCards.length > 1) {
+    var maxH = 0;
+    recCards.forEach(function(c){ c.style.minHeight = ''; maxH = Math.max(maxH, c.offsetHeight); });
+    recCards.forEach(function(c){ c.style.minHeight = maxH + 'px'; });
+  }
 
   // 결과 숫자 카운트업 애니메이션
   var numEl = document.getElementById('resultNum');
@@ -541,6 +551,28 @@ document.addEventListener('click', function(e){
 });
 document.querySelector('.breed-search').addEventListener('input', function(){ filterBreeds(this.value); });
 document.getElementById('weightSlider').addEventListener('input', function(){ updateWeightUI(this); });
+
+/* ── 키보드 접근성 ──
+   div 기반 선택 카드에 button 시맨틱 부여 + Enter/Space 로 클릭 위임.
+   aria-pressed 는 클릭 처리 후(위 위임 핸들러보다 늦게 등록) selected 클래스 기준으로 일괄 동기화 */
+document.querySelectorAll('.bcs-card, .choice-card, #healthTags .tag').forEach(function(el){
+  el.setAttribute('role', 'button');
+  el.setAttribute('tabindex', '0');
+  el.setAttribute('aria-pressed', el.classList.contains('selected') ? 'true' : 'false');
+});
+document.addEventListener('keydown', function(e){
+  if (e.key !== 'Enter' && e.key !== ' ') return;
+  var el = e.target.closest('[role="button"]');
+  if (el) { e.preventDefault(); el.click(); }
+});
+document.addEventListener('click', function(e){
+  var el = e.target.closest('[role="button"]');
+  if (!el || !el.parentElement) return;
+  var scope = el.closest('.bcs-grid, .choice-grid, .tag-wrap, .breed-grid, .ing-grid') || el.parentElement;
+  scope.querySelectorAll('[role="button"]').forEach(function(b){
+    b.setAttribute('aria-pressed', b.classList.contains('selected') ? 'true' : 'false');
+  });
+});
 
 initBreeds();
 updateWeightUI(document.getElementById('weightSlider'));
